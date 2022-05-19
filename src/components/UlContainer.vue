@@ -1,0 +1,17 @@
+<template>
+  <div class="ul-container"><goods-list></goods-list></div>
+</template>
+<script>
+import GoodsList from "./GoodsList.vue";
+export default {
+  components: { GoodsList },
+};
+</script>
+<style>
+.ul-container {
+  width: 1226px;
+  flex-shrink: 0;
+  height: 599px;
+  margin-top: 20p;
+}
+</style>
