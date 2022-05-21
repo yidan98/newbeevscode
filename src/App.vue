@@ -5,7 +5,7 @@
 <script>
 // import GoodsLink from "./components/GoodsLink";
 // import GoodsList from "./components/GoodsList";
-import ContentContainer from "./components/ContentContainer.vue";
+import ContentContainer from "./pages/HomePage.vue";
 
 export default {
   data() {

@@ -36,31 +36,20 @@
     {
       "link": "/goods/detail/10195",
       "tittle": "智能降噪 长久续航",
-      "imgSrc": "http://localhost:8080/assets/images/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+      "imgSrc": "http://localhost:8080/assets/images/8fc9776e-9393-421d-998c-e516b3877dba.jpg",
       "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
       "price": 9999,
 
       "counter": "猜你喜欢",
       "id": 4,
       "comment": "just so so"
-    },
+    }
+  ],
+  "hotGoodses": [
     {
       "link": "/goods/detail/10195",
       "tittle": "智能降噪 长久续航",
       "imgSrc": "http://localhost:8080/assets/images/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
-      "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
-      "price": 559,
-
-      "counter": "猜你喜欢",
-      "id": 5,
-      "comment": ""
-    }
-  ],
-  "recommend": [
-    {
-      "link": "/goods/detail/10195",
-      "tittle": "智能降噪 长久续航",
-      "imgSrc": "http://localhost:8080/assets/images/7a406989-061b-4f69-baa1-6fa499aa091d.jpg",
       "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
       "price": 300,
       "counter": "为你推荐",
@@ -70,21 +59,314 @@
     {
       "link": "/goods/detail/10195",
       "tittle": "智能降噪 长久续航",
-      "imgSrc": "http://localhost:8080/assets/images/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+      "imgSrc": "http://localhost:8080/assets/images/7a406989-061b-4f69-baa1-6fa499aa091d.jpg",
       "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
       "price": 5000,
       "counter": "猜你喜欢",
       "id": 2
-    }
-  ],
-  "comments": [
+    },
     {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "link": "/goods/detail/10195",
+      "tittle": "智能降噪 长久续航",
+      "imgSrc": "http://localhost:8080/assets/images/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+      "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
+      "price": 300,
+      "counter": "为你推荐",
+      "showComment": true,
+      "id": 3
+    },
+    {
+      "link": "/goods/detail/10195",
+      "tittle": "智能降噪 长久续航",
+      "imgSrc": "http://localhost:8080/assets/images/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
+      "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
+      "price": 300,
+      "counter": "为你推荐",
+      "showComment": true,
+      "id": 4
+    },
+    {
+      "link": "/goods/detail/10195",
+      "tittle": "智能降噪 长久续航",
+      "imgSrc": "http://localhost:8080/assets/images/8c1c9fb2-26aa-4fa0-b9ce-cf278d827fa6.jpg",
+      "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
+      "price": 9999,
+
+      "counter": "猜你喜欢",
+      "id": 5,
+      "comment": "just so so"
     }
   ],
-  "profile": {
-    "name": "typicode"
-  }
+  "categories": [
+    {
+      "categoryName": "家电 数码 手机",
+      "categories": [
+        {
+          "categoryName": "家电",
+          "categories": [
+            { "categoryName": "卷发棒", "link": "/goods/detail/10195" },
+            { "categoryName": "电饭煲", "link": "/goods/detail/10195" },
+            { "categoryName": "空气净化器", "link": "/goods/detail/10195" },
+            { "categoryName": "生活电器", "link": "/goods/detail/10195" },
+            { "categoryName": "厨房电器", "link": "/goods/detail/10195" },
+            { "categoryName": "扫地机器人", "link": "/goods/detail/10195" },
+            { "categoryName": "吸尘器", "link": "/goods/detail/10195" },
+            { "categoryName": "取暖器 ", "link": "/goods/detail/10195" }
+          ]
+        },
+
+        {
+          "categoryName": "数码",
+          "categories": [
+            { "categoryName": "数码相机", "link": "/goods/detail/10195" },
+            { "categoryName": "游戏主机 ", "link": "/goods/detail/10195" },
+            { "categoryName": " 无人机 ", "link": "/goods/detail/10195" },
+            { "categoryName": "数码精选 ", "link": "/goods/detail/10195" },
+            { "categoryName": "平板电脑 ", "link": "/goods/detail/10195" },
+            { "categoryName": "苹果 Apple ", "link": "/goods/detail/10195" },
+            { "categoryName": "电脑主机 ", "link": "/goods/detail/10195" }
+          ]
+        },
+        {
+          "categoryName": "手机",
+          "categories": [
+            { "categoryName": "荣耀手机 ", "link": "/goods/detail/10195" },
+            { "categoryName": "华为手机  ", "link": "/goods/detail/10195" },
+            { "categoryName": "华为 P30 ", "link": "/goods/detail/10195" },
+            { "categoryName": "iPhone 11 ", "link": "/goods/detail/10195" },
+            { "categoryName": "华为 Mate 20  ", "link": "/goods/detail/10195" },
+            { "categoryName": "小米手机  ", "link": "/goods/detail/10195" },
+            { "categoryName": "红米 ", "link": "/goods/detail/10195" }
+          ]
+        }
+      ]
+    },
+
+    {
+      "categoryName": "女装 男装 穿搭",
+      "categories": [
+        {
+          "categoryName": "女装",
+          "categories": [
+            { "categoryName": "外套", "link": "/goods/detail/10195" },
+            { "categoryName": "裙子", "link": "/goods/detail/10195" }
+          ]
+        },
+        {
+          "categoryName": "男装",
+          "categories": [
+            { "categoryName": "外套", "link": "/goods/detail/10195" },
+            { "categoryName": "裤子", "link": "/goods/detail/10195" }
+          ]
+        },
+        {
+          "categoryName": "穿搭",
+          "categories": [
+            { "categoryName": "男性穿搭", "link": "/goods/detail/10195" },
+            { "categoryName": "女性穿搭", "link": "/goods/detail/10195" }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryName": "家具 家饰 家纺",
+      "categories": [
+        {
+          "categoryName": "家具",
+          "categories": [
+            { "categoryName": "沙发", "link": "/goods/detail/10195" },
+            { "categoryName": "桌子", "link": "/goods/detail/10195" }
+          ]
+        },
+        {
+          "categoryName": "家饰",
+          "categories": [
+            { "categoryName": "灯", "link": "/goods/detail/10195" },
+            { "categoryName": "桌布", "link": "/goods/detail/10195" }
+          ]
+        },
+        {
+          "categoryName": "家纺",
+          "categories": [
+            { "categoryName": "家", "link": "/goods/detail/10195" },
+            { "categoryName": "纺", "link": "/goods/detail/10195" }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryName": "运动 户外 乐器",
+      "categories": [
+        {
+          "categoryName": "运动",
+          "categories": [
+            { "categoryName": "篮球", "link": "/goods/detail/10195" },
+            { "categoryName": "足球", "link": "/goods/detail/10195" }
+          ]
+        },
+        {
+          "categoryName": "户外",
+          "categories": [
+            { "categoryName": "户", "link": "/goods/detail/10195" },
+            { "categoryName": "外", "link": "/goods/detail/10195" }
+          ]
+        },
+        {
+          "categoryName": "乐器",
+          "categories": [
+            { "categoryName": "钢琴", "link": "/goods/detail/10195" },
+            { "categoryName": "吉他", "link": "/goods/detail/10195" }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryName": "游戏 动漫 影视",
+      "categories": [
+        {
+          "categoryName": "游戏",
+          "categories": [
+            { "categoryName": "篮球", "link": "/goods/detail/10195" },
+            { "categoryName": "足球", "link": "/goods/detail/10195" }
+          ]
+        },
+        {
+          "categoryName": "动漫",
+          "categories": [
+            { "categoryName": "户", "link": "/goods/detail/10195" },
+            { "categoryName": "外", "link": "/goods/detail/10195" }
+          ]
+        },
+        {
+          "categoryName": "影视",
+          "categories": [
+            { "categoryName": "钢琴", "link": "/goods/detail/10195" },
+            { "categoryName": "吉他", "link": "/goods/detail/10195" }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryName": "美妆 清洁 宠物",
+      "categories": [
+        {
+          "categoryName": "美妆",
+          "categories": [
+            { "categoryName": "篮球", "link": "/goods/detail/10195" },
+            { "categoryName": "足球", "link": "/goods/detail/10195" }
+          ]
+        },
+        {
+          "categoryName": "清洁",
+          "categories": [
+            { "categoryName": "户", "link": "/goods/detail/10195" },
+            { "categoryName": "外", "link": "/goods/detail/10195" }
+          ]
+        },
+        {
+          "categoryName": "宠物",
+          "categories": [
+            { "categoryName": "钢琴", "link": "/goods/detail/10195" },
+            { "categoryName": "吉他", "link": "/goods/detail/10195" }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryName": "工具 装修 建材",
+      "categories": [
+        {
+          "categoryName": "工具",
+          "categories": [
+            { "categoryName": "篮球", "link": "/goods/detail/10195" },
+            { "categoryName": "足球", "link": "/goods/detail/10195" }
+          ]
+        },
+        {
+          "categoryName": "装修",
+          "categories": [
+            { "categoryName": "户", "link": "/goods/detail/10195" },
+            { "categoryName": "外", "link": "/goods/detail/10195" }
+          ]
+        },
+        {
+          "categoryName": "建材",
+          "categories": [
+            { "categoryName": "钢琴", "link": "/goods/detail/10195" },
+            { "categoryName": "吉他", "link": "/goods/detail/10195" }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryName": "珠宝 金饰品 眼镜",
+      "categories": [
+        {
+          "categoryName": "珠宝",
+          "categories": [
+            { "categoryName": "篮球", "link": "/goods/detail/10195" },
+            { "categoryName": "足球", "link": "/goods/detail/10195" }
+          ]
+        },
+        {
+          "categoryName": "金饰品",
+          "categories": [
+            { "categoryName": "户", "link": "/goods/detail/10195" },
+            { "categoryName": "外", "link": "/goods/detail/10195" }
+          ]
+        },
+        {
+          "categoryName": "眼镜",
+          "categories": [
+            { "categoryName": "钢琴", "link": "/goods/detail/10195" },
+            { "categoryName": "吉他", "link": "/goods/detail/10195" }
+          ]
+        }
+      ]
+    },
+    {
+      "categoryName": "鞋靴 箱包 配件",
+      "categories": [
+        {
+          "categoryName": "鞋靴",
+          "categories": [
+            { "categoryName": "篮球", "link": "/goods/detail/10195" },
+            { "categoryName": "足球", "link": "/goods/detail/10195" }
+          ]
+        },
+        {
+          "categoryName": "箱包",
+          "categories": [
+            { "categoryName": "户", "link": "/goods/detail/10195" },
+            { "categoryName": "外", "link": "/goods/detail/10195" }
+          ]
+        },
+        {
+          "categoryName": "配件",
+          "categories": [
+            { "categoryName": "钢琴", "link": "/goods/detail/10195" },
+            { "categoryName": "吉他", "link": "/goods/detail/10195" }
+          ]
+        }
+      ]
+    }
+  ],
+  "image": [
+    {
+      "link": "/goods/detail/10195",
+      "tittle": "智能降噪 长久续航",
+      "imgSrc": "http://localhost:8080/assets/images/src=http___img.jj20.com_up_allimg_4k_s_02_2109242259192W5-0-lp.jpg&refer=http___img.jj20.webp",
+      "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
+
+      "id": 1
+    },
+    {
+      "link": "/goods/detail/10195",
+      "tittle": "智能降噪 长久续航",
+      "imgSrc": "http://localhost:8080/assets/images/7a406989-061b-4f69-baa1-6fa499aa091d.jpg",
+      "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
+
+      "id": 2
+    }
+  ]
 }
