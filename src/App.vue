@@ -1,5 +1,10 @@
 <template>
   <content-container></content-container>
+  <div>
+    <router-view></router-view>
+    <router-link to="/">Home</router-link>|
+    <router-link to="/newGoods">NewGoods</router-link>
+  </div>
 </template>
 
 <script>

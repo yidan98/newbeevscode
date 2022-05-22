@@ -43,8 +43,10 @@ import { useStore } from "vuex";
 
 const store = useStore();
 const mouseOverFun = (event) => {
-  console.log("event", event.target);
-  event.target.querySelector(".item-list").style.display = "block";
+  // console.log("event", event.target);
+  // event.target.querySelector(".item-list").style.display = "block";
+  let style = "top: " + event.target.offsetTop + "px; display: block;";
+  event.target.querySelector(".item-list").style = style;
 };
 const mouseLeaveFun = (event) => {
   console.log("event", event);

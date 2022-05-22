@@ -14,9 +14,9 @@
     :modules="modules"
   >
     <swiper-slide v-for="(swiperSilde, index) in slides" :key="index">
-      <div>
+      <div class="im">
         <a :href="swiperSilde.link">
-          <img :src="swiperSilde.imgSrc" />
+          <img :src="swiperSilde.imgSrc" style="height: 400px" />
         </a>
       </div>
     </swiper-slide>
@@ -52,3 +52,8 @@ export default {
   },
 };
 </script>
+<style>
+/* .im {
+  height: "6000px";
+} */
+</style>
