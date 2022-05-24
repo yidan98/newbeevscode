@@ -1,5 +1,10 @@
 <template>
-  <p class="g-label-brand g-reviewList_label">ピックアップレビュー</p>
+  <p
+    class="g-label-brand g-reviewList_label"
+    style="display: flex; flex-direction: column; align-items: center"
+  >
+    ピックアップレビュー
+  </p>
   <div v-for="review in reviews" :key="review">
     <review-com :review="review"></review-com>
   </div>
@@ -28,7 +33,6 @@ let reviews = computed(() => store.getters.getReviews);
 }
 .g-label-brand {
   color: #009e96;
-  border: 1px solid #009e96;
 }
 .g-label-brand,
 .g-label-price,

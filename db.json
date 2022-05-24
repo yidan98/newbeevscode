@@ -57,7 +57,7 @@
       "id": 1
     },
     {
-      "link": "/goods/detail/10195",
+      "link": "/goods/detail/10196",
       "tittle": "智能降噪 长久续航",
       "imgSrc": "http://localhost:8080/assets/images/7a406989-061b-4f69-baa1-6fa499aa091d.jpg",
       "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
@@ -450,7 +450,7 @@
     {
       "id": 3,
       "rating": 5,
-      "nickName": "user1",
+      "nickName": "小王",
       "goodsId": 10196,
       "goodsName": "华为 HUAWEI P30 Pro",
       "count": 2,
@@ -466,7 +466,7 @@
     {
       "id": 4,
       "rating": 4,
-      "nickName": "user2",
+      "nickName": "小李",
       "goodsId": 10196,
       "goodsName": "华为 HUAWEI P30 Pro",
       "count": 2,

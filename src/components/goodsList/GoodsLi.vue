@@ -1,5 +1,5 @@
 <template>
-  <li><goods-link v-bind="goods"></goods-link></li>
+  <li class="list"><goods-link v-bind="goods"></goods-link></li>
 </template>
 
 <script>
@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style>
-li {
+.list {
   width: 234px;
   height: 360px;
   background-color: #fafafa;

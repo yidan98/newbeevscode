@@ -10,7 +10,11 @@
         {{ reviewTotal.ratingAvg }}</span
       >
     </div>
-    <!-- star -->
+    <star-rating
+      :rating="reviewTotal.ratingAvg"
+      :read-only="true"
+      :increment="0.01"
+    ></star-rating>
     <div class="p-reviw-graph-area-left-row p-reviw-graph-area-left-row-score">
       <div class="g-score p-reviw-graph-area-g-score">
         <span :data-score="ratingAvg"></span>
@@ -29,12 +33,16 @@
 </template>
 
 <script>
+import StarRating from "vue-star-rating";
 export default {
   props: {
     reviewTotal: {
       ratingAvg: Number,
       reviewCount: Number,
     },
+  },
+  components: {
+    StarRating,
   },
 };
 </script>

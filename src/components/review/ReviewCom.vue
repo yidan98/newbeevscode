@@ -1,16 +1,25 @@
 <template>
   <div id="js-reviewList">
     <ul class="g-reviewList">
-      <li class="g-reviewList_item">
+      <li class="g-reviewList_item" style="width: 300px">
         <div class="g-lg-flow-sm">
-          <p class="g-score"></p>
-          <p class="g-reviewList_user">
-            <b>{{ review.nickName }}</b
-            >さん &emsp;{{ review.reviewDate }}
+          <p class="g-score">
+            <span>
+              <star-rating
+                :starSize="20"
+                :rating="review.rating"
+                :read-only="true"
+                :increment="0.01"
+              ></star-rating>
+              <p class="g-reviewList_user">
+                <b>{{ review.nickName }}</b
+                >さん &emsp;{{ review.reviewDate }}
+              </p>
+            </span>
           </p>
         </div>
         <p class="g-reviewList_info">購入商品:{{ review.goodsName }}</p>
-        <p class="g-reviewList_h">{{ review.title }}</p>
+        <h2 class="g-reviewList_h">{{ review.title }}</h2>
         <p>
           {{ review.content }}
         </p>
@@ -31,6 +40,7 @@
 </template>
 
 <script>
+import StarRating from "vue-star-rating";
 export default {
   props: {
     review: {
@@ -43,40 +53,24 @@ export default {
       reviewDate: String,
     },
   },
+  components: {
+    StarRating,
+  },
 };
 </script>
 
 <style scoped>
-.g-reviewList_item p {
-  word-break: break-all;
-}
-.g-reviewList_info {
-  margin-top: 10px;
-}
-.g-reviewList_h {
-  font-weight: bold;
-  margin: 10px 0;
-  font-size: 1.6rem;
-  line-height: 1.5;
-}
-p {
-  display: block;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-}
-li {
-  text-align: -webkit-match-parent;
-}
-ul,
-ol {
-  padding: 0;
-  list-style-position: initial;
-  list-style-image: initial;
+#js-reviewList {
+  margin: 0 0 15px;
+  border-bottom: 1px dashed #dbdbdb;
+  padding-bottom: 15px;
   list-style-type: none;
 }
-b {
-  font-weight: bold;
+.g-reviewList {
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fafafa;
 }
 </style>
