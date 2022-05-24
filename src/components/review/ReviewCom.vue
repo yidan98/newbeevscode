@@ -30,8 +30,17 @@
             data-count="0"
             data="626fd36d2e90a2006100013d"
             data-clickable=""
-            ><i class="g-s g-s-like-g" aria-hidden="true"></i
-            ><span>参考になった（{{ review.count }}人）</span></a
+            ><i class="g-s g-s-like-g" aria-hidden="true"></i>
+
+            <span
+              ><img
+                src="../../../src/assets/icons/thumb.svg"
+                width="20"
+                height="20"
+                aria-hidden="true"
+              />
+              &emsp;参考になった（{{ review.count }}人）</span
+            ></a
           >
         </p>
       </li>

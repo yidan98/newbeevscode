@@ -1,6 +1,6 @@
 <template>
   <router-link :to="link">
-    <img :src="imgSrc" :alt="name" />
+    <img class="hot" :src="imgSrc" :alt="name" />
   </router-link>
 </template>
 
@@ -16,7 +16,7 @@ export default {
 </script>
 
 <style>
-img {
+.hot {
   display: flex;
   flex-direction: row;
   height: 190px;

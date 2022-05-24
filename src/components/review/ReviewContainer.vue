@@ -5,7 +5,8 @@
     <br />
     <h2 class="g-h-2 g-h-i p-hd">
       <i class="g-s g-s-comment" aria-hidden="true"></i>
-      <span>レビュー</span>
+      <img src="../../../src/assets/icons/chat.png" width="30" height="30" />
+      <span> レビュー</span>
     </h2>
     <review-total></review-total>
     <div id="n-review-btn" class="n-review-btn">
@@ -40,5 +41,10 @@ const goodsId = route.params.goodsId;
   align-items: center;
   justify-content: center;
   height: 100%;
+}
+h2.g-h-2 g-h-i p-hd {
+  display: inline-block;
+  margin-bottom: -3px;
+  margin-right: 4px;
 }
 </style>
