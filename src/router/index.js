@@ -1,24 +1,18 @@
-import { createRouter, createWebHashHistory } from "vue-router";
-// import { createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from "vue-router";
 
-// const history = createWebHistory()
-const history = createWebHashHistory(); // 采用这个路径上有#
+import Home from "../pages/HomePage";
+import DetailPage from "../pages/DetailPage";
+
+const routes = [
+  { path: "/", name: "Home", component: Home },
+  { path: "/goods/detail/:goodsId", name: "detail", component: DetailPage },
+];
 
 const router = createRouter({
-  history, // 路由模式
-  routes: [
-    {
-      // 订单列表
-      path: "/",
-      name: "orderList",
-      component: () => import("@/views/orderList/orderList"),
-    },
-    {
-      // 拖拽
-      path: "/dragAndDrop", // 这是访问路径
-      name: "dragAndDrop",
-      component: () => import("@/views/businessTurnOrder/dragAndDrop"), // 路由的源文件
-    },
-  ],
+  // 4. 内部提供了 history 模式的实现。为了简单起见，我们在这里使用 hash 模式。
+  //   history: createWebHashHistory(),
+  history: createWebHistory(),
+  routes, // `routes: routes` 的缩写
 });
+
 export default router;

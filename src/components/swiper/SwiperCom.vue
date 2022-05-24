@@ -1,6 +1,7 @@
 <template>
   <swiper
     :options="swiperOption"
+    :initialSlide="1"
     :slidesPerView="1"
     :spaceBetween="30"
     :slidesPerGroup="1"
@@ -16,7 +17,7 @@
     <swiper-slide v-for="(swiperSilde, index) in slides" :key="index">
       <div class="im">
         <a :href="swiperSilde.link">
-          <img :src="swiperSilde.imgSrc" style="height: 400px" />
+          <img :src="swiperSilde.imgSrc" style="height: 400px; width: 900px" />
         </a>
       </div>
     </swiper-slide>
@@ -24,12 +25,19 @@
 </template>
 <script>
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Navigation, Pagination } from "swiper";
+import SwiperCore, {
+  Navigation,
+  Pagination,
+  Autoplay,
+  Scrollbar,
+  A11y,
+} from "swiper";
 import { onMounted, computed } from "vue";
 import { useStore } from "vuex";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+SwiperCore.use([Navigation, Pagination, Scrollbar, A11y, Autoplay]);
 export default {
   components: {
     Swiper,
@@ -41,13 +49,18 @@ export default {
       store.dispatch("setImage");
     });
     let slides = computed(() => store.getters.getImage);
-    let swiperOption = {
-      initialSlide: 1,
+    const onSwiper = (swiper) => {
+      console.log(swiper);
     };
+    const onSlideChange = () => {
+      console.log("slide change");
+    };
+
     return {
       slides,
       modules: [Pagination, Navigation],
-      swiperOption,
+      onSwiper,
+      onSlideChange,
     };
   },
 };

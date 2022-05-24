@@ -363,10 +363,167 @@
     {
       "link": "/goods/detail/10195",
       "tittle": "智能降噪 长久续航",
-      "imgSrc": "http://localhost:8080/assets/images/7a406989-061b-4f69-baa1-6fa499aa091d.jpg",
+      "imgSrc": "http://localhost:8080/assets/images/u=1617206954,414154281&fm=253&fmt=auto.webp",
       "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
 
       "id": 2
+    },
+    {
+      "link": "/goods/detail/10195",
+      "tittle": "智能降噪 长久续航",
+      "imgSrc": "http://localhost:8080/assets/images/u=1993057335,1496702829&fm=253&fmt=auto&app=138&f=JPEG.webp",
+      "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
+
+      "id": 3
+    },
+    {
+      "link": "/goods/detail/10195",
+      "tittle": "智能降噪 长久续航",
+      "imgSrc": "http://localhost:8080/assets/images/u=2232078932,3905554975&fm=253&fmt=auto&app=138&f=JPEG.webp",
+      "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
+
+      "id": 4
+    },
+    {
+      "link": "/goods/detail/10195",
+      "tittle": "智能降噪 长久续航",
+      "imgSrc": "http://localhost:8080/assets/images/u=3574277169,1435013319&fm=253&fmt=auto&app=138&f=JPEG.webp",
+      "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
+
+      "id": 5
+    },
+    {
+      "link": "/goods/detail/10195",
+      "tittle": "智能降噪 长久续航",
+      "imgSrc": "http://localhost:8080/assets/images/u=3833251962,4254164227&fm=253&fmt=auto&app=138&f=JPEG.webp",
+      "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
+
+      "id": 6
+    }
+  ],
+  "goodsDetail": [
+    {
+      "id": 1,
+      "goodsId": 10195,
+      "goodsName": "xiaomi",
+      "rating": 5,
+      "userName": "小红",
+      "date": "2022-5-20",
+      "comment": "不错",
+      "detailComment": "手机很好用",
+      "like": 12
+    },
+    {
+      "id": 2,
+      "goodsId": 10196,
+      "goodsName": "iphone"
+    }
+  ],
+  "goodsDetailReview": [
+    {
+      "id": 1,
+      "rating": 5,
+      "nickName": "Lily",
+      "goodsId": 10195,
+      "goodsName": "华为 HUAWEI P30 Pro",
+      "count": 3,
+      "title": "verygood",
+      "content": "不错不错",
+      "reviewDate": "2022-05-19"
+    },
+    {
+      "id": 2,
+      "rating": 3,
+      "nickName": "Joke",
+      "goodsId": 10195,
+      "goodsName": "华为 HUAWEI P30 Pro",
+      "count": 5,
+      "title": "nice",
+      "content": "挺好的",
+      "photo1": "742_20.image1.jpg",
+      "photo2": "742_20.image2.jpg",
+      "photo3": "742_20.image3.jpg",
+      "photo4": "742_20.image4.jpg",
+      "photo5": null,
+      "reviewDate": "2021-04-19"
+    },
+    {
+      "id": 3,
+      "rating": 5,
+      "nickName": "user1",
+      "goodsId": 10196,
+      "goodsName": "华为 HUAWEI P30 Pro",
+      "count": 2,
+      "title": "good",
+      "content": "就是质量不太好，用几天就坏了",
+      "photo1": "742_2.image1.jpg",
+      "photo2": null,
+      "photo3": null,
+      "photo4": null,
+      "photo5": null,
+      "reviewDate": "2022-04-02"
+    },
+    {
+      "id": 4,
+      "rating": 4,
+      "nickName": "user2",
+      "goodsId": 10196,
+      "goodsName": "华为 HUAWEI P30 Pro",
+      "count": 2,
+      "title": "good",
+      "content": "质量挺好的",
+      "photo1": "742_2.image1.jpg",
+      "photo2": null,
+      "photo3": null,
+      "photo4": null,
+      "photo5": null,
+      "reviewDate": "2022-04-02"
+    }
+  ],
+  "goodsDetailReviewTotal": [
+    {
+      "goodsId": 10195,
+      "ratingAvg": 4.0,
+      "reviewCount": 2,
+      "titleCount": 2
+    },
+    {
+      "goodsId": 10196,
+      "ratingAvg": 4.5,
+      "reviewCount": 2,
+      "titleCount": 2
+    }
+  ],
+  "goodsDetailReviewRating": [
+    {
+      "goodsId": 10195,
+      "rating": [
+        {
+          "rating": 5,
+          "percentage": 50,
+          "ratingCount": 1
+        },
+        {
+          "rating": 4,
+          "percentage": 0,
+          "ratingCount": 0
+        },
+        {
+          "rating": 3,
+          "percentage": 50,
+          "ratingCount": 1
+        },
+        {
+          "rating": 2,
+          "percentage": 0,
+          "ratingCount": 0
+        },
+        {
+          "rating": 1,
+          "percentage": 0,
+          "ratingCount": 0
+        }
+      ]
     }
   ]
 }
