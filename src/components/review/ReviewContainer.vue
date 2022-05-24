@@ -1,13 +1,21 @@
 <template>
-  <p>goodsId:{{ goodsId }}</p>
-  <review-total></review-total>
-  <div id="n-review-btn" class="n-review-btn">
-    <button class="g-btn g-btn-w-sm">
-      <span>商品レビューを書く</span>
-    </button>
+  <div>
+    <p>goodsId:{{ goodsId }}</p>
+    <br />
+    <br />
+    <h2 class="g-h-2 g-h-i p-hd">
+      <i class="g-s g-s-comment" aria-hidden="true"></i>
+      <span>レビュー</span>
+    </h2>
+    <review-total></review-total>
+    <div id="n-review-btn" class="n-review-btn">
+      <button class="g-btn g-btn-w-sm" style="margin: 0 auto">
+        <span>商品レビューを書く</span>
+      </button>
+    </div>
+    <hr />
+    <review-list></review-list>
   </div>
-  <hr />
-  <review-list></review-list>
 </template>
 
 <script setup>
