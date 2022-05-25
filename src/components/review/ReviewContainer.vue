@@ -3,11 +3,13 @@
     <p>goodsId:{{ goodsId }}</p>
     <br />
     <br />
-    <h2 class="g-h-2 g-h-i p-hd">
-      <i class="g-s g-s-comment" aria-hidden="true"></i>
-      <img src="../../../src/assets/icons/chat.png" width="30" height="30" />
-      <span> レビュー</span>
-    </h2>
+    <div class="icon">
+      <h2 class="g-h-2 g-h-i p-hd">
+        <i class="g-s g-s-comment" aria-hidden="true"></i>
+        <img src="../../../src/assets/icons/chat.png" width="30" height="30" />
+        <span> レビュー</span>
+      </h2>
+    </div>
     <review-total></review-total>
     <div id="n-review-btn" class="n-review-btn">
       <button class="g-btn g-btn-w-sm" style="margin: 0 auto">

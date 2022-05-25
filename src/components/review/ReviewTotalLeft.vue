@@ -11,6 +11,7 @@
       >
     </div>
     <star-rating
+      :showRating="false"
       :rating="reviewTotal.ratingAvg"
       :read-only="true"
       :increment="0.01"

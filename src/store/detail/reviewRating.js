@@ -11,7 +11,7 @@ export default {
       //state.reviewRating.push(...payload);
       //state.reviewRating = payload;
       state.reviewRating = payload[0];
-      console.log("array push rating ", payload);
+      console.log("array push rating aaaaaaaaaaaaaaa", payload);
     },
   },
   actions: {
@@ -25,7 +25,7 @@ export default {
   },
   getters: {
     getReviewRating: (state) => {
-      console.log("in getReviewRating method ", state.reviewRating);
+      console.log("in getReviewRating method mmmmm", state.reviewRating);
       console.log(state.reviewRating);
       return state.reviewRating;
     },

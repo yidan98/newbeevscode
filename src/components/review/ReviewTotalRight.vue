@@ -48,4 +48,12 @@ console.log("reviewListvvvvvvvvvvv", reviewList.value);
   margin-top: -12px !important;
   margin-bottom: 12px;
 }
+.p-reviw-graph-area-right {
+  display: flex;
+  /* width: 5000px; */
+  /* margin: 50px; */
+  /* align-items: center; */
+  flex: 3 3 300px;
+  justify-content: center;
+}
 </style>

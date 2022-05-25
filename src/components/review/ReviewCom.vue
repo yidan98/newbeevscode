@@ -4,16 +4,17 @@
       <li class="g-reviewList_item" style="width: 300px">
         <div class="g-lg-flow-sm">
           <p class="g-score">
-            <span>
+            <span style="display: inline-flex">
               <star-rating
                 :starSize="20"
                 :rating="review.rating"
                 :read-only="true"
                 :increment="0.01"
+                :show-rating="false"
               ></star-rating>
               <p class="g-reviewList_user">
-                <b>{{ review.nickName }}</b
-                >さん &emsp;{{ review.reviewDate }}
+                <b>&emsp;{{ review.nickName }}</b
+                >さん {{ review.reviewDate }}
               </p>
             </span>
           </p>
