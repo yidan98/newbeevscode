@@ -11,7 +11,7 @@ export default {
       //state.reviewTotal.push(...payload);
       //state.reviewTotal = payload
       state.reviewTotal = payload[0];
-      console.log("array push ", payload);
+      console.log("array push reviewTotal", payload);
     },
   },
   actions: {

@@ -9,9 +9,9 @@ export default {
     //syncrous
     setReviewRating(state, payload) {
       //state.reviewRating.push(...payload);
-      //state.reviewRating = payload
+      //state.reviewRating = payload;
       state.reviewRating = payload[0];
-      console.log("array push ", payload);
+      console.log("array push rating ", payload);
     },
   },
   actions: {
@@ -25,7 +25,7 @@ export default {
   },
   getters: {
     getReviewRating: (state) => {
-      console.log("in getReviewRating method", state.reviewRating);
+      console.log("in getReviewRating method ", state.reviewRating);
       console.log(state.reviewRating);
       return state.reviewRating;
     },

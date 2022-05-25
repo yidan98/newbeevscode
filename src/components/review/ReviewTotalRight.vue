@@ -1,32 +1,27 @@
 <template>
   <div class="p-reviw-graph-area-right">
     <div class="g-lg-flow-sm p-reviw-graph-area-row-sm">
-      <div class="g-score p-reviw-graph-area-score">
-        <span data-score="5.0"
-          ><span class="g-clip">{{ 5 }}</span></span
-        >
+      <div v-for="(rating, index) in reviewList.rating" :key="index">
+        <review-total-right-com :rating="rating"></review-total-right-com>
       </div>
-      <div class="a-meter g-mater-visble" id="js-mater5" data-rate="5">
-        <div class="a-meter-bar" style="width: 49%"></div>
-      </div>
-      <a
-        class="g-link g-link-visble"
-        id="js-rate5"
-        data-rate="5"
-        title="レビューの49％に星5つが付いています。"
-        data-clickable=""
-        >{{ ratingCount }}人</a
-      >
     </div>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {};
-  },
-};
+<script setup>
+import { computed, onMounted } from "vue";
+import { useStore } from "vuex";
+import { useRoute } from "vue-router";
+import reviewTotalRightCom from "./ReviewTotalRightCom.vue";
+const route = useRoute();
+const goodsId = route.params.goodsId;
+const store = useStore();
+onMounted(() => {
+  store.dispatch("setReviewRating", goodsId);
+});
+let reviewList = computed(() => store.getters.getReviewRating);
+console.log("reviewListrrrrrrrrrr", reviewList);
+console.log("reviewListvvvvvvvvvvv", reviewList.value);
 </script>
 
 <style scoped>
