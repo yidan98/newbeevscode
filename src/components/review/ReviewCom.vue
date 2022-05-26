@@ -24,13 +24,20 @@
         <p>
           {{ review.content }}
         </p>
+        <ul class="g-sm-flow-sm g-lg-flow g-reviewList_pics">
+          <li v-for="(pic, index) in pics" :key="index">
+            <img
+              class="g-fw p-review-gallery_photo"
+              :v-show="isShow"
+              src="pics[index]"
+              alt="0"
+              aria-expanded="false"
+              aria-controls="p-reviewGallerySwipModal"
+            />
+          </li>
+        </ul>
         <p class="g-reviewList_like">
           <a
-            class="g-link reviewLike0"
-            id="js-hitLike"
-            data-count="0"
-            data="626fd36d2e90a2006100013d"
-            data-clickable=""
             ><i class="g-s g-s-like-g" aria-hidden="true"></i>
 
             <span class="useful" onclick="alert('你已经点过赞了')"
@@ -61,10 +68,32 @@ export default {
       title: String,
       content: String,
       reviewDate: String,
+
+      photo1: String,
+      photo2: String,
+      photo3: String,
+      photo4: String,
+      photo5: String,
     },
   },
   components: {
     StarRating,
+  },
+  data() {
+    return {
+      pics: [this.photo1, this.photo2, this.photo3, this.photo4, this.photo5],
+      isShow: false,
+    };
+  },
+  methods: {
+    image() {
+      for (let i = 0; i < 5; i++) {
+        if (this.pics !== null) {
+          this.isShow = true;
+          console.log(this.isShow);
+        }
+      }
+    },
   },
 };
 
@@ -160,5 +189,10 @@ function css(targetObj, cssObj) {
 }
 .g-reviewList_user {
   width: max-content;
+}
+ul,
+ol {
+  padding: 0;
+  list-style: none;
 }
 </style>

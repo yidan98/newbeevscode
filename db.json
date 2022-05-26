@@ -429,6 +429,11 @@
       "count": 3,
       "title": "verygood",
       "content": "不错不错",
+      "photo1": null,
+      "photo2": null,
+      "photo3": null,
+      "photo4": null,
+      "photo5": null,
       "reviewDate": "2022-05-19"
     },
     {
@@ -440,10 +445,10 @@
       "count": 5,
       "title": "nice",
       "content": "挺好的",
-      "photo1": "742_20.image1.jpg",
-      "photo2": "742_20.image2.jpg",
-      "photo3": "742_20.image3.jpg",
-      "photo4": "742_20.image4.jpg",
+      "photo1": "http://localhost:8080/assets/images/u=3574277169,1435013319&fm=253&fmt=auto&app=138&f=JPEG.webp",
+      "photo2": null,
+      "photo3": null,
+      "photo4": null,
       "photo5": null,
       "reviewDate": "2021-04-19"
     },
@@ -456,6 +461,11 @@
       "count": 3,
       "title": "nice",
       "content": "不错不错",
+      "photo1": null,
+      "photo2": null,
+      "photo3": null,
+      "photo4": null,
+      "photo5": null,
       "reviewDate": "2022-05-19"
     },
     {
@@ -467,6 +477,11 @@
       "count": 3,
       "title": "充电两分钟，拍照两小时",
       "content": "不错不错，拍了很多照片发朋友圈，有很多妹子给我点赞啦，心情美美的",
+      "photo1": "http://localhost:8080/assets/images/dog.png",
+      "photo2": null,
+      "photo3": null,
+      "photo4": null,
+      "photo5": null,
       "reviewDate": "2022-05-19"
     },
     {
@@ -478,6 +493,11 @@
       "count": 3,
       "title": "素敵",
       "content": "可愛いですね。サイズもちょうどいいです。",
+      "photo1": null,
+      "photo2": null,
+      "photo3": null,
+      "photo4": null,
+      "photo5": null,
       "reviewDate": "2022-05-19"
     },
     {
@@ -489,6 +509,11 @@
       "count": 3,
       "title": "想像以上",
       "content": "可愛いですね。サイズもちょうどいいです。",
+      "photo1": null,
+      "photo2": null,
+      "photo3": null,
+      "photo4": null,
+      "photo5": null,
       "reviewDate": "2022-05-19"
     },
     {
@@ -500,7 +525,7 @@
       "count": 2,
       "title": "good",
       "content": "就是质量不太好，用几天就坏了",
-      "photo1": "742_2.image1.jpg",
+      "photo1": null,
       "photo2": null,
       "photo3": null,
       "photo4": null,
@@ -516,7 +541,7 @@
       "count": 2,
       "title": "good",
       "content": "质量挺好的",
-      "photo1": "742_2.image1.jpg",
+      "photo1": null,
       "photo2": null,
       "photo3": null,
       "photo4": null,

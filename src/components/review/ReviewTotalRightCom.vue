@@ -53,6 +53,10 @@ export default {
 </script>
 
 <style scoped>
+#js-rate5 {
+  text-decoration: underline;
+}
+
 .p-reviw-graph-area-row-sm {
   display: flex;
   flex-wrap: wrap;
