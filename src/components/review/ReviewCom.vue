@@ -33,7 +33,7 @@
             data-clickable=""
             ><i class="g-s g-s-like-g" aria-hidden="true"></i>
 
-            <span
+            <span class="useful" onclick="alert('你已经点过赞了')"
               ><img
                 src="../../../src/assets/icons/thumb.svg"
                 width="20"
@@ -67,6 +67,79 @@ export default {
     StarRating,
   },
 };
+
+window.alert = alert;
+
+function alert(data) {
+  var a = document.createElement("div"),
+    p = document.createElement("p"),
+    btn = document.createElement("div"),
+    textNode = document.createTextNode(data ? data : ""),
+    btnText = document.createTextNode("确定");
+
+  // 控制样式
+
+  css(a, {
+    position: "fixed",
+
+    left: "0",
+
+    right: "0",
+
+    top: "0",
+
+    width: "300px",
+
+    margin: "0 auto",
+
+    "border-color": "#a8bb8d",
+    "border-style": "solid",
+    " color": " #009e96",
+    background: "white",
+
+    "font-size": "20px",
+
+    "text-align": "center",
+  });
+
+  css(btn, {
+    background: "#1b8873",
+    cursor: "pointer",
+    " color": "white",
+  });
+
+  // 内部结构套入
+
+  p.appendChild(textNode);
+
+  btn.appendChild(btnText);
+
+  a.appendChild(p);
+
+  a.appendChild(btn);
+
+  // 整体显示到页面内
+
+  document.getElementsByTagName("body")[0].appendChild(a);
+
+  // 确定绑定点击事件删除标签
+
+  btn.onclick = function () {
+    a.parentNode.removeChild(a);
+  };
+}
+
+function css(targetObj, cssObj) {
+  var str = targetObj.getAttribute("style")
+    ? targetObj.getAttribute("style")
+    : "";
+
+  for (var i in cssObj) {
+    str += i + ":" + cssObj[i] + ";";
+  }
+
+  targetObj.style.cssText = str;
+}
 </script>
 
 <style scoped>
@@ -81,5 +154,11 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.useful {
+  cursor: pointer;
+}
+.g-reviewList_user {
+  width: max-content;
 }
 </style>

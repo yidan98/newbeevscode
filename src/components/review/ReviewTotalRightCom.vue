@@ -17,13 +17,11 @@
           :style="{ width: rating.percentage + '%' }"
         ></div>
       </div>
-      <a
-        class="g-link g-link-visble"
-        id="js-rate5"
-        :data-rate="rating.rating"
-        :title="title"
-        >{{ rating.ratingCount }}人</a
-      ></span
+      <div class="g-link g-link-visble" style="cursor: pointer">
+        <a id="js-rate5" :data-rate="rating.rating" :title="title"
+          >{{ rating.ratingCount }}人</a
+        >
+      </div></span
     >
   </div>
 </template>
@@ -85,6 +83,9 @@ export default {
   margin-left: 0px;
   margin-top: 5px;
   margin-right: 5px;
+  cursor: pointer;
+}
+a.g-link g-link-visble {
   cursor: pointer;
 }
 </style>

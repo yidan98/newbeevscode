@@ -450,6 +450,50 @@
     {
       "id": 3,
       "rating": 5,
+      "nickName": "小红",
+      "goodsId": 10195,
+      "goodsName": "小米",
+      "count": 3,
+      "title": "nice",
+      "content": "不错不错",
+      "reviewDate": "2022-05-19"
+    },
+    {
+      "id": 4,
+      "rating": 5,
+      "nickName": "小王",
+      "goodsId": 10195,
+      "goodsName": "OPPO 拍照手机",
+      "count": 3,
+      "title": "充电两分钟，拍照两小时",
+      "content": "不错不错，拍了很多照片发朋友圈，有很多妹子给我点赞啦，心情美美的",
+      "reviewDate": "2022-05-19"
+    },
+    {
+      "id": 5,
+      "rating": 5,
+      "nickName": "田中大雄",
+      "goodsId": 10195,
+      "goodsName": "苹果×",
+      "count": 3,
+      "title": "素敵",
+      "content": "可愛いですね。サイズもちょうどいいです。",
+      "reviewDate": "2022-05-19"
+    },
+    {
+      "id": 6,
+      "rating": 5,
+      "nickName": "斎藤飛鳥",
+      "goodsId": 10195,
+      "goodsName": "华为 HUAWEI P30 Pro",
+      "count": 3,
+      "title": "想像以上",
+      "content": "可愛いですね。サイズもちょうどいいです。",
+      "reviewDate": "2022-05-19"
+    },
+    {
+      "id": 7,
+      "rating": 5,
       "nickName": "小王",
       "goodsId": 10196,
       "goodsName": "华为 HUAWEI P30 Pro",
@@ -464,7 +508,7 @@
       "reviewDate": "2022-04-02"
     },
     {
-      "id": 4,
+      "id": 8,
       "rating": 4,
       "nickName": "小李",
       "goodsId": 10196,
@@ -483,9 +527,9 @@
   "goodsDetailReviewTotal": [
     {
       "goodsId": 10195,
-      "ratingAvg": 4.0,
-      "reviewCount": 2,
-      "titleCount": 2
+      "ratingAvg": 4.6,
+      "reviewCount": 6,
+      "titleCount": 6
     },
     {
       "goodsId": 10196,
@@ -500,8 +544,8 @@
       "rating": [
         {
           "rating": 5,
-          "percentage": 50,
-          "ratingCount": 1
+          "percentage": 83,
+          "ratingCount": 5
         },
         {
           "rating": 4,
@@ -510,7 +554,7 @@
         },
         {
           "rating": 3,
-          "percentage": 50,
+          "percentage": 17,
           "ratingCount": 1
         },
         {
