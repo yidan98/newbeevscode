@@ -4,7 +4,7 @@
     <br />
     <br />
     <div class="icon">
-      <h2 class="g-h-2 g-h-i p-hd">
+      <h2 class="g-h-2 g-h-i p-hd" style="padding: 10px 10px 10px 520px">
         <i class="g-s g-s-comment" aria-hidden="true"></i>
         <img src="../../../src/assets/icons/chat.png" width="30" height="30" />
         <span> レビュー</span>
@@ -48,5 +48,6 @@ h2.g-h-2 g-h-i p-hd {
   display: inline-block;
   margin-bottom: -3px;
   margin-right: 4px;
+  padding: 10px 10px 10px 330px;
 }
 </style>

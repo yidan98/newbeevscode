@@ -1,7 +1,7 @@
 <template>
-  <div class="p-reviw-graph-area-right">
+  <div class="p-reviw-graph-area-right" style="padding: 10px 10px 10px 20px">
     <div class="g-lg-flow-sm p-reviw-graph-area-row-sm">
-      <div v-for="(rating, index) in reviewList.rating" :key="index">
+      <div v-for="(rating, index) in reviewList" :key="index">
         <review-total-right-com :rating="rating"></review-total-right-com>
       </div>
     </div>
@@ -28,7 +28,7 @@ console.log("reviewListvvvvvvvvvvv", reviewList.value);
 .p-reviw-graph-area {
   box-sizing: border-box;
   display: inline-block;
-  padding: 10px 10px 5px 10px;
+  padding: 10px 10px 5px 0px;
   text-align: center;
   vertical-align: top;
 }
@@ -49,7 +49,7 @@ console.log("reviewListvvvvvvvvvvv", reviewList.value);
   margin-bottom: 12px;
 }
 .p-reviw-graph-area-right {
-  display: flex;
+  /* display: flex; */
   /* width: 5000px; */
   /* margin: 50px; */
   /* align-items: center; */

@@ -11,6 +11,7 @@
       >
     </div>
     <star-rating
+      :starSize="30"
       :showRating="false"
       :rating="reviewTotal.ratingAvg"
       :read-only="true"
@@ -52,7 +53,7 @@ export default {
 .p-reviw-graph-area {
   box-sizing: border-box;
   display: inline-block;
-  padding: 10px 10px 5px 10px;
+  padding: 0px 0px 0px 500px;
   text-align: center;
   vertical-align: top;
 }

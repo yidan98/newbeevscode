@@ -15,10 +15,10 @@ export default {
   },
   actions: {
     //asyncronous
-    async setImage(state) {
+    async setImage(context) {
       const image = await fetch(url, { headers });
       const j = await image.json();
-      state.commit("setImage", j);
+      context.commit("setImage", j);
       console.log("in setImage method", j);
     },
   },
