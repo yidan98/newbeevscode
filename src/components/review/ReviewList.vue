@@ -5,8 +5,16 @@
   >
     ピックアップレビュー
   </p>
-  <div v-for="review in reviews" :key="review">
+  <div v-for="(review, index) in reviewList" :key="index">
     <review-com :review="review"></review-com>
+  </div>
+  <div id="hiddenReview" v-if="showed">
+    <div v-for="(review2, index2) in reviewList2" :key="index2">
+      <review-com :review="review2"></review-com>
+    </div>
+  </div>
+  <div>
+    <button @click="showMeMore">{{ btnText }}</button>
   </div>
 </template>
 
@@ -18,10 +26,36 @@ import ReviewCom from "./ReviewCom.vue";
 const route = useRoute();
 const goodsId = route.params.goodsId;
 const store = useStore();
+
+const reviewCount = computed(() => store.getters.getReview.reviewCount);
+const reviewList = computed(() => store.getters.getReview.reviewList);
+const reviewList2 = computed(() => store.getters.getReviewList);
+const showed = computed(() => store.getters.getShowed);
+
+const showMeMore = () => {
+  if (!showed.value) {
+    if (reviewList2.value.length === 0) {
+      store.dispatch("setReview", { goodsId: goodsId, offset: 3 });
+    } else {
+      store.commit("changeShowed", true);
+    }
+  } else {
+    store.commit("changeShowed", false);
+  }
+};
 onMounted(() => {
-  store.dispatch("setReviews", goodsId);
+  store.dispatch("setReview", { goodsId: goodsId, offset: 0 });
 });
-let reviews = computed(() => store.getters.getReviews);
+
+const btnText = computed(() => {
+  if (!showed.value && reviewList.value !== undefined) {
+    return (
+      "もっと見る (" + reviewList.value.length + "/" + reviewCount.value + ")"
+    );
+  } else {
+    return "閉じる";
+  }
+});
 </script>
 
 <style scoped>

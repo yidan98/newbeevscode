@@ -29,7 +29,7 @@
             <img
               class="g-fw p-review-gallery_photo"
               :v-show="isShow"
-              src="pics[index]"
+              src="pics"
               alt="0"
               aria-expanded="false"
               aria-controls="p-reviewGallerySwipModal"
@@ -60,21 +60,22 @@
 import StarRating from "vue-star-rating";
 export default {
   props: {
-    review: {
-      rating: Number,
-      nickName: Number,
-      goodsName: String,
-      count: Number,
-      title: String,
-      content: String,
-      reviewDate: String,
+    review: Object,
+    // {
+    //   rating: Number,
+    //   nickName: Number,
+    //   goodsName: String,
+    //   count: Number,
+    //   title: String,
+    //   content: String,
+    //   reviewDate: String,
 
-      photo1: String,
-      photo2: String,
-      photo3: String,
-      photo4: String,
-      photo5: String,
-    },
+    //   photo1: String,
+    //   photo2: String,
+    //   photo3: String,
+    //   photo4: String,
+    //   photo5: String,
+    // },
   },
   components: {
     StarRating,
