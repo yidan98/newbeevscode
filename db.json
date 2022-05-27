@@ -489,7 +489,7 @@
           "count": 3,
           "title": "充电两分钟，拍照两小时",
           "content": "不错不错，拍了很多照片发朋友圈，有很多妹子给我点赞啦，心情美美的",
-          "photo1": "http://localhost:8080/assets/images/dog.png",
+          "photo1": "http://localhost:8080/assets/images/dog.webp",
           "photo2": null,
           "photo3": null,
           "photo4": null,

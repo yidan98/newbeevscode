@@ -100,7 +100,13 @@ export default {
   },
   data() {
     return {
-      images: [this.photo1, this.photo2, this.photo3, this.photo4, this.photo5],
+      images: [
+        this.review.photo1,
+        this.review.photo2,
+        this.review.photo3,
+        this.review.photo4,
+        this.review.photo5,
+      ],
       isShow: false,
     };
   },
@@ -216,7 +222,7 @@ ol {
   height: 100%;
 }
 .image {
-  width: 100px;
+  width: 250px;
   cursor: pointer;
   margin: 5px;
   display: inline-block;

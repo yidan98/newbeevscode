@@ -14,7 +14,7 @@
     </div>
   </div>
   <div>
-    <button @click="showMeMore">{{ btnText }}</button>
+    <div class="more" @click="showMeMore">{{ btnText }}</div>
   </div>
 </template>
 
@@ -80,5 +80,20 @@ const btnText = computed(() => {
   vertical-align: middle;
   white-space: nowrap;
   background-color: #fff;
+}
+.more {
+  display: block;
+  margin: 0 auto;
+  width: 200px;
+  height: 46px;
+  line-height: 46px;
+
+  font-size: 18px;
+  border-radius: 27px;
+  cursor: pointer;
+}
+.more:hover {
+  color: #057c7d;
+  text-decoration: underline;
 }
 </style>
