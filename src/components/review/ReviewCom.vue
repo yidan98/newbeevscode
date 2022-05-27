@@ -25,16 +25,27 @@
           {{ review.content }}
         </p>
         <ul class="g-sm-flow-sm g-lg-flow g-reviewList_pics">
-          <li v-for="(pic, index) in pics" :key="index">
-            <img
-              class="g-fw p-review-gallery_photo"
-              :v-show="isShow"
-              src="pics"
-              alt="0"
-              aria-expanded="false"
-              aria-controls="p-reviewGallerySwipModal"
-            />
-          </li>
+          <template v-if="review.photo1 !== null">
+            <div>
+              <viewer
+                :images="images"
+                @inited="inited"
+                class="viewer"
+                ref="viewer"
+              >
+                <template #default="scope">
+                  <img
+                    v-for="src in scope.images"
+                    :src="src"
+                    :key="src"
+                    class="image"
+                  />
+
+                  {{ scope.options }}
+                </template>
+              </viewer>
+            </div>
+          </template>
         </ul>
         <p class="g-reviewList_like">
           <a
@@ -58,42 +69,47 @@
 
 <script>
 import StarRating from "vue-star-rating";
-export default {
-  props: {
-    review: Object,
-    // {
-    //   rating: Number,
-    //   nickName: Number,
-    //   goodsName: String,
-    //   count: Number,
-    //   title: String,
-    //   content: String,
-    //   reviewDate: String,
+import "viewerjs/dist/viewer.css";
+import { directive as viewer } from "v-viewer";
 
-    //   photo1: String,
-    //   photo2: String,
-    //   photo3: String,
-    //   photo4: String,
-    //   photo5: String,
-    // },
+export default {
+  directives: {
+    viewer: viewer({
+      debug: true,
+    }),
+  },
+  props: {
+    review: {
+      rating: Number,
+      nickName: Number,
+      goodsName: String,
+      count: Number,
+      title: String,
+      content: String,
+      reviewDate: String,
+
+      photo1: String,
+      photo2: String,
+      photo3: String,
+      photo4: String,
+      photo5: String,
+    },
   },
   components: {
     StarRating,
   },
   data() {
     return {
-      pics: [this.photo1, this.photo2, this.photo3, this.photo4, this.photo5],
+      images: [this.photo1, this.photo2, this.photo3, this.photo4, this.photo5],
       isShow: false,
     };
   },
   methods: {
-    image() {
-      for (let i = 0; i < 5; i++) {
-        if (this.pics !== null) {
-          this.isShow = true;
-          console.log(this.isShow);
-        }
-      }
+    inited(viewer) {
+      this.$viewer = viewer;
+    },
+    show() {
+      this.$viewer.show();
     },
   },
 };
@@ -195,5 +211,14 @@ ul,
 ol {
   padding: 0;
   list-style: none;
+}
+.images {
+  height: 100%;
+}
+.image {
+  width: 100px;
+  cursor: pointer;
+  margin: 5px;
+  display: inline-block;
 }
 </style>
