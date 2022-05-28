@@ -138,7 +138,7 @@ function alert(data) {
 
     right: "0",
 
-    top: "0",
+    top: "30%",
 
     width: "300px",
 
@@ -152,6 +152,8 @@ function alert(data) {
     "font-size": "20px",
 
     "text-align": "center",
+    " font-family": "system-ui",
+    opacity: 0.88,
   });
 
   css(btn, {
@@ -210,6 +212,9 @@ function css(targetObj, cssObj) {
 .useful {
   cursor: pointer;
 }
+.useful:hover {
+  text-decoration: underline;
+}
 .g-reviewList_user {
   width: max-content;
 }
@@ -226,5 +231,11 @@ ol {
   cursor: pointer;
   margin: 5px;
   display: inline-block;
+}
+p {
+  font-family: cursive;
+}
+h2 {
+  font-family: serif;
 }
 </style>

@@ -63,6 +63,8 @@ export default {
 }
 .p-reviw-graph-area-comp-eva {
   font-weight: bold;
+  position: relative;
+  left: 36%;
 }
 .p-reviw-graph-area-average span {
   font-size: 26px;

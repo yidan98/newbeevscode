@@ -1,20 +1,22 @@
 <template>
-  <p
-    class="g-label-brand g-reviewList_label"
-    style="display: flex; flex-direction: column; align-items: center"
-  >
-    ピックアップレビュー
-  </p>
-  <div v-for="(review, index) in reviewList" :key="index">
-    <review-com :review="review"></review-com>
-  </div>
-  <div id="hiddenReview" v-if="showed">
-    <div v-for="(review2, index2) in reviewList2" :key="index2">
-      <review-com :review="review2"></review-com>
+  <div class="contain">
+    <p
+      class="g-label-brand g-reviewList_label"
+      style="display: flex; flex-direction: column; align-items: center"
+    >
+      ピックアップレビュー
+    </p>
+    <div v-for="(review, index) in reviewList" :key="index">
+      <review-com :review="review"></review-com>
     </div>
-  </div>
-  <div>
-    <div class="more" @click="showMeMore">{{ btnText }}</div>
+    <div id="hiddenReview" v-if="showed">
+      <div v-for="(review2, index2) in reviewList2" :key="index2">
+        <review-com :review="review2"></review-com>
+      </div>
+    </div>
+    <div>
+      <div class="more" @click="showMeMore">{{ btnText }}</div>
+    </div>
   </div>
 </template>
 

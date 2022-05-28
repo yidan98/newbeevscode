@@ -17,7 +17,7 @@
           :style="{ width: rating.percentage + '%' }"
         ></div>
       </div>
-      <div class="g-link g-link-visble" style="cursor: pointer">
+      <div class="g-link g-link-visble">
         <a id="js-rate5" :data-rate="rating.rating" :title="title"
           >{{ rating.ratingCount }}人</a
         >
@@ -55,6 +55,10 @@ export default {
 <style scoped>
 #js-rate5 {
   text-decoration: underline;
+  cursor: pointer;
+}
+#js-rate5:hover {
+  text-decoration: none;
 }
 
 .p-reviw-graph-area-row-sm {

@@ -1,5 +1,5 @@
 <template>
-  <div class="p-reviw-graph-area-right" style="padding: 10px 10px 10px 20px">
+  <div class="p-reviw-graph-area-right">
     <div class="g-lg-flow-sm p-reviw-graph-area-row-sm">
       <div v-for="(rating, index) in reviewList" :key="index">
         <review-total-right-com :rating="rating"></review-total-right-com>
@@ -53,7 +53,9 @@ console.log("reviewListvvvvvvvvvvv", reviewList.value);
   /* width: 5000px; */
   /* margin: 50px; */
   /* align-items: center; */
-  flex: 3 3 300px;
-  justify-content: center;
+  /* flex: 3 3 300px;
+  justify-content: center; */
+  position: relative;
+  left: 5%;
 }
 </style>
