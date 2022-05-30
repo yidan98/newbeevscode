@@ -567,8 +567,8 @@
     {
       "goodsId": 10195,
       "ratingAvg": 4.6,
-      "reviewCount": 6,
-      "titleCount": 6
+      "reviewCount": 8,
+      "titleCount": 8
     },
     {
       "goodsId": 10196,
@@ -583,17 +583,17 @@
       "rating": [
         {
           "rating": 5,
-          "percentage": 83,
-          "ratingCount": 5
+          "percentage": 75,
+          "ratingCount": 6
         },
         {
           "rating": 4,
-          "percentage": 0,
-          "ratingCount": 0
+          "percentage": 12,
+          "ratingCount": 1
         },
         {
           "rating": 3,
-          "percentage": 17,
+          "percentage": 12,
           "ratingCount": 1
         },
         {

@@ -18,7 +18,11 @@
         ></div>
       </div>
       <div class="g-link g-link-visble">
-        <a id="js-rate5" :data-rate="rating.rating" :title="title"
+        <a
+          id="js-rate5"
+          :data-rate="rating.rating"
+          :title="title"
+          @click="clickRating(rating.rating)"
           >{{ rating.ratingCount }}人</a
         >
       </div></span
@@ -27,6 +31,7 @@
 </template>
 
 <script>
+import { mapMutations } from "vuex";
 import StarRating from "vue-star-rating";
 export default {
   components: {
@@ -38,6 +43,23 @@ export default {
       percentage: Number,
       ratingCount: Number,
     },
+  },
+  methods: {
+    async clickRating(rating) {
+      console.log("rrrrrrr", this.$store.getters.getReviewList.length);
+      console.log("aaaaaa", this.$store.getters.getReview.reviewCount);
+      if (
+        this.$store.getters.getReviewList.length === 0 &&
+        this.$store.getters.getReview.reviewCount > 3
+      ) {
+        await this.$store.dispatch("setReview", {
+          goodsId: this.$route.params.goodsId,
+          offset: 3,
+        });
+      }
+      this.filterReviews(rating);
+    },
+    ...mapMutations(["filterReviews"]),
   },
   data() {
     return {
