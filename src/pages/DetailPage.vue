@@ -5,14 +5,16 @@
       <h1>商品详情页面</h1>
       <p>goodsId:{{ goodsId }}</p>
     </div>
-
+    <div>
+      <qa-container></qa-container>
+    </div>
     <review-container></review-container>
   </div>
 </template>
 
 <script setup>
 import ReviewContainer from "../components/review/ReviewContainer.vue";
-
+import QaContainer from "../components/qa/QaContainer.vue";
 import { useRoute } from "vue-router";
 const route = useRoute();
 const goodsId = route.params.goodsId;

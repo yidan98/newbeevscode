@@ -7,6 +7,7 @@ import detail from "./detail/detail";
 import review from "./detail/review";
 import reviewTotal from "./detail/reviewTotal";
 import reviewRating from "./detail/reviewRating";
+import qa from "./detail/qa";
 export default createStore({
   modules: {
     category,
@@ -17,5 +18,6 @@ export default createStore({
     review,
     reviewTotal,
     reviewRating,
+    qa,
   },
 });

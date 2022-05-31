@@ -2,9 +2,7 @@
   <div>
     <br />
     <br />
-    <div>
-      <qa-container></qa-container>
-    </div>
+
     <div class="icon">
       <h2 class="g-h-2 g-h-i p-hd" style="padding: 10px 10px 10px 520px">
         <i class="g-s g-s-comment" aria-hidden="true"></i>
@@ -26,7 +24,6 @@
 <script setup>
 import ReviewList from "./ReviewList.vue";
 import ReviewTotal from "./ReviewTotal.vue";
-import QaContainer from "../qa/QaContainer.vue";
 </script>
 
 <style scoped>

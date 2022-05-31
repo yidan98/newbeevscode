@@ -54,4 +54,17 @@ export default {};
   line-height: 1.5;
   color: #eb6157;
 }
+
+.zv-cqa-posting-rule {
+  border: 1px dotted #bdc3c7;
+  padding: 0 10px 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.g-link-u,
+.g-lg-link-u,
+.g-link-u-kiyaku {
+  text-decoration: underline;
+  color: #009e96;
+}
 </style>
