@@ -24,7 +24,7 @@ onMounted(() => {
   store.dispatch("setGoodsQa", goodsId);
 });
 
-let totalCount = computed(() => store.getters.getGoodsQa.length);
+let totalCount = computed(() => store.getters.getGoodsQa.qaList.length);
 console.log("totalCount", totalCount);
 
 let pageBehind = computed(() => Math.ceil(totalCount.value / 3));

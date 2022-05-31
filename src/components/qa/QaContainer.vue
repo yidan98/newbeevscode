@@ -15,14 +15,14 @@
       <!-- 第一行 全28件 和 新顺序-->
       <div class="page">
         <span>
-          <qa-page v-bind="qa"></qa-page>
+          <qa-page></qa-page>
           <qa-sort></qa-sort>
         </span>
         <!-- 全28件 1/10 -->
       </div>
       <!-- QA解答部分 -->
       <div>
-        <div v-for="(qa, index) in goodsQa" :key="index">
+        <div v-for="(qa, index) in qaArr" :key="index">
           <qa-com v-bind="qa"></qa-com>
         </div>
       </div>
@@ -52,9 +52,17 @@ const store = useStore();
 onMounted(() => {
   store.dispatch("setGoodsQa", goodsId);
 });
+//所有数据
+let qaList = computed(() => store.getters.getGoodsQa.qaList);
+let PageNo = computed(() => store.getters.getPageNo);
+let start = computed(() => (PageNo.value - 1) * 3);
+let end = computed(() => start.value + 3);
 
-let goodsQa = computed(() => store.getters.getGoodsQa);
-
-console.log("goodsQa", goodsQa);
+let qaArr = computed(() => qaList.value.slice(start.value, end.value));
+console.log("PageNo", PageNo);
+console.log("start", start);
+console.log("end", end);
+console.log("qaArr", qaArr);
+console.log("goodsQa", qaList);
 </script>
 <style></style>

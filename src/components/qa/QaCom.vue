@@ -6,7 +6,7 @@
       </span>
     </div>
     <div class="zv-cqa-q-info">
-      <span class="zv-cqa-q-created-at">投稿日&nbsp;2022年05月06日</span>
+      <span class="zv-cqa-q-created-at">投稿日&nbsp;{{ questionDate }}</span>
     </div>
     <div class="zv-cqa-answers">
       <div class="zv-cqa-answer zv-cqa-answer-first">

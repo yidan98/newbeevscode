@@ -11,7 +11,7 @@ export default {
     setGoodsQa(state, payload) {
       //state.goodsQa.push(...payload);
       //state.goodsQa = payload
-      state.goodsQa = payload[0].qaList;
+      state.goodsQa = payload[0];
       console.log("array push goodsQa", payload);
     },
 
@@ -21,7 +21,17 @@ export default {
     previousPage(state) {
       state.pageNo--;
     },
+    qaSort(state, payload) {
+      if (payload === "新しい順") {
+        state.goodsQa.qaList.sort((a, b) => {
+          return Date.parse(b.questionDate) - Date.parse(a.questionDate);
+        });
+      } else {
+        state.goodsQa.qaList.sort((a, b) => b.count - a.count);
+      }
+    },
   },
+
   actions: {
     //asyncronous
     async setGoodsQa(context, payload) {
