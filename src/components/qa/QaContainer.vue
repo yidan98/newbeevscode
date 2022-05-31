@@ -14,7 +14,10 @@
     <div id="questionsArea">
       <!-- 第一行 全28件 和 新顺序-->
       <div class="page">
-        <qa-page v-bind="qa"></qa-page>
+        <span>
+          <qa-page v-bind="qa"></qa-page>
+          <qa-sort></qa-sort>
+        </span>
         <!-- 全28件 1/10 -->
       </div>
       <!-- QA解答部分 -->
@@ -25,7 +28,7 @@
       </div>
       <!-- 下面全28件 -->
       <div>
-        <qa-page-bottom></qa-page-bottom>
+        <qa-page></qa-page>
       </div>
       <!--  注意 -->
       <qa-post></qa-post>
@@ -37,7 +40,8 @@ import qaPage from "./QaPage.vue";
 
 import qaCom from "./QaCom.vue";
 import qaPost from "./QaPost.vue";
-import qaPageBottom from "./QaPageBottom.vue";
+
+import qaSort from "./QaSort.vue";
 import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";

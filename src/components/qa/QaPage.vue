@@ -1,17 +1,17 @@
 <template>
-  <div id="pageQa">
+  <span id="pageQa">
     <div class="zv-cqa-step">
       <div class="zv-cqa-step-link">
-        <span>全{{ totalCount }}件</span>
+        <span id="it" @click="previousPage" v-if="pageNo !== 1">&lt;</span>
+        <span>
+          <span> 全{{ totalCount }}件</span>
 
-        <span> ページ1/{{ pagebehind }}</span>
+          <span> ページ{{ pageNo }}/{{ pageBehind }}</span></span
+        >
+        <span id="gt" @click="nextPage" v-if="pageNo !== pageBehind">&gt;</span>
       </div>
-      <select id="zv-cqa-select-sort" class="zv-select" name="sort">
-        <option value="total_yes">トップ評価</option>
-        <option value="created_at" selected="">新しい順</option>
-      </select>
     </div>
-  </div>
+  </span>
 </template>
 <script setup>
 import { computed, onMounted } from "vue";
@@ -25,9 +25,19 @@ onMounted(() => {
 });
 
 let totalCount = computed(() => store.getters.getGoodsQa.length);
+console.log("totalCount", totalCount);
 
-let pagebehind = Math.ceil(totalCount.value / 3);
-console.log("pagebehind", pagebehind);
+let pageBehind = computed(() => Math.ceil(totalCount.value / 3));
+console.log("pagebehind", pageBehind);
+let pageNo = computed(() => store.getters.getPageNo);
+console.log("getpageNo", pageNo);
+function nextPage() {
+  store.commit("nextPage");
+}
+function previousPage() {
+  store.commit("previousPage");
+}
+console.log("pageNo", pageNo);
 </script>
 <style>
 #pageQa .zv-cqa-step-link {
@@ -36,5 +46,21 @@ console.log("pagebehind", pagebehind);
   margin-right: 20px;
   display: inline-block;
   padding-bottom: 5px;
+}
+#gt {
+  color: #009e96;
+  font-weight: 1000;
+  cursor: pointer;
+}
+#gt:hover {
+  text-decoration: underline;
+}
+#it {
+  color: #009e96;
+  font-weight: 1000;
+  cursor: pointer;
+}
+#it:hover {
+  text-decoration: underline;
 }
 </style>

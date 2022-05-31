@@ -3,7 +3,8 @@ const headers = { Accept: "application/json" };
 
 export default {
   state: {
-    goodsQa: [],
+    pageNo: 1,
+    goodsQa: { qaList: [] },
   },
   mutations: {
     //syncrous
@@ -12,6 +13,13 @@ export default {
       //state.goodsQa = payload
       state.goodsQa = payload[0].qaList;
       console.log("array push goodsQa", payload);
+    },
+
+    nextPage(state) {
+      state.pageNo++;
+    },
+    previousPage(state) {
+      state.pageNo--;
     },
   },
   actions: {
@@ -28,6 +36,9 @@ export default {
       console.log("in getGoodsQa method", state.goodsQa);
       console.log(state.goodsQa);
       return state.goodsQa;
+    },
+    getPageNo: (state) => {
+      return state.pageNo;
     },
   },
 };
