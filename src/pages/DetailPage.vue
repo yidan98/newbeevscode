@@ -6,6 +6,9 @@
       <p>goodsId:{{ goodsId }}</p>
     </div>
     <div>
+      <size-container></size-container>
+    </div>
+    <div>
       <qa-container></qa-container>
     </div>
     <review-container></review-container>
@@ -15,6 +18,7 @@
 <script setup>
 import ReviewContainer from "../components/review/ReviewContainer.vue";
 import QaContainer from "../components/qa/QaContainer.vue";
+import SizeContainer from "../components/size/SizeContainer.vue";
 import { useRoute } from "vue-router";
 const route = useRoute();
 const goodsId = route.params.goodsId;

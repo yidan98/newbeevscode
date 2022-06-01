@@ -4,7 +4,7 @@
       <i class="qaIcon"></i>
       <span
         ><img
-          src="../../../src/assets/icons/chat.png"
+          src="../../../src/assets/icons/chat2.png"
           width="30"
           height="30"
         />&emsp;商品QA</span

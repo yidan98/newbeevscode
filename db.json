@@ -616,23 +616,23 @@
       "qaList": [
         {
           "questionContents": "購入の際、いらなくなった布団は引きとってもらえますか？？",
-          "questionDate": "2022/05/09",
+          "questionDate": "2022-05-09",
           "answerContents": "引取サービス対象外商品となります。",
 
-          "answerDate": "2021/09/22",
+          "answerDate": "2021-09-22",
           "count": 1
         },
         {
           "questionContents": "収納ケースはついていますか？",
-          "questionDate": "2021/08/30",
+          "questionDate": "2021-08-30",
           "answerContents": "ついておりません。",
 
-          "answerDate": "2021/09/08",
+          "answerDate": "2021-09-08",
           "count": 2
         },
         {
           "questionContents": "こちらの商品はパイプベットにも使用可能でしょうか？",
-          "questionDate": "2021/08/23",
+          "questionDate": "2021-08-23",
           "answerContents": "「洗えるベッド用品3点セット スモールシングル(SS)」がございます。検索欄に商品コード「5651975」を入れてご検索下さい。ご検討いただけましたら幸いです。",
 
           "answerDate": "2021/08/31",
@@ -640,7 +640,7 @@
         },
         {
           "questionContents": "店舗指定で受け取りできますか？",
-          "questionDate": "2021/08/20",
+          "questionDate": "2021-08-20",
           "answerContents": "はい、可能です。",
 
           "answerDate": "2021/08/25",
@@ -648,13 +648,25 @@
         },
         {
           "questionContents": "布団乾燥機は使用できますか？",
-          "questionDate": "2021/07/23",
+          "questionDate": "2021-07-23",
           "answerContents": "はい、可能です。",
 
           "answerDate": "2021/08/20",
           "count": 5
         }
       ]
+    }
+  ],
+  "goodsSize": [
+    {
+      "goodsId": 10195,
+      "goodsCode": 5650307,
+      "color": "ホワイト",
+      "size": "幅97×奥行195×高さ20cm",
+      "material": "ポリエステル",
+      "weight": "約22kg",
+      "guaranteeYear": "1年",
+      "wrapSize": "幅29×奥行29×高さ101cm"
     }
   ]
 }

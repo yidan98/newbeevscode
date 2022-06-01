@@ -21,8 +21,8 @@ export default {
     previousPage(state) {
       state.pageNo--;
     },
-    qaSort(state, payload) {
-      if (payload === "新しい順") {
+    qaSort(state, value) {
+      if (value === "created_at") {
         state.goodsQa.qaList.sort((a, b) => {
           return Date.parse(b.questionDate) - Date.parse(a.questionDate);
         });
