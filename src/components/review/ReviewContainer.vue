@@ -6,7 +6,7 @@
     <div class="icon">
       <h2 class="g-h-2 g-h-i p-hd" style="padding: 10px 10px 10px 520px">
         <i class="g-s g-s-comment" aria-hidden="true"></i>
-        <img src="../../../src/assets/icons/chat2.png" width="30" height="30" />
+        <img src="../../../src/assets/icons/chat3.png" width="30" height="30" />
         <span id="reviewrr"> レビュー</span>
       </h2>
     </div>

@@ -660,13 +660,78 @@
   "goodsSize": [
     {
       "goodsId": 10195,
-      "goodsCode": 5650307,
-      "color": "ホワイト",
-      "size": "幅97×奥行195×高さ20cm",
-      "material": "ポリエステル",
-      "weight": "約22kg",
-      "guaranteeYear": "1年",
-      "wrapSize": "幅29×奥行29×高さ101cm"
+      "goodsDescribe": "木製フレームのレトロデザイン。座面はエラスベルトとポケットコイルを使用しフィット感のある座り心地です。",
+
+      "list": [
+        {
+          "type": "3人用ソファ",
+          "price": 64900,
+
+          "itemList": [
+            {
+              "goodsCode": 5650307,
+              "color": "ベージュ/ミドルブラウン",
+              "colorImg":	"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8888634310686/BasicColor_BE_MBR.jpg",
+              "size": "幅97×奥行195×高さ20cm",
+              "material": "ポリエステル",
+              "weight": "約22kg",
+              "guaranteeYear": "1年",
+              "wrapSize": "幅29×奥行29×高さ101cm",
+              "pictures": [{"img1":"https://www.nitori-net.jp/ecstatic/image/product/1…960/113896001.jpg?imwidth=97&ts=20220421065313009"}, {"img2"}, {"img3"}]
+            },
+            {
+              "goodsCode": 5650308,
+              "color": "ベージュ/ライトブラウン",
+              "colorImg": "https://www.nitori-net.jp/ecstatic/image/sys-master/images/8890487210014/BasicColor_BE_LBR.jpg",
+              "size": "幅97×奥行195×高さ20cm",
+              "material": "ポリエステル",
+              "weight": "約22kg",
+              "guaranteeYear": "1年",
+              "wrapSize": "幅29×奥行29×高さ101cm",
+              "pictures": ["img1", "img2", "img3"]
+            }
+          ]
+        },
+        {
+          "type": "2人用ソファ",
+          "price": 54900,
+          "itemList": [
+            {
+              "goodsCode": 5650309,
+              "color": "ホワイト",
+              "colorImg": "https://www.nitori-net.jp/ecstatic/image/sys-master/images/8966164348958/BasicColor_WH.jpg",
+              "size": "幅97×奥行195×高さ20cm",
+              "material": "ポリエステル",
+              "weight": "約22kg",
+              "guaranteeYear": "1年",
+              "wrapSize": "幅29×奥行29×高さ101cm",
+              "pictures": ["img1", "img2", "img3"]
+            },
+            {
+              "goodsCode": 5650310,
+              "color": "ベージュ/ミドルブラウン",
+              "colorImg":	"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8888634310686/BasicColor_BE_MBR.jpg",
+              "size": "幅97×奥行195×高さ20cm",
+              "material": "ポリエステル",
+              "weight": "約22kg",
+              "guaranteeYear": "1年",
+              "wrapSize": "幅29×奥行29×高さ101cm",
+              "pictures": ["img1", "img2", "img3"]
+            },
+            {
+              "goodsCode": 5650311,
+              "color": "ベージュ/ライトブラウン",
+              "colorImg": "https://www.nitori-net.jp/ecstatic/image/sys-master/images/8890487210014/BasicColor_BE_LBR.jpg",
+              "size": "幅97×奥行195×高さ20cm",
+              "material": "ポリエステル",
+              "weight": "約22kg",
+              "guaranteeYear": "1年",
+              "wrapSize": "幅29×奥行29×高さ101cm",
+              "pictures": ["img1", "img2", "img3"]
+            }
+          ]
+        }
+      ]
     }
   ]
 }

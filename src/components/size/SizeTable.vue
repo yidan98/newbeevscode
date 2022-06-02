@@ -34,23 +34,31 @@
 </template>
 
 <script setup>
-import { computed, onMounted } from "vue";
-import { useStore } from "vuex";
-import { useRoute } from "vue-router";
-const route = useRoute();
-const goodsId = route.params.goodsId;
-const store = useStore();
-onMounted(() => {
-  store.dispatch("setGoodsSize", goodsId);
-});
+// import { computed, onMounted } from "vue";
+// import { useStore } from "vuex";
+// import { useRoute } from "vue-router";
+// const route = useRoute();
+// const goodsId = route.params.goodsId;
+// const store = useStore();
+// onMounted(() => {
+//   store.dispatch("setGoodsSize", goodsId);
+// });
 
-const code = computed(() => store.getters.getGoodsSize.goodsCode);
-let color = computed(() => store.getters.getGoodsSize.color);
-let size = computed(() => store.getters.getGoodsSize.size);
-let material = computed(() => store.getters.getGoodsSize.material);
-let weight = computed(() => store.getters.getGoodsSize.weight);
-let guaranteeYear = computed(() => store.getters.getGoodsSize.guaranteeYear);
-let wrapSize = computed(() => store.getters.getGoodsSize.wrapSize);
+// const code = computed(
+//   () => store.getters.getGoodsSize.list.itemList[0].goodsCode
+// );
+// let color = computed(() => store.getters.getGoodsSize.list.itemList[0].color);
+// let size = computed(() => store.getters.getGoodsSize.list.itemList[0].size);
+// let material = computed(
+//   () => store.getters.getGoodsSize.list.itemList[0].material
+// );
+// let weight = computed(() => store.getters.getGoodsSize.list.itemList[0].weight);
+// let guaranteeYear = computed(
+//   () => store.getters.getGoodsSize.list.itemList[0].guaranteeYear
+// );
+// let wrapSize = computed(
+//   () => store.getters.getGoodsSize.list.itemList[0].wrapSize
+// );
 </script>
 <style>
 table {

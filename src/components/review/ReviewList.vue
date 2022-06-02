@@ -15,7 +15,12 @@
       </div>
     </div>
     <div>
-      <div class="more" @click="showMeMore">{{ btnText }}</div>
+      <div class="more" @click="showMeMore">
+        {{ btnText }}
+        <span class="material-symbols-outlined">
+          {{ icon }}
+        </span>
+      </div>
     </div>
   </div>
 </template>
@@ -59,6 +64,14 @@ const btnText = computed(() => {
     );
   } else {
     return "閉じる";
+  }
+});
+
+const icon = computed(() => {
+  if (!showed.value && reviewList.value !== undefined) {
+    return "expand_more";
+  } else {
+    return "expand_less";
   }
 });
 </script>
