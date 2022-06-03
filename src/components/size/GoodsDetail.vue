@@ -18,7 +18,7 @@
           >
             <option disabled value="" selected>请选择</option>
             <option
-              v-for="(item, index) in list"
+              v-for="(item, index) in listType"
               :key="index"
               :value="item.type"
               data-code="06300080001"
@@ -45,48 +45,35 @@
         </div>
       </dd>
 
-      <dt>カラー：<b id="p-customize1カラー">ベージュ/ミドルブラウン</b></dt>
+      <dt>
+        カラー：<b id="p-customize1カラー">{{ cl }}</b>
+      </dt>
 
       <dd>
         <ul class="g-flow-sm">
           <li>
             <label class="g-checkable g-checkable-circle">
               <input
+                v-for="(color, index) in listColorThree"
+                :key="index"
+                v-model="cl"
                 type="radio"
                 name="1カラー"
                 checked=""
-                value="00100180035"
+                value="color.color"
                 data-parent="06300080001"
                 data-index="0"
-                data-label="ベージュ/ミドルブラウン"
+                data-label="color.color"
                 data-control="#p-customize1カラー"
               />
               <span
                 ><span class="g-checkable_checked"></span
                 ><img
+                  v-for="(color, index) in listColorThree"
+                  :key="index"
                   class="colorSelect"
-                  src="https://www.nitori-net.jp/ecstatic/image/sys-master/images/8888634310686/BasicColor_BE_MBR.jpg"
-                  alt="ベージュ/ミドルブラウン"
-              /></span>
-            </label>
-          </li>
-          <li>
-            <label class="g-checkable g-checkable-circle">
-              <input
-                type="radio"
-                name="1カラー"
-                value="00100180036"
-                data-parent="06300080001"
-                data-index="0"
-                data-label="ベージュ/ライトブラウン"
-                data-control="#p-customize1カラー"
-              />
-              <span
-                ><span class="g-checkable_checked"></span
-                ><img
-                  class="colorSelect"
-                  src="https://www.nitori-net.jp/ecstatic/image/sys-master/images/8890487210014/BasicColor_BE_LBR.jpg"
-                  alt="ベージュ/ライトブラウン"
+                  :src="color.colorImg"
+                  alt="color"
               /></span>
             </label>
           </li>
@@ -105,7 +92,7 @@
           <dl class="p-price">
             <dd
               class="g-price g-price-lg price-size-up g-price-down"
-              v-for="(item2, index2) in list"
+              v-for="(item2, index2) in listType"
               :key="index2"
             >
               {{ item2.price.toLocaleString() }}<span>円</span>
@@ -118,7 +105,7 @@
         <p class="p-point">
           獲得ポイント<span
             class="g-digit"
-            v-for="(item3, index3) in list"
+            v-for="(item3, index3) in listType"
             :key="index3"
             >{{ Math.round(item3.price / 1.1 / 100) }}pt
           </span>
@@ -147,14 +134,19 @@ onMounted(() => {
   store.dispatch("setGoodsSize", goodsId);
 });
 const goodsDescribe = computed(() => store.getters.getGoodsSize.goodsDescribe);
+const listType = computed(() => store.getters.getGoodsSize.listType);
 const list = computed(() => store.getters.getGoodsSize.list);
-
+const listColorThree = computed(() => store.getters.getListColor.three);
+const listColor = computed(() => store.getters.getListColor);
 const state = reactive({
   str: "3人用ソファ",
+  cl: "ベージュ/ミドルブラウン",
 });
-let { str } = toRefs(state);
+let { str, cl } = toRefs(state);
 
 console.log("list", list);
+console.log("listColorThree", listColorThree);
+console.log("listColor", listColor);
 </script>
 <style>
 .g-checkable-img,

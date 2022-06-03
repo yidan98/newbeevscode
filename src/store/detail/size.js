@@ -3,7 +3,8 @@ const headers = { Accept: "application/json" };
 
 export default {
   state: {
-    goodsSize: [],
+    goodsSize: {},
+    listColor: [],
   },
   mutations: {
     //syncrous
@@ -11,6 +12,9 @@ export default {
       //state.goodsSize.push(...payload);
       //state.goodsSize = payload
       state.goodsSize = payload[0];
+    },
+    setListColor(state, payload) {
+      state.listColor.push(...payload);
       console.log("array push goodsSize", payload);
     },
   },
@@ -29,6 +33,9 @@ export default {
       console.log("in getGoodsSize method", state.goodsSize);
       console.log(state.goodsSize);
       return state.goodsSize;
+    },
+    getListColor: (state) => {
+      return state.listColor;
     },
   },
 };

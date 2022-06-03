@@ -664,73 +664,117 @@
 
       "list": [
         {
+          "goodsCode": 5650307,
           "type": "3人用ソファ",
           "price": 64900,
+          "color": "ベージュ/ミドルブラウン",
+          "size": "幅97×奥行195×高さ20cm",
+          "material": "ポリエステル",
+          "guaranteeYear": "1年",
+          "weight": "約22kg",
+          "wrapSize": "幅29×奥行29×高さ101cm",
+          "pictures": [
+            "http://localhost:8080/assets/images/brownThree1.webp",
+            "http://localhost:8080/assets/images/brownThree2.webp",
 
-          "itemList": [
+            "http://localhost:8080/assets/images/brownThree3.webp"
+          ]
+        },
+        {
+          "goodsCode": 5650308,
+          "type": "3人用ソファ",
+          "color": "ベージュ/ライトブラウン",
+          "price": 64900,
+          "size": "幅97×奥行195×高さ20cm",
+          "material": "ポリエステル",
+          "weight": "約22kg",
+          "guaranteeYear": "1年",
+          "wrapSize": "幅29×奥行29×高さ101cm",
+          "pictures": [
+            "http://localhost:8080/assets/images/lightThree1.webp",
+            "http://localhost:8080/assets/images/lightThree2.webp",
+            "http://localhost:8080/assets/images/lightThree3.webp"
+          ]
+        },
+        {
+          "goodsCode": 5650309,
+          "type": "2人用ソファ",
+          "color": "ホワイト",
+          "price": 54900,
+          "size": "幅97×奥行195×高さ20cm",
+          "material": "ポリエステル",
+          "weight": "約22kg",
+          "guaranteeYear": "1年",
+          "wrapSize": "幅29×奥行29×高さ101cm",
+          "pictures": []
+        },
+        {
+          "goodsCode": 5650310,
+          "type": "2人用ソファ",
+          "color": "ベージュ/ミドルブラウン",
+          "price": 54900,
+          "size": "幅97×奥行195×高さ20cm",
+          "material": "ポリエステル",
+          "weight": "約22kg",
+          "guaranteeYear": "1年",
+          "wrapSize": "幅29×奥行29×高さ101cm",
+          "pictures": [
+            "http://localhost:8080/assets/images/brownTwo1.webp",
+            "http://localhost:8080/assets/images/brownTwo2.jpg",
+
+            "http://localhost:8080/assets/images/brownTwo3.jpg"
+          ]
+        },
+        {
+          "goodsCode": 5650311,
+          "type": "2人用ソファ",
+          "color": "ベージュ/ライトブラウン",
+          "price": 54900,
+          "size": "幅97×奥行195×高さ20cm",
+          "material": "ポリエステル",
+          "weight": "約22kg",
+          "guaranteeYear": "1年",
+          "wrapSize": "幅29×奥行29×高さ101cm",
+          "pictures": [
+            "http://localhost:8080/assets/images/lightTwo1.webp",
+            "http://localhost:8080/assets/images/lightTwo2.jpg",
+            "http://localhost:8080/assets/images/lightTwo3.jpg"
+          ]
+        }
+      ],
+      "listColor": [
+        {
+          "three": [
             {
-              "goodsCode": 5650307,
               "color": "ベージュ/ミドルブラウン",
-              "colorImg":	"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8888634310686/BasicColor_BE_MBR.jpg",
-              "size": "幅97×奥行195×高さ20cm",
-              "material": "ポリエステル",
-              "weight": "約22kg",
-              "guaranteeYear": "1年",
-              "wrapSize": "幅29×奥行29×高さ101cm",
-              "pictures": [{"img1":"https://www.nitori-net.jp/ecstatic/image/product/1…960/113896001.jpg?imwidth=97&ts=20220421065313009"}, {"img2"}, {"img3"}]
+              "colorImg": "http://localhost:8080/assets/images/ミドルブラウン.webp"
             },
             {
-              "goodsCode": 5650308,
               "color": "ベージュ/ライトブラウン",
-              "colorImg": "https://www.nitori-net.jp/ecstatic/image/sys-master/images/8890487210014/BasicColor_BE_LBR.jpg",
-              "size": "幅97×奥行195×高さ20cm",
-              "material": "ポリエステル",
-              "weight": "約22kg",
-              "guaranteeYear": "1年",
-              "wrapSize": "幅29×奥行29×高さ101cm",
-              "pictures": ["img1", "img2", "img3"]
+              "colorImg": "http://localhost:8080/assets/images/light.webp"
             }
           ]
         },
         {
-          "type": "2人用ソファ",
-          "price": 54900,
-          "itemList": [
+          "two": [
             {
-              "goodsCode": 5650309,
               "color": "ホワイト",
-              "colorImg": "https://www.nitori-net.jp/ecstatic/image/sys-master/images/8966164348958/BasicColor_WH.jpg",
-              "size": "幅97×奥行195×高さ20cm",
-              "material": "ポリエステル",
-              "weight": "約22kg",
-              "guaranteeYear": "1年",
-              "wrapSize": "幅29×奥行29×高さ101cm",
-              "pictures": ["img1", "img2", "img3"]
+              "colorImg": "http://localhost:8080/assets/images/white.webp"
             },
             {
-              "goodsCode": 5650310,
               "color": "ベージュ/ミドルブラウン",
-              "colorImg":	"https://www.nitori-net.jp/ecstatic/image/sys-master/images/8888634310686/BasicColor_BE_MBR.jpg",
-              "size": "幅97×奥行195×高さ20cm",
-              "material": "ポリエステル",
-              "weight": "約22kg",
-              "guaranteeYear": "1年",
-              "wrapSize": "幅29×奥行29×高さ101cm",
-              "pictures": ["img1", "img2", "img3"]
+              "colorImg": "http://localhost:8080/assets/images/ミドルブラウン.webp"
             },
             {
-              "goodsCode": 5650311,
               "color": "ベージュ/ライトブラウン",
-              "colorImg": "https://www.nitori-net.jp/ecstatic/image/sys-master/images/8890487210014/BasicColor_BE_LBR.jpg",
-              "size": "幅97×奥行195×高さ20cm",
-              "material": "ポリエステル",
-              "weight": "約22kg",
-              "guaranteeYear": "1年",
-              "wrapSize": "幅29×奥行29×高さ101cm",
-              "pictures": ["img1", "img2", "img3"]
+              "colorImg": "http://localhost:8080/assets/images/light.webp"
             }
           ]
         }
+      ],
+      "listType": [
+        { "type": "3人用ソファ", "price": 64900 },
+        { "type": "2人用ソファ", "price": 54900 }
       ]
     }
   ]
