@@ -1,4 +1,16 @@
 <template>
+  <div class="swiper-container">
+    <div class="inner-swiper">
+      <div class="swiper-slide" v-for="(imgs, index) in imgList" :key="index">
+        <div
+          class="silde-image-div"
+          v-for="(img, idx2) in imgs"
+          :key="idx2"
+          :style="{ backgroundImage: 'url(' + img + ')' }"
+        ></div>
+      </div>
+    </div>
+  </div>
   <div class="g-units-lg">
     <dl class="p-customize js-sku-variations" data-index="0">
       <dt>
@@ -18,7 +30,7 @@
           >
             <option disabled value="" selected>请选择</option>
             <option
-              v-for="(item, index) in listType"
+              v-for="(item, index) in listColor"
               :key="index"
               :value="item.type"
               data-code="06300080001"
@@ -53,28 +65,20 @@
         <ul class="g-flow-sm">
           <li>
             <label class="g-checkable g-checkable-circle">
-              <input
-                v-for="(color, index) in listColorThree"
-                :key="index"
-                v-model="cl"
-                type="radio"
-                name="1カラー"
-                checked=""
-                value="color.color"
-                data-parent="06300080001"
-                data-index="0"
-                data-label="color.color"
-                data-control="#p-customize1カラー"
-              />
-              <span
-                ><span class="g-checkable_checked"></span
-                ><img
-                  v-for="(color, index) in listColorThree"
-                  :key="index"
-                  class="colorSelect"
-                  :src="color.colorImg"
-                  alt="color"
-              /></span>
+              <select
+                v-model="type"
+                @change="store.commit('setImgList', { type, color })"
+              >
+                <option v-for="(v, index) in listColor" :key="index">
+                  {{ v.type }}
+                </option>
+              </select>
+              <select v-model="color" @change="changeColor">
+                <option v-for="(v, index) in firtVarColors" :key="index">
+                  {{ v }}
+                </option>
+              </select>
+              <span><span class="g-checkable_checked"></span></span>
             </label>
           </li>
         </ul>
@@ -92,7 +96,7 @@
           <dl class="p-price">
             <dd
               class="g-price g-price-lg price-size-up g-price-down"
-              v-for="(item2, index2) in listType"
+              v-for="(item2, index2) in listColor"
               :key="index2"
             >
               {{ item2.price.toLocaleString() }}<span>円</span>
@@ -105,7 +109,7 @@
         <p class="p-point">
           獲得ポイント<span
             class="g-digit"
-            v-for="(item3, index3) in listType"
+            v-for="(item3, index3) in listColor"
             :key="index3"
             >{{ Math.round(item3.price / 1.1 / 100) }}pt
           </span>
@@ -133,8 +137,20 @@ const store = useStore();
 onMounted(() => {
   store.dispatch("setGoodsSize", goodsId);
 });
+let firtVarColors = computed(() => {
+  console.log("in computed !!!!!!!!!!!!!!!!!!!");
+  if (store.getters.getListColor[0]) return store.getters.getListColor[0].color;
+  else return [];
+});
+const changeColor = (e) => {
+  store.commit("setImgList", { type: type.value, color: e.target.value });
+};
+let imgList = computed(() => store.getters.getImgList);
+let type = computed(() => store.getters.getType);
+let color = computed(() => store.getters.getColor);
+
 const goodsDescribe = computed(() => store.getters.getGoodsSize.goodsDescribe);
-const listType = computed(() => store.getters.getGoodsSize.listType);
+
 const list = computed(() => store.getters.getGoodsSize.list);
 const listColorThree = computed(() => store.getters.getListColor.three);
 const listColor = computed(() => store.getters.getListColor);
@@ -205,5 +221,12 @@ dd.price-size-up {
 .g-price-down,
 .g-lg-price-down {
   color: #eb6157;
+}
+.swiper-slide {
+  width: 395px;
+}
+.silde-image-div {
+  width: 350px;
+  height: 350px;
 }
 </style>

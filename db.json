@@ -744,37 +744,19 @@
       ],
       "listColor": [
         {
-          "three": [
-            {
-              "color": "ベージュ/ミドルブラウン",
-              "colorImg": "http://localhost:8080/assets/images/ミドルブラウン.webp"
-            },
-            {
-              "color": "ベージュ/ライトブラウン",
-              "colorImg": "http://localhost:8080/assets/images/light.webp"
-            }
-          ]
+          "type": "3人用ソファ",
+          "price": 64900,
+          "color": ["ベージュ/ミドルブラウン", "ベージュ/ライトブラウン"]
         },
         {
-          "two": [
-            {
-              "color": "ホワイト",
-              "colorImg": "http://localhost:8080/assets/images/white.webp"
-            },
-            {
-              "color": "ベージュ/ミドルブラウン",
-              "colorImg": "http://localhost:8080/assets/images/ミドルブラウン.webp"
-            },
-            {
-              "color": "ベージュ/ライトブラウン",
-              "colorImg": "http://localhost:8080/assets/images/light.webp"
-            }
+          "type": "2人用ソファ",
+          "price": 54900,
+          "color": [
+            "ホワイト",
+            "ベージュ/ミドルブラウン",
+            "ベージュ/ライトブラウン"
           ]
         }
-      ],
-      "listType": [
-        { "type": "3人用ソファ", "price": 64900 },
-        { "type": "2人用ソファ", "price": 54900 }
       ]
     }
   ]
