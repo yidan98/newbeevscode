@@ -137,8 +137,8 @@ const store = useStore();
 onMounted(() => {
   store.dispatch("setGoodsSize", goodsId);
 });
+const listColor = computed(() => store.getters.getListColor);
 let firtVarColors = computed(() => {
-  console.log("in computed !!!!!!!!!!!!!!!!!!!");
   if (store.getters.getListColor[0]) return store.getters.getListColor[0].color;
   else return [];
 });
@@ -153,7 +153,7 @@ const goodsDescribe = computed(() => store.getters.getGoodsSize.goodsDescribe);
 
 const list = computed(() => store.getters.getGoodsSize.list);
 const listColorThree = computed(() => store.getters.getListColor.three);
-const listColor = computed(() => store.getters.getListColor);
+
 const state = reactive({
   str: "3人用ソファ",
   cl: "ベージュ/ミドルブラウン",
@@ -226,7 +226,8 @@ dd.price-size-up {
   width: 395px;
 }
 .silde-image-div {
-  width: 350px;
-  height: 350px;
+  width: 150px;
+  height: 150px;
+  background-size: contain;
 }
 </style>

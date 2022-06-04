@@ -3,7 +3,7 @@
     <tbody>
       <tr>
         <th>商品コード</th>
-        <td>{{ code }}</td>
+        <td>{{ goodsCode }}</td>
       </tr>
       <tr>
         <th>カラー</th>
@@ -44,21 +44,28 @@
 //   store.dispatch("setGoodsSize", goodsId);
 // });
 
-// const code = computed(
-//   () => store.getters.getGoodsSize.list.itemList[0].goodsCode
-// );
-// let color = computed(() => store.getters.getGoodsSize.list.itemList[0].color);
-// let size = computed(() => store.getters.getGoodsSize.list.itemList[0].size);
-// let material = computed(
-//   () => store.getters.getGoodsSize.list.itemList[0].material
-// );
-// let weight = computed(() => store.getters.getGoodsSize.list.itemList[0].weight);
-// let guaranteeYear = computed(
-//   () => store.getters.getGoodsSize.list.itemList[0].guaranteeYear
-// );
-// let wrapSize = computed(
-//   () => store.getters.getGoodsSize.list.itemList[0].wrapSize
-// );
+// const code = computed(() => store.getters.getNew.goodsCode);
+
+// console.log("code", code);
+// let color = computed(() => store.getters.getNew.color);
+// let size = computed(() => store.getters.getNew.size);
+// let material = computed(() => store.getters.getNew.material);
+// let weight = computed(() => store.getters.getNew.weight);
+// let guaranteeYear = computed(() => store.getters.getNew.guaranteeYear);
+// let wrapSize = computed(() => store.getters.getNew.wrapSize);
+import { defineProps, toRefs } from "vue";
+const props = defineProps({
+  goodsCode: Number,
+  color: String,
+  size: String,
+  material: String,
+  weight: String,
+  guaranteeYear: String,
+  wrapSize: String,
+});
+const { goodsCode, color, size, material, weight, guaranteeYear, wrapSize } =
+  toRefs(props);
+console.log("code", goodsCode);
 </script>
 <style>
 table {

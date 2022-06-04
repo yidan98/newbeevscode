@@ -7,6 +7,8 @@ export default {
     listColor: [],
     list: [],
     imgList: [],
+    newList: [],
+    // new: {},
     type: "",
     color: "",
   },
@@ -25,22 +27,37 @@ export default {
       state.list = payload;
       console.log("array push list", payload);
     },
+    setNewList(state, { type, color }) {
+      state.newList = state.list.filter(
+        (info) => info.type === type && info.color === color
+      );
+      // ))
+      // const newList = (state.newList = state.list.filter(
+      //   (info) => info.type === type && info.color === color
+      // ));
+      // state.new = newList[0];
+      console.log("newList", state.newList);
+    },
     setImgList(state, { type, color }) {
       console.log("type, color ", type + " " + color);
       let imgs = state.list.filter(
         (info) => info.type === type && info.color === color
       )[0].pictures;
+
       console.log("imgs", imgs);
 
       const limit = 2;
-      let count = imgs.length / limit;
+      let count = Math.ceil(imgs.length / limit);
       count = imgs.length % limit ? count++ : count;
       let idx = 0;
       state.imgList = [];
+
       while (idx < count) {
         state.imgList.push(imgs.slice(idx * limit, idx * limit + limit));
         idx++;
       }
+      state.type = type;
+      state.color = color;
     },
     setType(state, payload) {
       state.type = payload;
@@ -65,6 +82,7 @@ export default {
       context.commit("setType", type);
       context.commit("setColor", color);
       context.commit("setImgList", { type, color });
+      context.commit("setNewList", { type, color });
 
       console.log("in setGoodsSize method", j);
     },
@@ -90,6 +108,13 @@ export default {
     },
     getColor: (state) => {
       return state.color;
+    },
+    // getNew: (state) => {
+    //   console.log("stateaa", state.new);
+    //   return state.new;
+    // },
+    getNewList: (state) => {
+      return state.newList;
     },
   },
 };

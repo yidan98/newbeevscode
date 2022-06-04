@@ -28,8 +28,12 @@
           class="g-flow-lg g-flow-half g-unit js-sku-manuals p-sku-manuals"
         ></ul>
       </div>
-      <div v-for="(size, index) in itemList" :key="index">
-        <size-table v-bind="size"></size-table>
+      <div>
+        <size-table
+          v-for="(item, index) in newList"
+          :key="index"
+          v-bind="item"
+        ></size-table>
       </div>
       <div class="g-foot-v g-foot-sm" style="display: none">
         <p class="g-align-tc">
@@ -57,14 +61,14 @@ import goodsDetail from "./GoodsDetail.vue";
 import { computed, onMounted } from "vue";
 import { useStore } from "vuex";
 import { useRoute } from "vue-router";
-
 const route = useRoute();
 const goodsId = route.params.goodsId;
 const store = useStore();
 onMounted(() => {
   store.dispatch("setGoodsSize", goodsId);
 });
-let itemList = computed(() => store.getters.getGoodsSize.list);
+
+const newList = computed(() => store.getters.getNewList);
 </script>
 <style>
 ul {
