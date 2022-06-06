@@ -94,8 +94,11 @@
       <div>
         <div class="g-flow-0 g-align-fbl">
           <dl class="p-price">
-            <dd class="g-price g-price-lg price-size-up g-price-down">
-              {{ price }}<span>円</span>
+            <dd
+              class="g-price g-price-lg price-size-up g-price-down"
+              v-if="price !== undefined"
+            >
+              {{ price.toLocaleString() }}<span>円</span>
             </dd>
           </dl>
         </div>
@@ -139,6 +142,9 @@ const changeColor = (e) => {
 let imgList = computed(() => store.getters.getImgList);
 let type = computed(() => store.getters.getType);
 let color = computed(() => store.getters.getColor);
+
+// const neww = computed(() => store.getters.getNew);
+// console.log(neww);
 
 let price = computed(() => store.getters.getNew.price);
 
