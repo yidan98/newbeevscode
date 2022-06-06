@@ -94,12 +94,8 @@
       <div>
         <div class="g-flow-0 g-align-fbl">
           <dl class="p-price">
-            <dd
-              class="g-price g-price-lg price-size-up g-price-down"
-              v-for="(item2, index2) in listColor"
-              :key="index2"
-            >
-              {{ item2.price.toLocaleString() }}<span>円</span>
+            <dd class="g-price g-price-lg price-size-up g-price-down">
+              {{ price.toLocaleString() }}<span>円</span>
             </dd>
           </dl>
         </div>
@@ -107,12 +103,7 @@
 
       <div class="g-butterfly">
         <p class="p-point">
-          獲得ポイント<span
-            class="g-digit"
-            v-for="(item3, index3) in listColor"
-            :key="index3"
-            >{{ Math.round(item3.price / 1.1 / 100) }}pt
-          </span>
+          獲得ポイント<span class="g-digit">{{ point }}pt </span>
           付与
         </p>
         <p class="g-font-sm p-point-link">
@@ -148,6 +139,14 @@ const changeColor = (e) => {
 let imgList = computed(() => store.getters.getImgList);
 let type = computed(() => store.getters.getType);
 let color = computed(() => store.getters.getColor);
+let price, point;
+if (store.getters.getNew != undefined) {
+  price = computed(() => store.getters.getNew.price);
+  console.log("price", price);
+  point = Math.round(price.value / 1.1 / 100);
+}
+
+// price = price.value.toLocaleString();
 
 const goodsDescribe = computed(() => store.getters.getGoodsSize.goodsDescribe);
 

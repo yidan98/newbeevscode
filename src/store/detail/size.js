@@ -8,7 +8,7 @@ export default {
     list: [],
     imgList: [],
     newList: [],
-    // new: {},
+    new: {},
     type: "",
     color: "",
   },
@@ -27,24 +27,29 @@ export default {
       state.list = payload;
       console.log("array push list", payload);
     },
-    setNewList(state, { type, color }) {
-      state.newList = state.list.filter(
-        (info) => info.type === type && info.color === color
-      );
-      // ))
-      // const newList = (state.newList = state.list.filter(
-      //   (info) => info.type === type && info.color === color
-      // ));
-      // state.new = newList[0];
-      console.log("newList", state.newList);
-    },
+    // setNewList(state, { type, color }) {
+    // state.newList = state.list.filter(
+    //   (info) => info.type === type && info.color === color
+    // );
+    // ))
+    // const newList = (state.newList = state.list.filter(
+    //   (info) => info.type === type && info.color === color
+    // ));
+    // state.new = newList[0];
+    //   console.log("newList", state.newList);
+    // },
     setImgList(state, { type, color }) {
       console.log("type, color ", type + " " + color);
       let imgs = state.list.filter(
         (info) => info.type === type && info.color === color
       )[0].pictures;
 
+      state.newList = state.list.filter(
+        (info) => info.type === type && info.color === color
+      );
       console.log("imgs", imgs);
+      state.new = state.newList[0];
+      console.log("newList", state.newList);
 
       const limit = 2;
       let count = Math.ceil(imgs.length / limit);
@@ -82,7 +87,6 @@ export default {
       context.commit("setType", type);
       context.commit("setColor", color);
       context.commit("setImgList", { type, color });
-      context.commit("setNewList", { type, color });
 
       console.log("in setGoodsSize method", j);
     },
@@ -115,6 +119,9 @@ export default {
     // },
     getNewList: (state) => {
       return state.newList;
+    },
+    getNew: (state) => {
+      return state.new;
     },
   },
 };
