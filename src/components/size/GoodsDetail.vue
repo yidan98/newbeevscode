@@ -95,7 +95,7 @@
         <div class="g-flow-0 g-align-fbl">
           <dl class="p-price">
             <dd class="g-price g-price-lg price-size-up g-price-down">
-              {{ price.toLocaleString() }}<span>円</span>
+              {{ price }}<span>円</span>
             </dd>
           </dl>
         </div>
@@ -139,12 +139,14 @@ const changeColor = (e) => {
 let imgList = computed(() => store.getters.getImgList);
 let type = computed(() => store.getters.getType);
 let color = computed(() => store.getters.getColor);
-let price, point;
-if (store.getters.getNew != undefined) {
-  price = computed(() => store.getters.getNew.price);
-  console.log("price", price);
-  point = Math.round(price.value / 1.1 / 100);
-}
+
+let price = computed(() => store.getters.getNew.price);
+
+console.log("price", price.value);
+
+let point = computed(() => Math.round(price.value / 1.1 / 100));
+
+console.log("point", point);
 
 // price = price.value.toLocaleString();
 
