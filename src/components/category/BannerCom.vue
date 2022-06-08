@@ -4,7 +4,7 @@
     <swiper-container></swiper-container>
   </div>
 </template>
-<script>
+<script lang="ts">
 import MyItem from "./MyItem.vue";
 import SwiperContainer from "./SwiperContainer.vue";
 export default {

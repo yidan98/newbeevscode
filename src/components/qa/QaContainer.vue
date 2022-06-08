@@ -35,7 +35,7 @@
     </div>
   </section>
 </template>
-<script setup>
+<script setup lang="ts">
 import qaPage from "./QaPage.vue";
 
 import qaCom from "./QaCom.vue";
@@ -43,7 +43,7 @@ import qaPost from "./QaPost.vue";
 
 import qaSort from "./QaSort.vue";
 import { computed, onMounted } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "../../store/index";
 import { useRoute } from "vue-router";
 
 const route = useRoute();

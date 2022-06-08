@@ -6,7 +6,7 @@
     :spaceBetween="30"
     :slidesPerGroup="1"
     :loop="true"
-    :autoplay="{ autoplay: true }"
+    :autoplay="true"
     :loopFillGroupWithBlank="true"
     :pagination="{
       clickable: true,
@@ -23,7 +23,7 @@
     </swiper-slide>
   </swiper>
 </template>
-<script>
+<script lang="ts">
 import { Swiper, SwiperSlide } from "swiper/vue";
 import SwiperCore, {
   Navigation,
@@ -33,7 +33,7 @@ import SwiperCore, {
   A11y,
 } from "swiper";
 import { onMounted, computed } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "../../store/index";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -49,7 +49,7 @@ export default {
       store.dispatch("setImage");
     });
     let slides = computed(() => store.getters.getImage);
-    const onSwiper = (swiper) => {
+    const onSwiper = (swiper: any) => {
       console.log(swiper);
     };
     const onSlideChange = () => {

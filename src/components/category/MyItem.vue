@@ -37,20 +37,23 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { onMounted, computed } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "../../store/index";
 
 const store = useStore();
-const mouseOverFun = (event) => {
-  // console.log("event", event.target);
-  // event.target.querySelector(".item-list").style.display = "block";
-  let style = "top: " + event.target.offsetTop + "px; display: block;";
-  event.target.querySelector(".item-list").style = style;
+const mouseOverFun = (event: MouseEvent) => {
+  let style =
+    "top: " + (event.target as HTMLElement)!.offsetTop + "px; display: block";
+  (event.target as HTMLElement)
+    .querySelector(".item-list")!
+    .setAttribute("style", style);
 };
-const mouseLeaveFun = (event) => {
-  console.log("event", event);
-  event.target.querySelector(".item-list").style.display = "none";
+const mouseLeaveFun = (event: MouseEvent) => {
+  let style = "display = none";
+  (event.target as HTMLElement)
+    .querySelector(".item-list")!
+    .setAttribute("style", style);
 };
 
 onMounted(() => {

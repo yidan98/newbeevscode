@@ -59,7 +59,7 @@ import sizeTable from "./SizeTable.vue";
 import goodsPicture from "./GoodsPicture.vue";
 import goodsDetail from "./GoodsDetail.vue";
 import { computed, onMounted } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "../../store/index";
 import { useRoute } from "vue-router";
 const route = useRoute();
 const goodsId = route.params.goodsId;

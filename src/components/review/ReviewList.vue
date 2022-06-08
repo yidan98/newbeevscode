@@ -27,7 +27,7 @@
 
 <script setup>
 import { computed, onMounted } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "../../store/index";
 import { useRoute } from "vue-router";
 import ReviewCom from "./ReviewCom.vue";
 const route = useRoute();

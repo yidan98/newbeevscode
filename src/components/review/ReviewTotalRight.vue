@@ -10,7 +10,7 @@
 
 <script setup>
 import { computed, onMounted } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "../../store/index";
 import { useRoute } from "vue-router";
 import reviewTotalRightCom from "./ReviewTotalRightCom.vue";
 const route = useRoute();

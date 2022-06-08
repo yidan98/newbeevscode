@@ -23,7 +23,6 @@
           <select
             v-model="str"
             name=""
-            required=""
             aria-required="true"
             aria-label="ソファタイプの選択"
             data-control="#p-eo-label-"
@@ -46,7 +45,6 @@
             class="ソファタイプ js-Sku-Var"
             name=""
             value="06300080001"
-            checked=""
             aria-required="true"
             data-parent=""
             data-index="0"
@@ -122,7 +120,7 @@
 </template>
 <script setup>
 import { computed, onMounted, reactive, toRefs } from "vue";
-import { useStore } from "vuex";
+import { useStore } from "../../store/index";
 import { useRoute } from "vue-router";
 
 const route = useRoute();

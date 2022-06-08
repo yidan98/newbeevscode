@@ -19,7 +19,7 @@ export default {
 };
 </script> -->
 <script setup>
-import { useStore } from "vuex";
+import { useStore } from "../../store/index";
 const store = useStore();
 
 const qaSort = (e) => store.commit("qaSort", e.target.value);

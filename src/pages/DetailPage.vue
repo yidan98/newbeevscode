@@ -15,7 +15,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import ReviewContainer from "../components/review/ReviewContainer.vue";
 import QaContainer from "../components/qa/QaContainer.vue";
 import SizeContainer from "../components/size/SizeContainer.vue";

@@ -1,6 +1,13 @@
 const url = "http://localhost:3000/goods/qa/";
 const headers = { Accept: "application/json" };
-
+type qaState = {
+  pageNo: number;
+  goodsQa: { qaList: qa[] };
+};
+type qa = {
+  questionDate: Date;
+  count: number;
+};
 export default {
   state: {
     pageNo: 1,
@@ -8,24 +15,24 @@ export default {
   },
   mutations: {
     //syncrous
-    setGoodsQa(state, payload) {
+    setGoodsQa(state: qaState, payload: any) {
       //state.goodsQa.push(...payload);
       //state.goodsQa = payload
       state.goodsQa = payload[0];
       console.log("array push goodsQa", payload);
     },
 
-    nextPage(state) {
+    nextPage(state: qaState) {
       state.pageNo++;
     },
-    previousPage(state) {
+    previousPage(state: qaState) {
       state.pageNo--;
     },
-    qaSort(state, value) {
+    qaSort(state: qaState, value: any) {
       if (value === "created_at") {
-        state.goodsQa.qaList.sort((a, b) => {
-          return Date.parse(b.questionDate) - Date.parse(a.questionDate);
-        });
+        state.goodsQa.qaList.sort(
+          (a, b) => +new Date(b.questionDate) - +new Date(a.questionDate)
+        );
       } else {
         state.goodsQa.qaList.sort((a, b) => b.count - a.count);
       }
@@ -34,20 +41,20 @@ export default {
 
   actions: {
     //asyncronous
-    async setGoodsQa(context, payload) {
+    async setGoodsQa({ commit }: { commit: Function }, payload: string) {
       const goodsQa = await fetch(url + payload, { headers });
       const j = await goodsQa.json();
-      context.commit("setGoodsQa", j);
+      commit("setGoodsQa", j);
       console.log("in setGoodsQa method", j);
     },
   },
   getters: {
-    getGoodsQa: (state) => {
+    getGoodsQa: (state: qaState) => {
       console.log("in getGoodsQa method", state.goodsQa);
       console.log(state.goodsQa);
       return state.goodsQa;
     },
-    getPageNo: (state) => {
+    getPageNo: (state: qaState) => {
       return state.pageNo;
     },
   },

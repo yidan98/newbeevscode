@@ -1,6 +1,27 @@
 const url = "http://localhost:3000/goods/size/";
 const headers = { Accept: "application/json" };
-
+type sizeState = {
+  goodsSize: {};
+  listColor: [];
+  list: [];
+  imgList: string[][];
+  newList: info[];
+  new: {};
+  type: string;
+  color: string;
+};
+type info = {
+  goodsCode: string;
+  type: string;
+  color: string;
+  price: number;
+  size: string;
+  material: string;
+  weight: string;
+  guaranteeYear: string;
+  wrapSize: string;
+  pictures: string[];
+};
 export default {
   state: {
     goodsSize: {},
@@ -14,16 +35,16 @@ export default {
   },
   mutations: {
     //syncrous
-    setGoodsSize(state, payload) {
+    setGoodsSize(state: sizeState, payload: any) {
       //state.goodsSize.push(...payload);
       //state.goodsSize = payload
       state.goodsSize = payload[0];
     },
-    setListColor(state, payload) {
+    setListColor(state: sizeState, payload: any) {
       state.listColor = payload;
       console.log("array push listColor", payload);
     },
-    setList(state, payload) {
+    setList(state: sizeState, payload: any) {
       state.list = payload;
       console.log("array push list", payload);
     },
@@ -38,14 +59,19 @@ export default {
     // state.new = newList[0];
     //   console.log("newList", state.newList);
     // },
-    setImgList(state, { type, color }) {
+    setImgList(
+      state: sizeState,
+      { type, color }: { type: string; color: string }
+    ) {
       console.log("type, color ", type + " " + color);
-      let imgs = state.list.filter(
-        (info) => info.type === type && info.color === color
-      )[0].pictures;
+      let imgs: string[] = [];
+
+      imgs = state.list.filter(
+        (info: info) => info.type === type && info.color === color
+      )[0]["pictures"];
 
       state.newList = state.list.filter(
-        (info) => info.type === type && info.color === color
+        (info: info) => info.type === type && info.color === color
       );
       console.log("imgs", imgs);
       state.new = state.newList[0];
@@ -64,63 +90,63 @@ export default {
       state.type = type;
       state.color = color;
     },
-    setType(state, payload) {
+    setType(state: sizeState, payload: string) {
       state.type = payload;
     },
-    setColor(state, payload) {
+    setColor(state: sizeState, payload: string) {
       state.color = payload;
     },
   },
 
   actions: {
     //asyncronous
-    async setGoodsSize(context, payload) {
+    async setGoodsSize({ commit }: { commit: Function }, payload: string) {
       const goodsSize = await fetch(url + payload, { headers });
       const j = await goodsSize.json();
-      context.commit("setGoodsSize", j);
+      commit("setGoodsSize", j);
 
-      context.commit("setList", j[0].list);
-      context.commit("setListColor", j[0].listColor);
+      commit("setList", j[0].list);
+      commit("setListColor", j[0].listColor);
       const type = j[0].listColor[0].type;
       const color = j[0].listColor[0].color[0];
 
-      context.commit("setType", type);
-      context.commit("setColor", color);
-      context.commit("setImgList", { type, color });
+      commit("setType", type);
+      commit("setColor", color);
+      commit("setImgList", { type, color });
 
       console.log("in setGoodsSize method", j);
     },
   },
   getters: {
-    getGoodsSize: (state) => {
+    getGoodsSize: (state: sizeState) => {
       console.log("in getGoodsSize method", state.goodsSize);
       console.log(state.goodsSize);
       return state.goodsSize;
     },
-    getListColor: (state) => {
+    getListColor: (state: sizeState) => {
       return state.listColor;
     },
-    getList: (state) => {
+    getList: (state: sizeState) => {
       return state.list;
     },
 
-    getImgList: (state) => {
+    getImgList: (state: sizeState) => {
       return state.imgList;
     },
-    getType: (state) => {
+    getType: (state: sizeState) => {
       return state.type;
     },
-    getColor: (state) => {
+    getColor: (state: sizeState) => {
       return state.color;
     },
     // getNew: (state) => {
     //   console.log("stateaa", state.new);
     //   return state.new;
     // },
-    getNewList: (state) => {
+    getNewList: (state: sizeState) => {
       return state.newList;
     },
-    getNew: (state) => {
+    getNew: (state: sizeState) => {
       return state.new;
     },
   },
