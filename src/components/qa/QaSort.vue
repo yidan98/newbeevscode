@@ -5,8 +5,8 @@
     name="sort"
     v-on:change="qaSort"
   >
+    <option value="created_at">新しい順</option>
     <option value="total_yes">トップ評価</option>
-    <option value="created_at" selected="">新しい順</option>
   </select>
 </template>
 <!-- <script>
@@ -18,10 +18,15 @@ export default {
   },
 };
 </script> -->
-<script setup>
+<script setup lang="ts">
 import { useStore } from "../../store/index";
 const store = useStore();
 
-const qaSort = (e) => store.commit("qaSort", e.target.value);
+// const qaSort = (e) => store.commit("qaSort", e.target.value);
+const qaSort = (e: Event): void => {
+  if (e.target instanceof HTMLSelectElement) {
+    store.commit("qaSort", e.target.value);
+  }
+};
 </script>
 <style></style>

@@ -3,7 +3,7 @@
     <hotImageLink v-bind="goods"></hotImageLink>
   </div>
 </template>
-<script>
+<script lang="ts">
 import HotImageLink from "./HotImageLink.vue";
 export default {
   components: { HotImageLink },

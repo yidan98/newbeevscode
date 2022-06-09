@@ -118,7 +118,7 @@
     <p class="js-sku-delivery"></p>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import { computed, onMounted, reactive, toRefs } from "vue";
 import { useStore } from "../../store/index";
 import { useRoute } from "vue-router";

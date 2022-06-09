@@ -5,11 +5,12 @@
     </template>
   </div>
 </template>
-<script>
+<script lang="ts">
 import { mapActions, mapGetters } from "vuex";
-import HotImage from "./HotImage";
+import { defineComponent } from "vue";
+import HotImage from "./HotImage.vue";
 
-export default {
+export default defineComponent({
   components: { HotImage },
   methods: {
     ...mapActions({ fetchHotGoodses: "setHotGoodses" }),
@@ -20,7 +21,7 @@ export default {
   mounted() {
     this.fetchHotGoodses();
   },
-};
+});
 
 /*新的方法
 

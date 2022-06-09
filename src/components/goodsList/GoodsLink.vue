@@ -22,8 +22,9 @@
   </a>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import { defineComponent } from "vue";
+export default defineComponent({
   data() {
     return {
       IsComment: false,
@@ -45,7 +46,7 @@ export default {
     counter: String,
     comment: String,
   },
-};
+});
 </script>
 
 <style>

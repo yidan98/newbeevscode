@@ -70,6 +70,7 @@
 <script>
 import StarRating from "vue-star-rating";
 import "viewerjs/dist/viewer.css";
+
 import { directive as viewer } from "v-viewer";
 
 export default {

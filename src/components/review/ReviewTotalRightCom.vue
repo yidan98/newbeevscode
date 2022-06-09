@@ -32,6 +32,7 @@
 
 <script>
 import { mapMutations } from "vuex";
+// import { defineComponent } from "vue";
 import StarRating from "vue-star-rating";
 export default {
   components: {
@@ -46,8 +47,6 @@ export default {
   },
   methods: {
     async clickRating(rating) {
-      console.log("rrrrrrr", this.$store.getters.getReviewList.length);
-      console.log("aaaaaa", this.$store.getters.getReview.reviewCount);
       if (
         this.$store.getters.getReviewList.length === 0 &&
         this.$store.getters.getReview.reviewCount > 3

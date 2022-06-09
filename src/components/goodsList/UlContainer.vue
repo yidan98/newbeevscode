@@ -1,8 +1,8 @@
 <template>
   <div class="ul-container"><goods-list></goods-list></div>
 </template>
-<script>
-import GoodsList from "./GoodsList";
+<script lang="ts">
+import GoodsList from "./GoodsList.vue";
 export default {
   components: { GoodsList },
 };

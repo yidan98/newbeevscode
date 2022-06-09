@@ -6,10 +6,11 @@
   </ul>
 </template>
 
-<script>
+<script lang="ts">
 import { mapActions, mapGetters } from "vuex";
-import GoodsLi from "./GoodsLi";
-export default {
+import { defineComponent } from "vue";
+import GoodsLi from "./GoodsLi.vue";
+export default defineComponent({
   components: { GoodsLi },
   methods: {
     ...mapActions({ fetchNewGoodses: "setNewGoodses" }),
@@ -20,7 +21,7 @@ export default {
   mounted() {
     this.fetchNewGoodses();
   },
-};
+});
 </script>
 
 <style>

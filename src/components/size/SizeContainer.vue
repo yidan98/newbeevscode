@@ -54,7 +54,7 @@
     </section>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import sizeTable from "./SizeTable.vue";
 import goodsPicture from "./GoodsPicture.vue";
 import goodsDetail from "./GoodsDetail.vue";
