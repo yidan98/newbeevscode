@@ -1,4 +1,56 @@
 <template>
+  <dl class="p-customize js-sku-variations" data-index="0">
+    <dt style="margin-bottom: 20px">
+      ソファタイプ：<b id="p-customize0ソファタイプ">{{ type }}</b>
+    </dt>
+
+    <dd>
+      <div class="g-select g-select-sm js-sku-variations-dropdown">
+        <i class="g-i g-i-dropdown" aria-hidden="true"></i>
+        <select
+          v-model="type"
+          @change="store.commit('setImgList', { type, color })"
+        >
+          <option v-for="(v, index) in listColor" :key="index">
+            {{ v.type }}
+          </option>
+        </select>
+      </div>
+    </dd>
+
+    <dt style="margin-top: 20px">
+      カラー：<b id="p-customize1カラー">{{ color }}</b>
+    </dt>
+
+    <dd style="margin-bottom: 20px">
+      <ul class="g-flow-sm">
+        <li v-for="(v, index) in firtVarColors" :key="index">
+          <label class="g-checkable g-checkable-circle">
+            <input
+              v-model="color"
+              @change="changeColor"
+              type="radio"
+              name="1カラー"
+              value="00100180035"
+              data-parent="06300080001"
+              data-index="0"
+              data-label="color"
+              data-control="#p-customize1カラー"
+            />
+            <span
+              ><span class="g-checkable_checked"></span
+              ><img
+                src="v.colorImg"
+                alt="color"
+                style="border-radius: 50%; height: 40px"
+            /></span>
+          </label>
+        </li>
+      </ul>
+    </dd>
+  </dl>
+
+  lalalalalalalalalalala
   <div class="swiper-container">
     <div class="inner-swiper">
       <div class="swiper-slide" v-for="(imgs, index) in imgList" :key="index">
@@ -10,53 +62,45 @@
         ></div>
       </div>
     </div>
+    <div class="p-gallery_controls">
+      <div class="p-gallery_btn p-gallery_prev swiper-button-disabled">
+        <span
+          class="material-symbols-outlined"
+          style="height: 700px; color: #009e96"
+        >
+          arrow_back_ios
+        </span>
+      </div>
+      <div
+        class="p-gallery_pagination swiper-pagination-clickable swiper-pagination-bullets"
+      >
+        <span
+          class="swiper-pagination-bullet swiper-pagination-bullet-active"
+        ></span
+        ><span class="swiper-pagination-bullet"></span>
+      </div>
+      <div
+        class="p-gallery_btn p-gallery_next"
+        style="height: 700px; color: #009e96"
+      >
+        <span class="material-symbols-outlined"> arrow_forward_ios </span>
+      </div>
+    </div>
   </div>
   <div class="g-units-lg">
     <dl class="p-customize js-sku-variations" data-index="0">
       <dt>
-        ソファタイプ：<b id="p-customize0ソファタイプ">{{ str }}</b>
+        ソファタイプ：<b id="p-customize0ソファタイプ">{{ type }} </b>
       </dt>
 
       <dd>
         <div class="g-select g-select-sm js-sku-variations-dropdown">
           <i class="g-i g-i-dropdown" aria-hidden="true"></i>
-          <select
-            v-model="str"
-            name=""
-            aria-required="true"
-            aria-label="ソファタイプの選択"
-            data-control="#p-eo-label-"
-          >
-            <option disabled value="" selected>请选择</option>
-            <option
-              v-for="(item, index) in listColor"
-              :key="index"
-              :value="item.type"
-              data-code="06300080001"
-              data-label="list.type"
-              data-parent=""
-            >
-              {{ item.type }}
-            </option>
-          </select>
-
-          <input
-            type="hidden"
-            class="ソファタイプ js-Sku-Var"
-            name=""
-            value="06300080001"
-            aria-required="true"
-            data-parent=""
-            data-index="0"
-            data-label="3人用ソファ"
-            data-control="#p-eo-label-"
-            data-eo-code=""
-          />
         </div>
       </dd>
 
       <dt>
-        カラー：<b id="p-customize1カラー">{{ cl }}</b>
+        カラー：<b id="p-customize1カラー">{{ color }}</b>
       </dt>
 
       <dd>
@@ -119,7 +163,8 @@
   </div>
 </template>
 <script setup lang="ts">
-import { computed, onMounted, reactive, toRefs } from "vue";
+import { computed, onMounted } from "vue";
+// , reactive, toRefs
 import { useStore } from "../../store/index";
 import { useRoute } from "vue-router";
 
@@ -159,11 +204,11 @@ const goodsDescribe = computed(() => store.getters.getGoodsSize.goodsDescribe);
 const list = computed(() => store.getters.getGoodsSize.list);
 const listColorThree = computed(() => store.getters.getListColor.three);
 
-const state = reactive({
-  str: "3人用ソファ",
-  cl: "ベージュ/ミドルブラウン",
-});
-let { str, cl } = toRefs(state);
+// const state = reactive({
+//   str: "3人用ソファ",
+//   cl: "ベージュ/ミドルブラウン",
+// });
+// let { str, cl } = toRefs(state);
 
 console.log("list", list);
 console.log("listColorThree", listColorThree);
@@ -234,5 +279,63 @@ dd.price-size-up {
   width: 150px;
   height: 150px;
   background-size: contain;
+  margin-right: 20px;
+}
+.silde-image-div:hover {
+  opacity: 0.8;
+}
+.inner-swiper {
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+.swiper-slide {
+  display: flex;
+  flex-wrap: wrap;
+}
+.swiper-container {
+  overflow: hidden;
+  /* background-color: pink; */
+  width: 340px;
+  height: 230px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.swiper-container:hover {
+  overflow: visible;
+}
+.p-gallery_controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.swiper-pagination-bullet-active {
+  background: #009e96;
+}
+li {
+  list-style: none;
+}
+.g-checkable input[type="radio"],
+.g-checkable input[type="checkbox"],
+.g-lg-checkable input[type="radio"],
+.g-lg-checkable input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-color: transparent;
+  border-radius: 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.g-select {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background-color: #fff;
 }
 </style>

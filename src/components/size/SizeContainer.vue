@@ -1,5 +1,11 @@
 <template>
   <div>
+    <div class="js-sku-name">
+      <h1 class="js-sku-name">{{ name }}</h1>
+    </div>
+    <div class="js-sku-code">
+      <p class="js-sku-code" style="color: #333">商品コード {{ goodsCode }}</p>
+    </div>
     <span>
       <div>
         <goods-picture></goods-picture>
@@ -69,13 +75,14 @@ onMounted(() => {
 });
 
 const newList = computed(() => store.getters.getNewList);
+const name = computed(() => store.getters.getNew.name);
+const goodsCode = computed(() => store.getters.getNew.goodsCode);
 </script>
-<style>
+<style scoped>
 ul {
   list-style: none;
 }
 .material-symbols-outlined {
-  cursor: pointer;
   color: #009e96;
   flex-shrink: 0;
   display: inline-block;

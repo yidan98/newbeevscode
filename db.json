@@ -668,6 +668,7 @@
           "type": "3人用ソファ",
           "price": 64900,
           "color": "ベージュ/ミドルブラウン",
+          "name": "ヒジ付きローソファ ふっくらパン ミドルブラウン",
           "size": "幅97×奥行195×高さ20cm",
           "material": "ポリエステル",
           "guaranteeYear": "1年",
@@ -684,6 +685,8 @@
           "goodsCode": 5650308,
           "type": "3人用ソファ",
           "color": "ベージュ/ライトブラウン",
+          "name": "ヒジ付きローソファ ふっくらパン ライトブラウン",
+
           "price": 64900,
           "size": "幅97×奥行195×高さ20cm",
           "material": "ポリエステル",
@@ -699,7 +702,9 @@
         {
           "goodsCode": 5650309,
           "type": "2人用ソファ",
-          "color": "ホワイト",
+          "color": "ピンク",
+          "name": "ヒジ付きローソファ ふっくらパン イチゴ(PI)",
+
           "price": 54900,
           "size": "幅97×奥行195×高さ20cm",
           "material": "ポリエステル",
@@ -712,6 +717,7 @@
           "goodsCode": 5650310,
           "type": "2人用ソファ",
           "color": "ベージュ/ミドルブラウン",
+          "name": "ヒジ付きローソファ ふっくらパン ミドルブラウン",
           "price": 54900,
           "size": "幅97×奥行195×高さ20cm",
           "material": "ポリエステル",
@@ -729,6 +735,8 @@
           "goodsCode": 5650311,
           "type": "2人用ソファ",
           "color": "ベージュ/ライトブラウン",
+          "name": "ヒジ付きローソファ ふっくらパン ライトブラウン",
+
           "price": 54900,
           "size": "幅97×奥行195×高さ20cm",
           "material": "ポリエステル",
@@ -745,16 +753,37 @@
       "listColor": [
         {
           "type": "3人用ソファ",
+
           "price": 64900,
-          "color": ["ベージュ/ミドルブラウン", "ベージュ/ライトブラウン"]
+          "color": ["ベージュ/ミドルブラウン", "ベージュ/ライトブラウン"],
+          "colorImg": [
+            {
+              "color": "ベージュ/ミドルブラウン",
+              "img": "http://localhost:8080/assets/images/brown.webp"
+            },
+            {
+              "color": "ベージュ/ライトブラウン",
+              "img": "http://localhost:8080/assets/images/light.webp"
+            }
+          ]
         },
         {
           "type": "2人用ソファ",
           "price": 54900,
           "color": [
-            "ホワイト",
+            "ピンク",
             "ベージュ/ミドルブラウン",
             "ベージュ/ライトブラウン"
+          ],
+          "colorImg": [
+            {
+              "color": "ベージュ/ミドルブラウン",
+              "img": "http://localhost:8080/assets/images/brown.webp"
+            },
+            {
+              "color": "ベージュ/ライトブラウン",
+              "img": "http://localhost:8080/assets/images/light.webp"
+            }
           ]
         }
       ]
