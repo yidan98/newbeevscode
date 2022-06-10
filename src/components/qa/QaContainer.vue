@@ -1,15 +1,18 @@
 <template>
   <section>
-    <h2>
-      <i class="qaIcon"></i>
-      <span
-        ><img
-          src="../../../src/assets/icons/chat3.png"
-          width="30"
-          height="30"
-        />&emsp;商品QA</span
-      >
-    </h2>
+    <div>
+      <h2>
+        <i class="qaIcon"></i>
+        <span
+          ><img
+            src="../../../src/assets/icons/chat3.png"
+            width="30"
+            height="30"
+          />
+          商品Q&A</span
+        >
+      </h2>
+    </div>
     <!-- 全部的 -->
     <div id="questionsArea">
       <!-- 第一行 全28件 和 新顺序-->

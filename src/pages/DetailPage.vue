@@ -5,7 +5,7 @@
       <h1>商品详情页面</h1>
       <p>goodsId:{{ goodsId }}</p>
     </div>
-    <div>
+    <div style="display: flex; justify-content: center">
       <size-container></size-container>
     </div>
     <div>

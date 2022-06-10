@@ -1,41 +1,4 @@
 <template>
-  lalalalalalalalalalala
-  <div class="swiper-container">
-    <div class="inner-swiper">
-      <div class="swiper-slide" v-for="(imgs, index) in imgList" :key="index">
-        <div
-          class="silde-image-div"
-          v-for="(img, idx2) in imgs"
-          :key="idx2"
-          :style="{ backgroundImage: 'url(' + img + ')' }"
-        ></div>
-      </div>
-    </div>
-    <div class="p-gallery_controls">
-      <div class="p-gallery_btn p-gallery_prev swiper-button-disabled">
-        <span
-          class="material-symbols-outlined"
-          style="height: 700px; color: #009e96"
-        >
-          arrow_back_ios
-        </span>
-      </div>
-      <div
-        class="p-gallery_pagination swiper-pagination-clickable swiper-pagination-bullets"
-      >
-        <span
-          class="swiper-pagination-bullet swiper-pagination-bullet-active"
-        ></span
-        ><span class="swiper-pagination-bullet"></span>
-      </div>
-      <div
-        class="p-gallery_btn p-gallery_next"
-        style="height: 700px; color: #009e96"
-      >
-        <span class="material-symbols-outlined"> arrow_forward_ios </span>
-      </div>
-    </div>
-  </div>
   <div class="g-units-lg">
     <dl class="p-customize js-sku-variations" data-index="0">
       <dt>
@@ -92,17 +55,24 @@
         </div>
       </div>
 
-      <div class="g-butterfly">
+      <div class="g-butterfly" style="display: flex">
         <p class="p-point">
-          獲得ポイント<span class="g-digit">{{ point }}pt </span>
-          付与
+          獲得ポイント
+          <span class="g-digit">{{ point }}pt </span>
+          付与&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         </p>
         <p class="g-font-sm p-point-link">
           <a class="g-link" href="/ec/userguide/memberscardpoint/">
-            <span>ポイントについて</span>
+            <span> ポイントについて</span>
             <i class="g-i g-i-info" aria-hidden="true"></i>
           </a>
         </p>
+        <span
+          class="material-symbols-outlined"
+          style="color: #009e96; margin-top: 0.8rem"
+        >
+          error
+        </span>
       </div>
     </div>
     <p class="js-sku-delivery"></p>
@@ -128,7 +98,7 @@ const listColor = computed(() => store.getters.getListColor);
 const changeColor = (e) => {
   store.commit("setImgList", { type: type.value, color: e.target.value });
 };
-let imgList = computed(() => store.getters.getImgList);
+// let imgList = computed(() => store.getters.getImgList);
 let type = computed(() => store.getters.getType);
 let color = computed(() => store.getters.getColor);
 
@@ -168,6 +138,14 @@ console.log("listColorThree", listColorThree);
 console.log("listColor", listColor);
 </script>
 <style>
+.g-link {
+  text-decoration: none;
+  color: #333;
+}
+.g-link:hover {
+  text-decoration: underline;
+  color: #009e96;
+}
 .g-checkable-img,
 .g-checkable-circle,
 .g-checkable-square,

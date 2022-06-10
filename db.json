@@ -711,7 +711,12 @@
           "weight": "約22kg",
           "guaranteeYear": "1年",
           "wrapSize": "幅29×奥行29×高さ101cm",
-          "pictures": []
+          "pictures": [
+            "http://localhost:8080/assets/images/pinkTwo1.webp",
+            "http://localhost:8080/assets/images/pinkTwo2.jpg",
+
+            "http://localhost:8080/assets/images/pinkTwo3.jpg"
+          ]
         },
         {
           "goodsCode": 5650310,
