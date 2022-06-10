@@ -9,11 +9,13 @@ type sizeState = {
   new: {};
   type: string;
   color: string;
+  colorList: string[];
 };
 type info = {
   goodsCode: string;
   type: string;
   color: string;
+  colorList: [];
   price: number;
   size: string;
   material: string;
@@ -21,6 +23,10 @@ type info = {
   guaranteeYear: string;
   wrapSize: string;
   pictures: string[];
+};
+type V = {
+  type: string;
+  color: string[];
 };
 export default {
   state: {
@@ -43,6 +49,11 @@ export default {
     setListColor(state: sizeState, payload: any) {
       state.listColor = payload;
       console.log("array push listColor", payload);
+    },
+    setColorList(state: sizeState, type: string) {
+      state.colorList = state.listColor.filter((v: V) => v.type === type)[0][
+        "color"
+      ];
     },
     setList(state: sizeState, payload: any) {
       state.list = payload;
@@ -99,6 +110,21 @@ export default {
   },
 
   actions: {
+    setImgList(context, { type, color }: { type: string; color: string }) {
+      context.commit("setColorList", type);
+
+      const va = context.state.listColor.filter((v) => v.type === type);
+      const filteredColor = va[0].color.filter(
+        (v) => v === context.state.color
+      );
+      if (filteredColor.length === 0) {
+        context.commit("setColor", va[0].color[0]);
+        context.commit("setImgList", { type, color: va[0].color[0] });
+      } else {
+        context.commit("setImgList", { type, color });
+      }
+    },
+
     //asyncronous
     async setGoodsSize({ commit }: { commit: Function }, payload: string) {
       const goodsSize = await fetch(url + payload, { headers });
@@ -113,6 +139,7 @@ export default {
       commit("setType", type);
       commit("setColor", color);
       commit("setImgList", { type, color });
+      commit("setColorList", type);
 
       console.log("in setGoodsSize method", j);
     },
@@ -148,6 +175,10 @@ export default {
     },
     getNew: (state: sizeState) => {
       return state.new;
+    },
+    getColorList: (state: sizeState) => {
+      console.log("colors", state.colorList);
+      return state.colorList;
     },
   },
 };

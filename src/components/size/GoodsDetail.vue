@@ -1,55 +1,4 @@
 <template>
-  <dl class="p-customize js-sku-variations" data-index="0">
-    <dt style="margin-bottom: 20px">
-      ソファタイプ：<b id="p-customize0ソファタイプ">{{ type }}</b>
-    </dt>
-
-    <dd>
-      <div class="g-select g-select-sm js-sku-variations-dropdown">
-        <i class="g-i g-i-dropdown" aria-hidden="true"></i>
-        <select
-          v-model="type"
-          @change="store.commit('setImgList', { type, color })"
-        >
-          <option v-for="(v, index) in listColor" :key="index">
-            {{ v.type }}
-          </option>
-        </select>
-      </div>
-    </dd>
-
-    <dt style="margin-top: 20px">
-      カラー：<b id="p-customize1カラー">{{ color }}</b>
-    </dt>
-
-    <dd style="margin-bottom: 20px">
-      <ul class="g-flow-sm">
-        <li v-for="(v, index) in firtVarColors" :key="index">
-          <label class="g-checkable g-checkable-circle">
-            <input
-              v-model="color"
-              @change="changeColor"
-              type="radio"
-              name="1カラー"
-              value="00100180035"
-              data-parent="06300080001"
-              data-index="0"
-              data-label="color"
-              data-control="#p-customize1カラー"
-            />
-            <span
-              ><span class="g-checkable_checked"></span
-              ><img
-                src="v.colorImg"
-                alt="color"
-                style="border-radius: 50%; height: 40px"
-            /></span>
-          </label>
-        </li>
-      </ul>
-    </dd>
-  </dl>
-
   lalalalalalalalalalala
   <div class="swiper-container">
     <div class="inner-swiper">
@@ -107,16 +56,13 @@
         <ul class="g-flow-sm">
           <li>
             <label class="g-checkable g-checkable-circle">
-              <select
-                v-model="type"
-                @change="store.commit('setImgList', { type, color })"
-              >
+              <select v-model="type" @change="change">
                 <option v-for="(v, index) in listColor" :key="index">
                   {{ v.type }}
                 </option>
               </select>
               <select v-model="color" @change="changeColor">
-                <option v-for="(v, index) in firtVarColors" :key="index">
+                <option v-for="(v, index) in colorList" :key="index">
                   {{ v }}
                 </option>
               </select>
@@ -175,10 +121,10 @@ onMounted(() => {
   store.dispatch("setGoodsSize", goodsId);
 });
 const listColor = computed(() => store.getters.getListColor);
-let firtVarColors = computed(() => {
-  if (store.getters.getListColor[0]) return store.getters.getListColor[0].color;
-  else return [];
-});
+// let firtVarColors = computed(() => {
+//   if (store.getters.getListColor[0]) return store.getters.getListColor[0].color;
+//   else return [];
+// });
 const changeColor = (e) => {
   store.commit("setImgList", { type: type.value, color: e.target.value });
 };
@@ -209,6 +155,13 @@ const listColorThree = computed(() => store.getters.getListColor.three);
 //   cl: "ベージュ/ミドルブラウン",
 // });
 // let { str, cl } = toRefs(state);
+
+let colorList = computed(() => store.getters.getColorList);
+const change = (e: Event) => {
+  if (e.target instanceof HTMLSelectElement) {
+    store.dispatch("setImgList", { type: e.target.value, color: color.value });
+  }
+};
 
 console.log("list", list);
 console.log("listColorThree", listColorThree);
