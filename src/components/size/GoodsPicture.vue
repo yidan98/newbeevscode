@@ -39,7 +39,10 @@
     <img class="bigImg" :src="imgSrc" alt="" style="width: 320px" />
   </div>
   <div class="swiper-container">
-    <div class="inner-swiper">
+    <div
+      class="inner-swiper"
+      :style="{ transform: 'translate3d( ' + x + 'px,0px,0px)' }"
+    >
       <div
         class="swiper-slide"
         v-for="(imgs, index) in imgList"
@@ -47,16 +50,11 @@
         @click="changeUrl"
       >
         <img
-          v-on:change="trans"
           class="silde-image-div"
           v-for="(img, idx2) in imgs"
           :key="idx2"
           :src="img"
           alt=""
-          :style="{
-            width: '90px',
-            height: '90px',
-          }"
         />
       </div>
     </div>
@@ -65,6 +63,7 @@
         <span
           class="material-symbols-outlined"
           style="height: 700px; color: #009e96"
+          @click="left"
         >
           arrow_back_ios
         </span>
@@ -82,7 +81,9 @@
         class="p-gallery_btn p-gallery_next"
         style="height: 700px; color: #009e96"
       >
-        <span class="material-symbols-outlined"> arrow_forward_ios </span>
+        <span class="material-symbols-outlined" @click="right">
+          arrow_forward_ios
+        </span>
       </div>
     </div>
   </div>
@@ -100,12 +101,7 @@ onMounted(() => {
   store.dispatch("setGoodsSize", goodsId);
 });
 let imgList = computed(() => store.getters.getImgList);
-const trans = (e: Event) => {
-  // if (e.target instanceof HTMLElement) {
 
-  // }
-  console.log("e.target", e.target);
-};
 let imgSrc = computed(() => store.getters.getImgsrc);
 const changeUrl = (e: Event) => {
   if (e.target instanceof HTMLImageElement) {
@@ -113,19 +109,33 @@ const changeUrl = (e: Event) => {
   }
 };
 console.log("imgSrc", imgSrc.value);
-// var list = document.getElementsByClassName("silde-image-div");
-// console.log("list222", list);
-// for (var i = 0; i < list.length; i++) {
-//   list[i].onclick = function () {
-//     document.getElementsByClassName("bigImg")[0].src = this.src;
-//     console.log(
-//       "document.getElementsByClassName",
-//       document.getElementsByClassName("bigImg")[0].src
-//     );
-//   };
+
+let index = computed(() => store.getters.getIndex);
+let x = computed(() => {
+  return (index.value - 1) * 320;
+});
+function right() {
+  store.commit("right");
+}
+function left() {
+  store.commit("left");
+}
+// function left() {
+
+//   let top = document.querySelector(".inner-swiper") as HTMLElement;
+
+//   top.style.transform ="'translate3d(+x+'px,0px,0px)'";
+// }
+// function right() {
+//   let top = document.querySelector(".inner-swiper") as HTMLElement;
+//   top.style.transform = "translate3d(0px,0px,0px)";
 // }
 </script>
 <style>
+.bigImg {
+  width: 320px;
+  margin-bottom: 20px;
+}
 .g-labelSet img {
   height: 29px;
 }
@@ -222,9 +232,9 @@ dd.price-size-up {
   overflow: hidden;
   cursor: pointer;
 }
-.swiper-container:hover {
+/* .swiper-container:hover {
   overflow: visible;
-}
+} */
 .p-gallery_controls {
   margin-top: 20px;
   display: flex;

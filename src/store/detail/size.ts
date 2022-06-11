@@ -11,6 +11,7 @@ type sizeState = {
   color: string;
   colorList: string[];
   imgSrc: string;
+  index: number;
 };
 type info = {
   goodsCode: string;
@@ -40,6 +41,7 @@ export default {
     type: "",
     color: "",
     imgSrc: "",
+    index: 1,
   },
   mutations: {
     //syncrous
@@ -112,6 +114,12 @@ export default {
     },
     changeUrl(state: sizeState, img: string) {
       state.imgSrc = img;
+    },
+    right(state: sizeState) {
+      state.index--;
+    },
+    left(state: sizeState) {
+      state.index++;
     },
   },
 
@@ -188,6 +196,9 @@ export default {
     },
     getImgsrc: (state: sizeState) => {
       return state.imgSrc;
+    },
+    getIndex: (state: sizeState) => {
+      return state.index;
     },
   },
 };
