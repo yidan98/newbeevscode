@@ -10,6 +10,7 @@ type sizeState = {
   type: string;
   color: string;
   colorList: string[];
+  imgSrc: string;
 };
 type info = {
   goodsCode: string;
@@ -38,6 +39,7 @@ export default {
     new: {},
     type: "",
     color: "",
+    imgSrc: "",
   },
   mutations: {
     //syncrous
@@ -98,6 +100,7 @@ export default {
         state.imgList.push(imgs.slice(idx * limit, idx * limit + limit));
         idx++;
       }
+      state.imgSrc = state.new["pictures"][0];
       state.type = type;
       state.color = color;
     },
@@ -106,6 +109,9 @@ export default {
     },
     setColor(state: sizeState, payload: string) {
       state.color = payload;
+    },
+    changeUrl(state: sizeState, img: string) {
+      state.imgSrc = img;
     },
   },
 
@@ -179,6 +185,9 @@ export default {
     getColorList: (state: sizeState) => {
       console.log("colors", state.colorList);
       return state.colorList;
+    },
+    getImgsrc: (state: sizeState) => {
+      return state.imgSrc;
     },
   },
 };

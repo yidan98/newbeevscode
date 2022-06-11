@@ -31,22 +31,32 @@
       />
     </li>
   </ul>
-  <img
-    class="bigImg"
-    src="http://localhost:8080/assets/images/brownThree1.webp"
-    alt=""
-    style="width: 320px"
-  />
-
+  <div
+    class="swiper-slide p-gallery_item"
+    data-caption=""
+    style="width: 395px; opacity: 1; transform: translate3d(0px, 0px, 0px)"
+  >
+    <img class="bigImg" :src="imgSrc" alt="" style="width: 320px" />
+  </div>
   <div class="swiper-container">
     <div class="inner-swiper">
-      <div class="swiper-slide" v-for="(imgs, index) in imgList" :key="index">
+      <div
+        class="swiper-slide"
+        v-for="(imgs, index) in imgList"
+        :key="index"
+        @click="changeUrl"
+      >
         <img
+          v-on:change="trans"
           class="silde-image-div"
           v-for="(img, idx2) in imgs"
           :key="idx2"
           :src="img"
           alt=""
+          :style="{
+            width: '90px',
+            height: '90px',
+          }"
         />
       </div>
     </div>
@@ -77,7 +87,7 @@
     </div>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import { computed, onMounted } from "vue";
 // , reactive, toRefs
 import { useStore } from "../../store/index";
@@ -90,6 +100,19 @@ onMounted(() => {
   store.dispatch("setGoodsSize", goodsId);
 });
 let imgList = computed(() => store.getters.getImgList);
+const trans = (e: Event) => {
+  // if (e.target instanceof HTMLElement) {
+
+  // }
+  console.log("e.target", e.target);
+};
+let imgSrc = computed(() => store.getters.getImgsrc);
+const changeUrl = (e: Event) => {
+  if (e.target instanceof HTMLImageElement) {
+    store.commit("changeUrl", e.target.src);
+  }
+};
+console.log("imgSrc", imgSrc.value);
 // var list = document.getElementsByClassName("silde-image-div");
 // console.log("list222", list);
 // for (var i = 0; i < list.length; i++) {
@@ -105,5 +128,136 @@ let imgList = computed(() => store.getters.getImgList);
 <style>
 .g-labelSet img {
   height: 29px;
+}
+.g-link {
+  text-decoration: none;
+  color: #333;
+}
+.g-link:hover {
+  text-decoration: underline;
+  color: #009e96;
+}
+.g-checkable-img,
+.g-checkable-circle,
+.g-checkable-square,
+.g-lg-checkable-img,
+.g-lg-checkable-circle,
+.g-lg-checkable-square {
+  text-align: center;
+  background-color: #fff;
+  box-shadow: 0 0 0 1px #dbdbdb inset;
+}
+.g-checkable,
+.g-lg-checkable {
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+}
+.colorSelect {
+  border-radius: 50%;
+  width: 30%;
+  height: 30%;
+}
+.g-flow,
+.g-lg-flow,
+.g-flow-0,
+.g-lg-flow-0,
+.g-flow-xs,
+.g-lg-flow-xs,
+.g-flow-sm,
+.g-lg-flow-sm,
+.g-flow-lg,
+.g-lg-flow-lg,
+.g-flow-xl,
+.g-lg-flow-xl {
+  display: flex;
+  flex-wrap: wrap;
+}
+.g-flow-sm > *,
+.g-lg-flow-sm > * {
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+.g-select {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background-color: #fff;
+}
+dd.price-size-up {
+  font-size: 3.5rem;
+}
+.g-price-down,
+.g-lg-price-down {
+  color: #eb6157;
+}
+.swiper-slide {
+  width: 395px;
+}
+.silde-image-div {
+  width: 150px;
+  height: 150px;
+  background-size: contain;
+  margin-right: 20px;
+}
+.silde-image-div:hover {
+  opacity: 0.8;
+}
+.inner-swiper {
+  display: flex;
+  /* flex-wrap: wrap; */
+}
+.swiper-slide {
+  display: flex;
+  flex-wrap: wrap;
+}
+.swiper-container {
+  overflow: hidden;
+  /* background-color: pink; */
+  width: 340px;
+  height: 230px;
+  overflow: hidden;
+  cursor: pointer;
+}
+.swiper-container:hover {
+  overflow: visible;
+}
+.p-gallery_controls {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.swiper-pagination-bullet-active {
+  background: #009e96;
+}
+li {
+  list-style: none;
+}
+.g-checkable input[type="radio"],
+.g-checkable input[type="checkbox"],
+.g-lg-checkable input[type="radio"],
+.g-lg-checkable input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-color: transparent;
+  border-radius: 0;
+  background-color: transparent;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.g-select {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background-color: #fff;
 }
 </style>
