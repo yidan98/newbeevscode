@@ -91,6 +91,9 @@
           </div>
         </section>
       </div>
+      <div>
+        <cart-com></cart-com>
+      </div>
     </span>
   </div>
 </template>
@@ -98,6 +101,7 @@
 import sizeTable from "./SizeTable.vue";
 import goodsPicture from "./GoodsPicture.vue";
 import goodsDetail from "./GoodsDetail.vue";
+import cartCom from "./CartCom.vue";
 import { computed, onMounted } from "vue";
 import { useStore } from "../../store/index";
 import { useRoute } from "vue-router";

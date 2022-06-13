@@ -2,6 +2,7 @@
   <div>
     <div class="top">
       <router-link id="gotoHome" to="/">Go to Home</router-link>
+      <router-link to="/cart">cart</router-link>
       <h1>商品详情页面</h1>
       <p>goodsId:{{ goodsId }}</p>
     </div>

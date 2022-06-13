@@ -1,8 +1,5 @@
 <template>
-  <div
-    class="g-lg-flow-sm p-reviw-graph-area-row-sm"
-    style="display: flex; flex-direction: column"
-  >
+  <div class="g-lg-flow-sm p-reviw-graph-area-row-sm">
     <span style="display: flex">
       <div class="g-score p-reviw-graph-area-score">
         <star-rating
