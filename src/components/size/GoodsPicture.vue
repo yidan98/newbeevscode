@@ -59,10 +59,7 @@
       </div>
     </div>
     <div class="p-gallery_controls">
-      <div
-        class="p-gallery_btn p-gallery_prev swiper-button-disabled"
-        :disabled="x > 0 ? true : false"
-      >
+      <div class="p-gallery_btn p-gallery_prev swiper-button-disabled">
         <div @click="left">
           <span
             v-if="x === 0"
@@ -80,6 +77,7 @@
           </span>
         </div>
       </div>
+      <!-- 小圆点 active有颜色 -->
       <div
         class="p-gallery_pagination swiper-pagination-clickable swiper-pagination-bullets"
       >
@@ -89,9 +87,10 @@
         ></span> -->
 
         <span
+          v-for="(n, indexRing) in imgList.length"
+          :key="indexRing"
           class="swiper-pagination-bullet"
-          v-for="n in imgList.length"
-          :key="n"
+          :class="{ 'swiper-pagination-bullet-active': -index === indexRing }"
         ></span>
       </div>
 
