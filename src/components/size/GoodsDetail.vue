@@ -137,4 +137,8 @@ console.log("list", list);
 console.log("listColorThree", listColorThree);
 console.log("listColor", listColor);
 </script>
-<style></style>
+<style>
+li {
+  list-style: none;
+}
+</style>

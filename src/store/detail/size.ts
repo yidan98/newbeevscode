@@ -123,6 +123,9 @@ export default {
         state.index++;
       }
     },
+    changeDiv(state: sizeState, indexRing: number) {
+      state.index = -indexRing;
+    },
   },
 
   actions: {

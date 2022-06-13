@@ -1,5 +1,5 @@
 <template>
-  <ul class="g-flow-xs g-labelSet" style="padding: 0">
+  <!-- <ul class="g-flow-xs g-labelSet" style="padding: 0">
     <li>
       <img
         src="https://www.nitori-net.jp/ecstatic/image/sys-master/images/8878270513182/icon_makerdirect.png"
@@ -30,13 +30,23 @@
         alt=""
       />
     </li>
-  </ul>
+  </ul> -->
   <div
     class="swiper-slide p-gallery_item"
     data-caption=""
-    style="width: 395px; opacity: 1; transform: translate3d(0px, 0px, 0px)"
+    style="
+      width: 395px;
+      opacity: 1;
+      transform: translate3d(0px, 0px, 0px);
+      height: 350px;
+    "
   >
-    <img class="bigImg" :src="imgSrc" alt="" style="width: 320px" />
+    <img
+      class="bigImg"
+      :src="imgSrc"
+      alt=""
+      style="width: 320px; height: 320px"
+    />
   </div>
   <div class="swiper-container">
     <div
@@ -91,6 +101,7 @@
           :key="indexRing"
           class="swiper-pagination-bullet"
           :class="{ 'swiper-pagination-bullet-active': -index === indexRing }"
+          @click="changeBullet(indexRing)"
         ></span>
       </div>
 
@@ -153,6 +164,9 @@ function left() {
   store.commit("left");
   console.log("index", index.value);
 }
+function changeBullet(indexRing: number) {
+  store.commit("changeDiv", indexRing);
+}
 const max = computed(() => -(imgList.value.length - 1) * 320);
 console.log("max", max.value);
 // function left() {
@@ -211,7 +225,7 @@ console.log("max", max.value);
   width: 30%;
   height: 30%;
 }
-.g-flow,
+/* .g-flow,
 .g-lg-flow,
 .g-flow-0,
 .g-lg-flow-0,
@@ -225,7 +239,7 @@ console.log("max", max.value);
 .g-lg-flow-xl {
   display: flex;
   flex-wrap: wrap;
-}
+} */
 .g-flow-sm > *,
 .g-lg-flow-sm > * {
   margin-bottom: 10px;
@@ -269,7 +283,7 @@ dd.price-size-up {
 .swiper-container {
   overflow: hidden;
   /* background-color: pink; */
-  width: 340px;
+  width: 345px;
   height: 230px;
   overflow: hidden;
   cursor: pointer;

@@ -1,5 +1,8 @@
 <template>
-  <div class="g-lg-flow-sm p-reviw-graph-area-row-sm">
+  <div
+    class="g-lg-flow-sm p-reviw-graph-area-row-sm"
+    style="display: flex; flex-direction: column"
+  >
     <span style="display: flex">
       <div class="g-score p-reviw-graph-area-score">
         <star-rating
@@ -82,10 +85,10 @@ export default {
   text-decoration: none;
 }
 
-.p-reviw-graph-area-row-sm {
+/* .p-reviw-graph-area-row-sm {
   display: flex;
-  flex-wrap: wrap;
-}
+  flex-direction: column;
+} */
 .a-meter .a-meter-bar {
   /* -webkit-transition: width .5s ease; */
   /* transition: width .5s ease; */

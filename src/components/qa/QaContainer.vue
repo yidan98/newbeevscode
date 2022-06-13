@@ -1,5 +1,5 @@
 <template>
-  <section>
+  <section style="margin-left: 550px">
     <div>
       <h2>
         <i class="qaIcon"></i>
@@ -14,6 +14,7 @@
       </h2>
     </div>
     <!-- 全部的 -->
+
     <div id="questionsArea">
       <!-- 第一行 全28件 和 新顺序-->
       <div class="page">
@@ -24,17 +25,19 @@
         <!-- 全28件 1/10 -->
       </div>
       <!-- QA解答部分 -->
-      <div>
-        <div v-for="(qa, index) in qaArr" :key="index">
-          <qa-com v-bind="qa"></qa-com>
+      <div class="below">
+        <div>
+          <div v-for="(qa, index) in qaArr" :key="index">
+            <qa-com v-bind="qa"></qa-com>
+          </div>
         </div>
+        <!-- 下面全28件 -->
+        <div>
+          <qa-page></qa-page>
+        </div>
+        <!--  注意 -->
+        <qa-post></qa-post>
       </div>
-      <!-- 下面全28件 -->
-      <div>
-        <qa-page></qa-page>
-      </div>
-      <!--  注意 -->
-      <qa-post></qa-post>
     </div>
   </section>
 </template>
