@@ -41,7 +41,7 @@ export default {
     type: "",
     color: "",
     imgSrc: "",
-    index: 1,
+    index: 0,
   },
   mutations: {
     //syncrous
@@ -119,7 +119,9 @@ export default {
       state.index--;
     },
     left(state: sizeState) {
-      state.index++;
+      if (state.index < 0) {
+        state.index++;
+      }
     },
   },
 

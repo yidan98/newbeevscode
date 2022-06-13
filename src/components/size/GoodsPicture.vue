@@ -59,31 +59,59 @@
       </div>
     </div>
     <div class="p-gallery_controls">
-      <div class="p-gallery_btn p-gallery_prev swiper-button-disabled">
-        <span
-          class="material-symbols-outlined"
-          style="height: 700px; color: #009e96"
-          @click="left"
-        >
-          arrow_back_ios
-        </span>
+      <div
+        class="p-gallery_btn p-gallery_prev swiper-button-disabled"
+        :disabled="x > 0 ? true : false"
+      >
+        <div @click="left">
+          <span
+            v-if="x === 0"
+            class="material-symbols-outlined"
+            style="height: 700px; color: gray"
+          >
+            arrow_back_ios
+          </span>
+          <span
+            v-if="x !== 0"
+            class="material-symbols-outlined"
+            style="height: 700px; color: #009e96"
+          >
+            arrow_back_ios
+          </span>
+        </div>
       </div>
       <div
         class="p-gallery_pagination swiper-pagination-clickable swiper-pagination-bullets"
       >
-        <span
+        <!-- <span
+         
           class="swiper-pagination-bullet swiper-pagination-bullet-active"
-        ></span
-        ><span class="swiper-pagination-bullet"></span>
+        ></span> -->
+
+        <span
+          class="swiper-pagination-bullet"
+          v-for="n in imgList.length"
+          :key="n"
+        ></span>
       </div>
 
-      <div
-        class="p-gallery_btn p-gallery_next"
-        style="height: 700px; color: #009e96"
-      >
-        <span class="material-symbols-outlined" @click="right">
+      <div class="p-gallery_btn p-gallery_next">
+        <span
+          @click="right"
+          class="material-symbols-outlined"
+          :class="x === max ? 'gray' : 'green'"
+        >
           arrow_forward_ios
         </span>
+        <!-- 
+        <span
+          v-if="x === max"
+          class="material-symbols-outlined"
+          
+          style="height: 700px; color: gray"
+        >
+          arrow_forward_ios
+        </span> -->
       </div>
     </div>
   </div>
@@ -111,15 +139,23 @@ const changeUrl = (e: Event) => {
 console.log("imgSrc", imgSrc.value);
 
 let index = computed(() => store.getters.getIndex);
+
 let x = computed(() => {
-  return (index.value - 1) * 320;
+  console.log("x", x.value);
+
+  return index.value * 320;
 });
+
 function right() {
   store.commit("right");
+  console.log("index", index.value);
 }
 function left() {
   store.commit("left");
+  console.log("index", index.value);
 }
+const max = computed(() => -(imgList.value.length - 1) * 320);
+console.log("max", max.value);
 // function left() {
 
 //   let top = document.querySelector(".inner-swiper") as HTMLElement;
@@ -132,6 +168,13 @@ function left() {
 // }
 </script>
 <style>
+.green {
+  color: #009e96;
+}
+.gray {
+  color: #686868;
+  pointer-events: none;
+}
 .bigImg {
   width: 320px;
   margin-bottom: 20px;
