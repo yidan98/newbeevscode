@@ -13,14 +13,17 @@
           >
             <dl class="p-order">
               <dt>&nbsp;&nbsp;&nbsp; 納品方法</dt>
-              <dd><span>配送員設置又は配送センター受取商品</span></dd>
+              <dd>
+                <span>{{ goodsSize.method }}</span>
+              </dd>
               <dt>&nbsp;&nbsp;&nbsp; 配送目安</dt>
               <dd>
-                06月下旬以降のお届けとなります。(06月12日現在)<br />※地域により異なる場合がございます。
+                {{ goodsSize.delivery
+                }}<br />※地域により異なる場合がございます。
               </dd>
               <dt>&nbsp;&nbsp;&nbsp; 返品・交換</dt>
               <dd>
-                14日間返品可能
+                {{ goodsSize.exchange }}
                 <p class="p-order_help">
                   <a class="g-link" href="/ec/userguide/cancel/">
                     <span>返品・交換について</span
@@ -30,7 +33,7 @@
               </dd>
               <dt>&nbsp;&nbsp;&nbsp; 送料</dt>
               <dd>
-                <span class="g-label-price">有料</span>
+                <span class="g-label-price"> {{ goodsSize.cost }}</span>
                 <p class="p-order_help">
                   <a class="g-link" href="/ec/userguide/delivery/"
                     ><span>送料について</span
@@ -63,13 +66,22 @@
                 <dl class="p-price p-price-area">
                   <dd
                     class="g-price g-price-lg g-price-ra price-size-up g-price-down"
+                    v-if="price !== undefined"
                   >
-                    64,900<span>円</span>
+                    <span style="font-size: 30px"
+                      >&nbsp;&nbsp;&nbsp;{{ price.toLocaleString() }}円</span
+                    >
                   </dd>
                 </dl>
               </div>
-              <p class="g-font-sm">&nbsp;&nbsp;&nbsp;値下実施日：2022/04/21</p>
-              <p class="g-font-sm">&nbsp;&nbsp;&nbsp;旧価格：69,900円</p>
+              <p class="g-font-sm">
+                &nbsp;&nbsp;&nbsp;値下実施日：{{ goodsSize.discountDate }}
+              </p>
+              <p class="g-font-sm">
+                &nbsp;&nbsp;&nbsp;旧価格：{{
+                  (price + 5000).toLocaleString()
+                }}円
+              </p>
             </div>
             <div class="g-foot-v">
               <div class="cartBtnArea disp bt">
@@ -80,7 +92,9 @@
                     id="p-addItem"
                     type="button"
                   >
-                    <i class="g-i g-i-add-cart" aria-hidden="true"></i>
+                    <span class="material-symbols-outlined" style="color: #fff">
+                      add_shopping_cart
+                    </span>
                     <span style="color: #fff">カートに入れる</span>
                   </button></a
                 >
@@ -92,8 +106,20 @@
     </div>
   </div>
 </template>
-<script>
-export default {};
+<script setup lang="ts">
+import { computed, onMounted } from "vue";
+// , reactive, toRefs
+import { useStore } from "../../store/index";
+import { useRoute } from "vue-router";
+
+const route = useRoute();
+const goodsId = route.params.goodsId;
+const store = useStore();
+onMounted(() => {
+  store.dispatch("setGoodsSize", goodsId);
+});
+const goodsSize = computed(() => store.getters.getGoodsSize);
+const price = computed(() => store.getters.getNew.price);
 </script>
 <style scoped>
 dl {

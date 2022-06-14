@@ -38,7 +38,7 @@
     <div class="js-sku-code">
       <p class="js-sku-code" style="color: #333">商品コード {{ goodsCode }}</p>
     </div>
-    <span class="picAndDetail">
+    <span class="picAndDetail" style="width: 1180px">
       <div>
         <goods-picture></goods-picture>
       </div>
