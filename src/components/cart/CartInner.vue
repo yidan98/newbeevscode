@@ -31,7 +31,9 @@
               <li></li>
             </ul>
             <p>
-              <span class="g-price">{{ price }}</span
+              <span class="g-price" v-if="price !== undefined">{{
+                price.toLocaleString()
+              }}</span
               ><span>円 （税込）</span>
             </p>
             <div class="g-butterfly g-font-sm">
@@ -73,68 +75,84 @@
                   />
                 </div>
               </form>
-              <div class="p-cartItem_pcs">
-                <form
-                  id="uniUpdateQuantityForm0"
-                  name="uniUpdateQuantityForm0"
-                  action="/ec/cart/update/quantity"
-                  method="post"
-                >
-                  <input
-                    id="pk"
-                    name="pk"
-                    value="12605905698860"
-                    type="hidden"
-                  /><input
-                    class="g-input g-input-sm g-fw"
-                    type="text"
-                    name="quantity"
-                    value="1"
-                    aria-label="個数"
-                    onchange="if(this.value&amp;&amp;this.value!=='1') uniUpdateQuantityForm0.submit();"
-                    aria-describedby="p-cartItem_pcs0_alert"
-                    data-validation-rules='[{"action":"hankaku"},{"rule":"number"}]'
-                    maxlength="3"
-                  />
-                  <div
-                    class="g-formGrid_error-alone"
-                    id="p-cartItem_pcs0_alert"
-                    role="alert"
-                  ></div>
-                  <div>
+              <div class="deleteAndTotal" style="display: flex">
+                <div class="delete">
+                  <form
+                    id="uniUpdateQuantityForm0"
+                    name="uniUpdateQuantityForm0"
+                    action="/ec/cart/update/quantity"
+                    method="post"
+                  >
                     <input
+                      id="pk"
+                      name="pk"
+                      value="12605905698860"
                       type="hidden"
-                      name="CSRFToken"
-                      value="435ab45c-1be3-4a3e-a72d-f10d61e6e0e7"
+                    /><input
+                      class="g-input g-input-sm g-fw"
+                      type="text"
+                      name="quantity"
+                      value="1"
+                      aria-label="個数"
+                      onchange="if(this.value&amp;&amp;this.value!=='1') uniUpdateQuantityForm0.submit();"
+                      aria-describedby="p-cartItem_pcs0_alert"
+                      data-validation-rules='[{"action":"hankaku"},{"rule":"number"}]'
+                      maxlength="3"
                     />
-                  </div>
-                </form>
-              </div>
-              <p class="p-cartItem_btn">
-                <a
-                  class="g-btn g-btn-sm g-btn-em g-fw g-sm-font-md"
-                  href="javascript:chgItem('uniAddLaterListEntryForm','0',false)"
-                  data-once=""
-                  ><span>あとで買う</span></a
-                >
-              </p>
-              <p class="p-cartItem_del">
-                <a
-                  class="g-link g-link-gray"
-                  href="javascript:chgItem('uniDeleteCartEntryForm','0',false)"
-                  data-once=""
-                  ><i class="g-i g-i-close" aria-hidden="true"></i
-                  ><span>削除</span></a
-                >
-              </p>
-              <div class="p-cartItem_sum">
-                <span>個別送料</span><span class="g-price">{{ postage }}</span
-                ><span>円</span><br /><br /><br />
-                <span>小計</span
-                ><span class="g-price g-lg-price-lg"> {{ price }}</span
-                ><span>円 （税込）</span>
-                <br />
-                <br /><br />
+                    <div
+                      class="g-formGrid_error-alone"
+                      id="p-cartItem_pcs0_alert"
+                      role="alert"
+                    ></div>
+                    <div>
+                      <input
+                        type="hidden"
+                        name="CSRFToken"
+                        value="435ab45c-1be3-4a3e-a72d-f10d61e6e0e7"
+                      />
+                    </div>
+                  </form>
+
+                  <p class="p-cartItem_btn">
+                    <a
+                      class="g-btn g-btn-sm g-btn-em g-fw g-sm-font-md"
+                      href="javascript:chgItem('uniAddLaterListEntryForm','0',false)"
+                      data-once=""
+                      ><span>あとで買う</span></a
+                    >
+                  </p>
+                  <p class="p-cartItem_del">
+                    <a
+                      class="g-link g-link-gray"
+                      href="javascript:chgItem('uniDeleteCartEntryForm','0',false)"
+                      data-once=""
+                      ><i class="g-i g-i-close" aria-hidden="true"></i
+                      ><span
+                        class="material-symbols-outlined"
+                        style="
+                          font-size: 1rem;
+                          margin-top: -0.2em;
+                          color: #b3b3b3;
+                        "
+                      >
+                        close </span
+                      ><span>削除</span></a
+                    >
+                  </p>
+                </div>
+                <div class="p-cartItem_sum">
+                  <span>個別送料</span><span class="g-price">{{ postage }}</span
+                  ><span>円</span><br /><br />
+                  <span>小計</span
+                  ><span
+                    class="g-price g-lg-price-lg"
+                    v-if="price !== undefined"
+                  >
+                    {{ price.toLocaleString() }}</span
+                  ><span>円 （税込）</span>
+
+                  <br />
+                </div>
               </div>
             </div>
           </div>
@@ -195,6 +213,30 @@ const { goodsCode, name, delivery, postage, type, price, color, pictures } =
   toRefs(props);
 </script>
 <style scoped>
+.p-cartItem_sum {
+  margin-left: 15px;
+  margin-top: -5px;
+}
+.p-cartItem_pcs .g-input {
+  text-align: right;
+  width: 80px;
+}
+
+.g-input-sm {
+  padding: 8px 11px 7px;
+}
+.g-input {
+  min-width: 0;
+  padding: 11px 14px;
+  text-align: left;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background-color: #fff;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 80px;
+}
 .servers {
   margin-top: 20px;
   padding: 20px;
@@ -219,7 +261,6 @@ const { goodsCode, name, delivery, postage, type, price, color, pictures } =
 }
 .g-btn,
 .g-lg-btn {
-  font-size: 1.6rem;
   line-height: 1.5;
   font-weight: normal;
   display: inline-flex;
@@ -232,7 +273,7 @@ const { goodsCode, name, delivery, postage, type, price, color, pictures } =
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
-  margin-left: 55px;
+
   text-decoration: none;
   color: #009e96;
 }
@@ -293,7 +334,7 @@ payment_itemized dd {
 .g-lg-btn > span {
   display: flex;
   min-height: 46px;
-  padding: 5px 18px 5px 14px;
+  padding: 0px 18px 0px 12px;
   transform: translateX(5px);
   flex: 1 1 auto;
   align-items: center;

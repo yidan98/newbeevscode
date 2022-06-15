@@ -27,6 +27,7 @@
             </ul>
           </div>
         </div>
+
         <form
           id="checkoutFlowModeForm"
           action="/ec/cart/checkout"
@@ -34,48 +35,34 @@
         >
           <ul class="g-list">
             <li>
-              <label class="g-checkable">
-                <input
-                  type="radio"
-                  name="checkoutFlowMode"
-                  value="DELIVERY"
-                /><span
-                  ><i
-                    class="g-s g-s-radio-on g-checkable_on"
-                    aria-hidden="true"
-                  ></i
-                  ><i
-                    class="g-s g-s-radio-off g-checkable_off"
-                    aria-hidden="true"
-                  ></i
-                  ><span class="g-checkable_label"
-                    >ご指定の場所に配送する</span
-                  ></span
-                >
-              </label>
+              <input
+                type="radio"
+                name="checkoutFlowMode"
+                value="DELIVERY"
+              /><span
+                ><span class="g-checkable_label"
+                  >ご指定の場所に配送する</span
+                ></span
+              >
             </li>
             <li class="g-mt-10">
-              <label class="g-checkable">
-                <input
-                  type="radio"
-                  name="checkoutFlowMode"
-                  value="PICKUP"
-                /><span
-                  ><i
-                    class="g-s g-s-radio-on g-checkable_on"
-                    aria-hidden="true"
-                  ></i
-                  ><i
-                    class="g-s g-s-radio-off g-checkable_off"
-                    aria-hidden="true"
-                  ></i
-                  ><span class="g-checkable_label"
-                    ><span class="g-align-vm g-mr-10"
-                      >店舗/配送センターで受け取る</span
-                    ><span class="g-label-price">送料無料</span></span
-                  ></span
-                >
-              </label>
+              <input type="radio" name="checkoutFlowMode" value="PICKUP" /><span
+                ><i
+                  class="g-s g-s-radio-on g-checkable_on"
+                  aria-hidden="true"
+                ></i
+                ><i
+                  class="g-s g-s-radio-off g-checkable_off"
+                  aria-hidden="true"
+                ></i
+                ><span class="g-checkable_label">
+                  <span class="g-align-vm g-mr-10"
+                    >店舗/配送センターで受け取る</span
+                  >
+
+                  <span class="g-label-price">送料無料</span>
+                </span></span
+              >
             </li>
           </ul>
           <div>
@@ -122,10 +109,31 @@
 </template>
 <script></script>
 <style scoped>
+input:checked + span {
+  color: #009e96;
+  font-weight: bold;
+}
+input[type="radio"] {
+  width: 20px;
+  height: 20px;
+}
+
 .g-layout_sidebar {
   position: sticky;
   top: 0;
   width: 400px;
+  margin-left: 30px;
+}
+.g-list-note > li::before,
+.g-lg-list-note > li::before {
+  content: "\203B";
+}
+.g-list-note,
+.g-lg-list-note {
+  font-size: 1rem;
+  line-height: 1.58333;
+  text-indent: -1em;
+  color: #808080;
 }
 
 .g-btn-em,
