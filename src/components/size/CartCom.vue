@@ -43,7 +43,6 @@
               </dd>
             </dl>
 
-            <p><img src="/ecstatic/front/kumitate.jpg" alt="" /></p>
             <dl class="p-pcs">
               <dt>
                 <label for="p-pieces"> &nbsp;&nbsp;&nbsp; 数量</label>
@@ -53,8 +52,8 @@
                   class="g-input g-input-sm addToCartQty"
                   id="p-pieces"
                   type="text"
-                  name="quantity"
-                  value="1"
+                  :value="quantity"
+                  @input="q"
                   size="5"
                   maxlength="3"
                 />
@@ -85,19 +84,22 @@
             </div>
             <div class="g-foot-v">
               <div class="cartBtnArea disp bt">
-                <a href="/cart/10011" style="text-decoration: none">
-                  <button
-                    onclick=""
-                    class="g-btn g-btn-cv g-btn-c g-fw addToCartBtn"
-                    id="p-addItem"
-                    type="button"
-                  >
-                    <span class="material-symbols-outlined" style="color: #fff">
-                      add_shopping_cart
-                    </span>
-                    <span style="color: #fff">カートに入れる</span>
-                  </button></a
+                <!-- <a href="/cart/10011" style="text-decoration: none"> -->
+
+                <button
+                  onclick=""
+                  class="g-btn g-btn-cv g-btn-c g-fw addToCartBtn"
+                  id="p-addItem"
+                  type="button"
+                  @click="addItem"
                 >
+                  <span class="material-symbols-outlined" style="color: #fff">
+                    add_shopping_cart
+                  </span>
+                  <span style="color: #fff">カートに入れる</span>
+                </button>
+                <!-- </a
+                > -->
               </div>
             </div>
           </div>
@@ -120,8 +122,21 @@ onMounted(() => {
 });
 const goodsSize = computed(() => store.getters.getGoodsSize);
 const price = computed(() => store.getters.getNew.price);
+const addItem = () => {
+  store.dispatch("addCart");
+};
+const quantity = computed(() => store.getters.getQuantity);
+const q = (e: Event) => {
+  if (e.target instanceof HTMLInputElement) {
+    store.commit("setQuantity", e.target.value);
+  }
+};
 </script>
 <style scoped>
+element.style {
+  bottom: 68px;
+  animation: 1.8s ease 0s 1 normal both running p-itemAddedIn;
+}
 dl {
   width: 100%;
   overflow: hidden;

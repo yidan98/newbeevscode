@@ -1,8 +1,11 @@
 <template>
   <div>
     <div class="top">
-      <router-link id="gotoHome" to="/">Go to Home</router-link>
-      <!-- <router-link to="/cart">cart</router-link> -->
+      <div>
+        <router-link id="gotoHome" to="/">Go to Home</router-link>
+        <br />
+        <router-link id="gotoCart" to="/cart/10011">Go to cart</router-link>
+      </div>
       <h1>商品详情页面</h1>
       <p>goodsId:{{ goodsId }}</p>
     </div>
@@ -42,6 +45,12 @@ h1 {
   z-index: 2;
 }
 #gotoHome {
+  font-size: x-large;
+  top: 20px;
+  position: relative;
+  color: cadetblue;
+}
+#gotoCart {
   font-size: x-large;
   top: 20px;
   position: relative;

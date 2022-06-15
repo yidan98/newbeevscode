@@ -122,6 +122,12 @@
 </template>
 <script></script>
 <style scoped>
+.g-layout_sidebar {
+  position: sticky;
+  top: 0;
+  width: 400px;
+}
+
 .g-btn-em,
 .g-lg-btn-em {
   color: #009e96;

@@ -15,8 +15,8 @@
         カラー：<b id="p-customize1カラー">{{ color }}</b>
       </dt>
 
-      <dd>
-        <ul class="g-flow-sm">
+      <dd style="margin-inline-start: auto">
+        <ul class="g-flow-sm" style="padding: 0px">
           <li>
             <label class="g-checkable g-checkable-circle">
               <select v-model="type" @change="change">

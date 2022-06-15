@@ -941,7 +941,10 @@
         {
           "type": "3人用ソファ",
           "price": 64900,
-          "color": ["ベージュ/ミドルブラウン", "ベージュ/ライトブラウン"],
+          "color": [
+            "ベージュ/ミドルブラウン",
+            "ベージュ/ライトブラウン"
+          ],
           "colorImg": [
             {
               "color": "ベージュ/ミドルブラウン",
@@ -1015,15 +1018,46 @@
       "type": "2人用ソファ",
       "price": 54900,
       "color": "ピンク",
-      "pictures": "http://localhost:8080/assets/images/pinkTwo2.webp",
+      "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp",
       "id": 3
     }
   ],
   "cartAdd": [
     {
+      "id": 1,
       "userId": 10011,
       "quantity": 1,
       "goodsCode": 5650309
+    },
+    {
+      "userId": 10011,
+      "goodsCode": 5650311,
+      "quantity": 1,
+      "id": 2
+    },
+    {
+      "userId": 10011,
+      "goodsCode": 5650312,
+      "quantity": 2,
+      "id": 3
+    },
+    {
+      "userId": 10011,
+      "goodsCode": 5650312,
+      "quantity": 1,
+      "id": 4
+    },
+    {
+      "userId": 10011,
+      "goodsCode": 5650312,
+      "quantity": 1,
+      "id": 5
+    },
+    {
+      "userId": 10011,
+      "goodsCode": 5650312,
+      "quantity": 999,
+      "id": 6
     }
   ]
 }

@@ -3,17 +3,14 @@
     <div class="g-layout_head">
       <h1>カート</h1>
     </div>
-    <div>
-      <cart-inner v-for="c in cart" :key="c" v-bind="c"></cart-inner>
-      <cart-sticky></cart-sticky>
-    </div>
-    <!-- <div class="g-layout_tail">
-      <div class="">
-        <div class="">
-          <div class="g-hr g-only-lg"></div>
-        </div>
+    <div class="cartAndContainer" style="display: flex">
+      <div style="width: 1000px">
+        <cart-inner v-for="c in cart" :key="c" v-bind="c"></cart-inner>
       </div>
-    </div> -->
+      <div>
+        <cart-sticky></cart-sticky>
+      </div>
+    </div>
   </div>
 </template>
 <script setup>
