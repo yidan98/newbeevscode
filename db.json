@@ -6,7 +6,6 @@
       "imgSrc": "http://localhost:8080/assets/images/3bfc7c72-b56a-4088-8acf-e01e830ce72a.jpg",
       "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
       "price": 559,
-
       "counter": "猜你喜欢",
       "id": 1,
       "comment": ""
@@ -17,7 +16,6 @@
       "imgSrc": "http://localhost:8080/assets/images/7a406989-061b-4f69-baa1-6fa499aa091d.jpg",
       "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
       "price": 199,
-
       "counter": "猜你喜欢",
       "id": 2,
       "comment": "good"
@@ -28,7 +26,6 @@
       "imgSrc": "http://localhost:8080/assets/images/8c1c9fb2-26aa-4fa0-b9ce-cf278d827fa6.jpg",
       "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
       "price": 450,
-
       "counter": "猜你喜欢",
       "id": 3,
       "comment": "good"
@@ -39,7 +36,6 @@
       "imgSrc": "http://localhost:8080/assets/images/8fc9776e-9393-421d-998c-e516b3877dba.jpg",
       "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
       "price": 9999,
-
       "counter": "猜你喜欢",
       "id": 4,
       "comment": "just so so"
@@ -91,7 +87,6 @@
       "imgSrc": "http://localhost:8080/assets/images/8c1c9fb2-26aa-4fa0-b9ce-cf278d827fa6.jpg",
       "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
       "price": 9999,
-
       "counter": "猜你喜欢",
       "id": 5,
       "comment": "just so so"
@@ -104,66 +99,148 @@
         {
           "categoryName": "家电",
           "categories": [
-            { "categoryName": "卷发棒", "link": "/goods/detail/10195" },
-            { "categoryName": "电饭煲", "link": "/goods/detail/10195" },
-            { "categoryName": "空气净化器", "link": "/goods/detail/10195" },
-            { "categoryName": "生活电器", "link": "/goods/detail/10195" },
-            { "categoryName": "厨房电器", "link": "/goods/detail/10195" },
-            { "categoryName": "扫地机器人", "link": "/goods/detail/10195" },
-            { "categoryName": "吸尘器", "link": "/goods/detail/10195" },
-            { "categoryName": "取暖器 ", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "卷发棒",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "电饭煲",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "空气净化器",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "生活电器",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "厨房电器",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "扫地机器人",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "吸尘器",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "取暖器 ",
+              "link": "/goods/detail/10195"
+            }
           ]
         },
-
         {
           "categoryName": "数码",
           "categories": [
-            { "categoryName": "数码相机", "link": "/goods/detail/10195" },
-            { "categoryName": "游戏主机 ", "link": "/goods/detail/10195" },
-            { "categoryName": " 无人机 ", "link": "/goods/detail/10195" },
-            { "categoryName": "数码精选 ", "link": "/goods/detail/10195" },
-            { "categoryName": "平板电脑 ", "link": "/goods/detail/10195" },
-            { "categoryName": "苹果 Apple ", "link": "/goods/detail/10195" },
-            { "categoryName": "电脑主机 ", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "数码相机",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "游戏主机 ",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": " 无人机 ",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "数码精选 ",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "平板电脑 ",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "苹果 Apple ",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "电脑主机 ",
+              "link": "/goods/detail/10195"
+            }
           ]
         },
         {
           "categoryName": "手机",
           "categories": [
-            { "categoryName": "荣耀手机 ", "link": "/goods/detail/10195" },
-            { "categoryName": "华为手机  ", "link": "/goods/detail/10195" },
-            { "categoryName": "华为 P30 ", "link": "/goods/detail/10195" },
-            { "categoryName": "iPhone 11 ", "link": "/goods/detail/10195" },
-            { "categoryName": "华为 Mate 20  ", "link": "/goods/detail/10195" },
-            { "categoryName": "小米手机  ", "link": "/goods/detail/10195" },
-            { "categoryName": "红米 ", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "荣耀手机 ",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "华为手机  ",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "华为 P30 ",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "iPhone 11 ",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "华为 Mate 20  ",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "小米手机  ",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "红米 ",
+              "link": "/goods/detail/10195"
+            }
           ]
         }
       ]
     },
-
     {
       "categoryName": "女装 男装 穿搭",
       "categories": [
         {
           "categoryName": "女装",
           "categories": [
-            { "categoryName": "外套", "link": "/goods/detail/10195" },
-            { "categoryName": "裙子", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "外套",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "裙子",
+              "link": "/goods/detail/10195"
+            }
           ]
         },
         {
           "categoryName": "男装",
           "categories": [
-            { "categoryName": "外套", "link": "/goods/detail/10195" },
-            { "categoryName": "裤子", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "外套",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "裤子",
+              "link": "/goods/detail/10195"
+            }
           ]
         },
         {
           "categoryName": "穿搭",
           "categories": [
-            { "categoryName": "男性穿搭", "link": "/goods/detail/10195" },
-            { "categoryName": "女性穿搭", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "男性穿搭",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "女性穿搭",
+              "link": "/goods/detail/10195"
+            }
           ]
         }
       ]
@@ -174,22 +251,40 @@
         {
           "categoryName": "家具",
           "categories": [
-            { "categoryName": "沙发", "link": "/goods/detail/10195" },
-            { "categoryName": "桌子", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "沙发",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "桌子",
+              "link": "/goods/detail/10195"
+            }
           ]
         },
         {
           "categoryName": "家饰",
           "categories": [
-            { "categoryName": "灯", "link": "/goods/detail/10195" },
-            { "categoryName": "桌布", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "灯",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "桌布",
+              "link": "/goods/detail/10195"
+            }
           ]
         },
         {
           "categoryName": "家纺",
           "categories": [
-            { "categoryName": "家", "link": "/goods/detail/10195" },
-            { "categoryName": "纺", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "家",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "纺",
+              "link": "/goods/detail/10195"
+            }
           ]
         }
       ]
@@ -200,22 +295,40 @@
         {
           "categoryName": "运动",
           "categories": [
-            { "categoryName": "篮球", "link": "/goods/detail/10195" },
-            { "categoryName": "足球", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "篮球",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "足球",
+              "link": "/goods/detail/10195"
+            }
           ]
         },
         {
           "categoryName": "户外",
           "categories": [
-            { "categoryName": "户", "link": "/goods/detail/10195" },
-            { "categoryName": "外", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "户",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "外",
+              "link": "/goods/detail/10195"
+            }
           ]
         },
         {
           "categoryName": "乐器",
           "categories": [
-            { "categoryName": "钢琴", "link": "/goods/detail/10195" },
-            { "categoryName": "吉他", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "钢琴",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "吉他",
+              "link": "/goods/detail/10195"
+            }
           ]
         }
       ]
@@ -226,22 +339,40 @@
         {
           "categoryName": "游戏",
           "categories": [
-            { "categoryName": "篮球", "link": "/goods/detail/10195" },
-            { "categoryName": "足球", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "篮球",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "足球",
+              "link": "/goods/detail/10195"
+            }
           ]
         },
         {
           "categoryName": "动漫",
           "categories": [
-            { "categoryName": "户", "link": "/goods/detail/10195" },
-            { "categoryName": "外", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "户",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "外",
+              "link": "/goods/detail/10195"
+            }
           ]
         },
         {
           "categoryName": "影视",
           "categories": [
-            { "categoryName": "钢琴", "link": "/goods/detail/10195" },
-            { "categoryName": "吉他", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "钢琴",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "吉他",
+              "link": "/goods/detail/10195"
+            }
           ]
         }
       ]
@@ -252,22 +383,40 @@
         {
           "categoryName": "美妆",
           "categories": [
-            { "categoryName": "篮球", "link": "/goods/detail/10195" },
-            { "categoryName": "足球", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "篮球",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "足球",
+              "link": "/goods/detail/10195"
+            }
           ]
         },
         {
           "categoryName": "清洁",
           "categories": [
-            { "categoryName": "户", "link": "/goods/detail/10195" },
-            { "categoryName": "外", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "户",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "外",
+              "link": "/goods/detail/10195"
+            }
           ]
         },
         {
           "categoryName": "宠物",
           "categories": [
-            { "categoryName": "钢琴", "link": "/goods/detail/10195" },
-            { "categoryName": "吉他", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "钢琴",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "吉他",
+              "link": "/goods/detail/10195"
+            }
           ]
         }
       ]
@@ -278,22 +427,40 @@
         {
           "categoryName": "工具",
           "categories": [
-            { "categoryName": "篮球", "link": "/goods/detail/10195" },
-            { "categoryName": "足球", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "篮球",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "足球",
+              "link": "/goods/detail/10195"
+            }
           ]
         },
         {
           "categoryName": "装修",
           "categories": [
-            { "categoryName": "户", "link": "/goods/detail/10195" },
-            { "categoryName": "外", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "户",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "外",
+              "link": "/goods/detail/10195"
+            }
           ]
         },
         {
           "categoryName": "建材",
           "categories": [
-            { "categoryName": "钢琴", "link": "/goods/detail/10195" },
-            { "categoryName": "吉他", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "钢琴",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "吉他",
+              "link": "/goods/detail/10195"
+            }
           ]
         }
       ]
@@ -304,22 +471,40 @@
         {
           "categoryName": "珠宝",
           "categories": [
-            { "categoryName": "篮球", "link": "/goods/detail/10195" },
-            { "categoryName": "足球", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "篮球",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "足球",
+              "link": "/goods/detail/10195"
+            }
           ]
         },
         {
           "categoryName": "金饰品",
           "categories": [
-            { "categoryName": "户", "link": "/goods/detail/10195" },
-            { "categoryName": "外", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "户",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "外",
+              "link": "/goods/detail/10195"
+            }
           ]
         },
         {
           "categoryName": "眼镜",
           "categories": [
-            { "categoryName": "钢琴", "link": "/goods/detail/10195" },
-            { "categoryName": "吉他", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "钢琴",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "吉他",
+              "link": "/goods/detail/10195"
+            }
           ]
         }
       ]
@@ -330,22 +515,40 @@
         {
           "categoryName": "鞋靴",
           "categories": [
-            { "categoryName": "篮球", "link": "/goods/detail/10195" },
-            { "categoryName": "足球", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "篮球",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "足球",
+              "link": "/goods/detail/10195"
+            }
           ]
         },
         {
           "categoryName": "箱包",
           "categories": [
-            { "categoryName": "户", "link": "/goods/detail/10195" },
-            { "categoryName": "外", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "户",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "外",
+              "link": "/goods/detail/10195"
+            }
           ]
         },
         {
           "categoryName": "配件",
           "categories": [
-            { "categoryName": "钢琴", "link": "/goods/detail/10195" },
-            { "categoryName": "吉他", "link": "/goods/detail/10195" }
+            {
+              "categoryName": "钢琴",
+              "link": "/goods/detail/10195"
+            },
+            {
+              "categoryName": "吉他",
+              "link": "/goods/detail/10195"
+            }
           ]
         }
       ]
@@ -357,7 +560,6 @@
       "tittle": "智能降噪 长久续航",
       "imgSrc": "http://localhost:8080/assets/images/src=http___img.jj20.com_up_allimg_4k_s_02_2109242259192W5-0-lp.jpg&refer=http___img.jj20.webp",
       "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
-
       "id": 1
     },
     {
@@ -365,7 +567,6 @@
       "tittle": "智能降噪 长久续航",
       "imgSrc": "http://localhost:8080/assets/images/u=1617206954,414154281&fm=253&fmt=auto.webp",
       "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
-
       "id": 2
     },
     {
@@ -373,7 +574,6 @@
       "tittle": "智能降噪 长久续航",
       "imgSrc": "http://localhost:8080/assets/images/u=1993057335,1496702829&fm=253&fmt=auto&app=138&f=JPEG.webp",
       "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
-
       "id": 3
     },
     {
@@ -381,7 +581,6 @@
       "tittle": "智能降噪 长久续航",
       "imgSrc": "http://localhost:8080/assets/images/u=2232078932,3905554975&fm=253&fmt=auto&app=138&f=JPEG.webp",
       "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
-
       "id": 4
     },
     {
@@ -389,7 +588,6 @@
       "tittle": "智能降噪 长久续航",
       "imgSrc": "http://localhost:8080/assets/images/u=3574277169,1435013319&fm=253&fmt=auto&app=138&f=JPEG.webp",
       "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
-
       "id": 5
     },
     {
@@ -397,7 +595,6 @@
       "tittle": "智能降噪 长久续航",
       "imgSrc": "http://localhost:8080/assets/images/u=3833251962,4254164227&fm=253&fmt=auto&app=138&f=JPEG.webp",
       "name": "索尼1 WH-1000XM3 头戴式耳机 麒麟显卡 16G内...",
-
       "id": 6
     }
   ],
@@ -429,7 +626,6 @@
           "id": 1,
           "rating": 5,
           "nickName": "Lily",
-
           "goodsName": "华为 HUAWEI P30 Pro",
           "count": 3,
           "title": "verygood",
@@ -445,7 +641,6 @@
           "id": 2,
           "rating": 3,
           "nickName": "Joke",
-
           "goodsName": "华为 HUAWEI P30 Pro",
           "count": 5,
           "title": "nice",
@@ -461,7 +656,6 @@
           "id": 3,
           "rating": 5,
           "nickName": "小红",
-
           "goodsName": "小米",
           "count": 3,
           "title": "nice",
@@ -484,7 +678,6 @@
           "id": 4,
           "rating": 5,
           "nickName": "小王",
-
           "goodsName": "OPPO 拍照手机",
           "count": 3,
           "title": "充电两分钟，拍照两小时",
@@ -500,7 +693,6 @@
           "id": 5,
           "rating": 5,
           "nickName": "田中大雄",
-
           "goodsName": "苹果×",
           "count": 3,
           "title": "素敵",
@@ -516,7 +708,6 @@
           "id": 6,
           "rating": 5,
           "nickName": "斎藤飛鳥",
-
           "goodsName": "华为 HUAWEI P30 Pro",
           "count": 3,
           "title": "想像以上",
@@ -532,7 +723,6 @@
           "id": 7,
           "rating": 5,
           "nickName": "小王",
-
           "goodsName": "华为 HUAWEI P30 Pro",
           "count": 2,
           "title": "good",
@@ -548,7 +738,6 @@
           "id": 8,
           "rating": 4,
           "nickName": "小李",
-
           "goodsName": "华为 HUAWEI P30 Pro",
           "count": 2,
           "title": "good",
@@ -618,7 +807,6 @@
           "questionContents": "購入の際、いらなくなった布団は引きとってもらえますか？？",
           "questionDate": "2022-05-09",
           "answerContents": "引取サービス対象外商品となります。",
-
           "answerDate": "2021-09-22",
           "count": 1
         },
@@ -626,7 +814,6 @@
           "questionContents": "収納ケースはついていますか？",
           "questionDate": "2021-08-30",
           "answerContents": "ついておりません。",
-
           "answerDate": "2021-09-08",
           "count": 2
         },
@@ -634,7 +821,6 @@
           "questionContents": "こちらの商品はパイプベットにも使用可能でしょうか？",
           "questionDate": "2021-08-23",
           "answerContents": "「洗えるベッド用品3点セット スモールシングル(SS)」がございます。検索欄に商品コード「5651975」を入れてご検索下さい。ご検討いただけましたら幸いです。",
-
           "answerDate": "2021/08/31",
           "count": 3
         },
@@ -642,7 +828,6 @@
           "questionContents": "店舗指定で受け取りできますか？",
           "questionDate": "2021-08-20",
           "answerContents": "はい、可能です。",
-
           "answerDate": "2021/08/25",
           "count": 4
         },
@@ -650,7 +835,6 @@
           "questionContents": "布団乾燥機は使用できますか？",
           "questionDate": "2021-07-23",
           "answerContents": "はい、可能です。",
-
           "answerDate": "2021/08/20",
           "count": 5
         }
@@ -681,7 +865,6 @@
           "pictures": [
             "http://localhost:8080/assets/images/brownThree1.webp",
             "http://localhost:8080/assets/images/brownThree2.webp",
-
             "http://localhost:8080/assets/images/brownThree3.webp"
           ]
         },
@@ -690,7 +873,6 @@
           "type": "3人用ソファ",
           "color": "ベージュ/ライトブラウン",
           "name": "ヒジ付きローソファ ふっくらパン ライトブラウン",
-
           "price": 64900,
           "size": "幅97×奥行195×高さ20cm",
           "material": "ポリエステル",
@@ -708,7 +890,6 @@
           "type": "2人用ソファ",
           "color": "ピンク",
           "name": "ヒジ付きローソファ ふっくらパン イチゴ(PI)",
-
           "price": 54900,
           "size": "幅97×奥行195×高さ20cm",
           "material": "ポリエステル",
@@ -718,7 +899,6 @@
           "pictures": [
             "http://localhost:8080/assets/images/pinkTwo1.webp",
             "http://localhost:8080/assets/images/pinkTwo2.jpg",
-
             "http://localhost:8080/assets/images/pinkTwo3.jpg"
           ]
         },
@@ -736,7 +916,6 @@
           "pictures": [
             "http://localhost:8080/assets/images/brownTwo1.webp",
             "http://localhost:8080/assets/images/brownTwo2.jpg",
-
             "http://localhost:8080/assets/images/brownTwo3.jpg"
           ]
         },
@@ -745,7 +924,6 @@
           "type": "2人用ソファ",
           "color": "ベージュ/ライトブラウン",
           "name": "ヒジ付きローソファ ふっくらパン ライトブラウン",
-
           "price": 54900,
           "size": "幅97×奥行195×高さ20cm",
           "material": "ポリエステル",
@@ -762,7 +940,6 @@
       "listColor": [
         {
           "type": "3人用ソファ",
-
           "price": 64900,
           "color": ["ベージュ/ミドルブラウン", "ベージュ/ライトブラウン"],
           "colorImg": [
@@ -801,9 +978,52 @@
   "cart": [
     {
       "goodsId": 10195,
+      "userId": 10011,
+      "id": 1,
+      "goodsCode": 5650307,
+      "name": "ヒジ付きローソファ ふっくらパン ミドルブラウン",
       "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
       "exchange": "14日間返品可能",
-      "cost": "有料"
+      "postage": 0,
+      "type": "3人用ソファ",
+      "price": 64900,
+      "color": "ベージュ/ミドルブラウン",
+      "pictures": "http://localhost:8080/assets/images/brownThree1.webp"
+    },
+    {
+      "goodsId": 10195,
+      "userId": 10011,
+      "goodsCode": 5650311,
+      "name": "ヒジ付きローソファ ふっくらパン ライトブラウン",
+      "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
+      "exchange": "14日間返品可能",
+      "postage": 0,
+      "type": "2人用ソファ",
+      "price": 54900,
+      "color": "ベージュ/ライトブラウン",
+      "pictures": "http://localhost:8080/assets/images/lightTwo1.webp",
+      "id": 2
+    },
+    {
+      "goodsId": 10195,
+      "userId": 10011,
+      "goodsCode": 5650309,
+      "name": "ヒジ付きローソファ ふっくらパン イチゴ(PI)",
+      "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
+      "exchange": "14日間返品可能",
+      "postage": 0,
+      "type": "2人用ソファ",
+      "price": 54900,
+      "color": "ピンク",
+      "pictures": "http://localhost:8080/assets/images/pinkTwo2.webp",
+      "id": 3
+    }
+  ],
+  "cartAdd": [
+    {
+      "userId": 10011,
+      "quantity": 1,
+      "goodsCode": 5650309
     }
   ]
 }

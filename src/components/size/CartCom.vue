@@ -85,7 +85,7 @@
             </div>
             <div class="g-foot-v">
               <div class="cartBtnArea disp bt">
-                <a href="/cart" style="text-decoration: none">
+                <a href="/cart/10011" style="text-decoration: none">
                   <button
                     onclick=""
                     class="g-btn g-btn-cv g-btn-c g-fw addToCartBtn"
