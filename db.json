@@ -980,7 +980,6 @@
   ],
   "cartList": [
     {
-      "id": 3,
       "goodsId": 10195,
       "userId": 10011,
       "goodsCode": 5650309,
@@ -991,14 +990,43 @@
       "type": "2人用ソファ",
       "price": 54900,
       "color": "ピンク",
-      "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp"
+      "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp",
+      "id": 8
+    },
+    {
+      "goodsId": 10195,
+      "userId": 10011,
+      "goodsCode": 5650309,
+      "name": "ヒジ付きローソファ ふっくらパン イチゴ(PI)",
+      "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
+      "exchange": "14日間返品可能",
+      "postage": 0,
+      "type": "2人用ソファ",
+      "price": 54900,
+      "color": "ピンク",
+      "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp",
+      "id": 9
+    },
+    {
+      "goodsId": 10195,
+      "userId": 10011,
+      "goodsCode": 5650309,
+      "name": "ヒジ付きローソファ ふっくらパン イチゴ(PI)",
+      "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
+      "exchange": "14日間返品可能",
+      "postage": 0,
+      "type": "2人用ソファ",
+      "price": 54900,
+      "color": "ピンク",
+      "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp",
+      "id": 10
     }
   ],
   "cartAdd": [
     {
       "id": 1,
       "userId": 10011,
-      "quantity": 1,
+      "quantity": 555,
       "goodsCode": 5650309
     },
     {
@@ -1058,7 +1086,7 @@
     {
       "userId": 10011,
       "goodsCode": 5650309,
-      "quantity": 3,
+      "quantity": 555,
       "id": 11
     }
   ]

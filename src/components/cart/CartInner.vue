@@ -135,7 +135,7 @@
                       "
                     >
                       close </span
-                    ><span>削除</span>
+                    ><span class="deleteC">削除</span>
                   </p>
                 </div>
                 <div class="p-cartItem_sum">
@@ -224,6 +224,13 @@ const { goodsCode, name, delivery, postage, type, price, color, pictures, id } =
   toRefs(props);
 </script>
 <style scoped>
+.deleteC {
+  cursor: pointer;
+}
+.deleteC:hover {
+  text-decoration: underline;
+  color: #009e96;
+}
 .p-cartItem_sum {
   margin-left: 15px;
   margin-top: -5px;
