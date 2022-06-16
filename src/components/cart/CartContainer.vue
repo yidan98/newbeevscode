@@ -18,10 +18,10 @@ import CartInner from "./CartInner.vue";
 import CartSticky from "./CartSticky.vue";
 import { computed, onMounted } from "vue";
 import { useStore } from "../../store/index";
-import { useRoute } from "vue-router";
+// import { useRoute } from "vue-router";
 
-const route = useRoute();
-const userId = route.params.userId;
+// const route = useRoute();
+const userId = 10011;
 const store = useStore();
 onMounted(() => {
   store.dispatch("setCart", userId);

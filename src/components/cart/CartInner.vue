@@ -96,7 +96,7 @@
                       aria-label="個数"
                       onchange="if(this.value&amp;&amp;this.value!=='1') uniUpdateQuantityForm0.submit();"
                       aria-describedby="p-cartItem_pcs0_alert"
-                      data-validation-rules='[{"action":"hankaku"},{"rule":"number"}]'
+                      data-validation-rules='[{"action":"hankaku"},{"rule":"Number"}]'
                       maxlength="3"
                     />
                     <div
@@ -121,23 +121,21 @@
                       ><span>あとで買う</span></a
                     >
                   </p>
-                  <p class="p-cartItem_del">
-                    <a
-                      class="g-link g-link-gray"
-                      href="javascript:chgItem('uniDeleteCartEntryForm','0',false)"
-                      data-once=""
-                      ><i class="g-i g-i-close" aria-hidden="true"></i
-                      ><span
-                        class="material-symbols-outlined"
-                        style="
-                          font-size: 1rem;
-                          margin-top: -0.2em;
-                          color: #b3b3b3;
-                        "
-                      >
-                        close </span
-                      ><span>削除</span></a
+                  <p
+                    class="p-cartItem_del"
+                    :id="id"
+                    @click="deleteCart(id, userId)"
+                  >
+                    <span
+                      class="material-symbols-outlined"
+                      style="
+                        font-size: 1rem;
+                        margin-top: -0.2em;
+                        color: #b3b3b3;
+                      "
                     >
+                      close </span
+                    ><span>削除</span>
                   </p>
                 </div>
                 <div class="p-cartItem_sum">
@@ -195,13 +193,26 @@
     </ul>
   </div>
 </template>
-<script setup lang="ts">
+<script setup>
 import { defineProps, toRefs } from "vue";
+
+import { useStore } from "../../store/index";
+// import { useRoute } from "vue-router";
+
+// const route = useRoute();
+const userId = 10011;
+const store = useStore();
+
+const deleteCart = (id, userId) => {
+  store.dispatch("deleteCart", { id, userId });
+  store.dispatch("setCart", userId);
+};
 const props = defineProps({
   goodsCode: Number,
   name: String,
   delivery: String,
   size: String,
+  id: Number,
 
   postage: Number,
   type: String,
@@ -209,7 +220,7 @@ const props = defineProps({
   color: String,
   pictures: String,
 });
-const { goodsCode, name, delivery, postage, type, price, color, pictures } =
+const { goodsCode, name, delivery, postage, type, price, color, pictures, id } =
   toRefs(props);
 </script>
 <style scoped>

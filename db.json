@@ -978,36 +978,9 @@
       ]
     }
   ],
-  "cart": [
+  "cartList": [
     {
-      "goodsId": 10195,
-      "userId": 10011,
-      "id": 1,
-      "goodsCode": 5650307,
-      "name": "ヒジ付きローソファ ふっくらパン ミドルブラウン",
-      "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
-      "exchange": "14日間返品可能",
-      "postage": 0,
-      "type": "3人用ソファ",
-      "price": 64900,
-      "color": "ベージュ/ミドルブラウン",
-      "pictures": "http://localhost:8080/assets/images/brownThree1.webp"
-    },
-    {
-      "goodsId": 10195,
-      "userId": 10011,
-      "goodsCode": 5650311,
-      "name": "ヒジ付きローソファ ふっくらパン ライトブラウン",
-      "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
-      "exchange": "14日間返品可能",
-      "postage": 0,
-      "type": "2人用ソファ",
-      "price": 54900,
-      "color": "ベージュ/ライトブラウン",
-      "pictures": "http://localhost:8080/assets/images/lightTwo1.webp",
-      "id": 2
-    },
-    {
+      "id": 3,
       "goodsId": 10195,
       "userId": 10011,
       "goodsCode": 5650309,
@@ -1018,8 +991,7 @@
       "type": "2人用ソファ",
       "price": 54900,
       "color": "ピンク",
-      "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp",
-      "id": 3
+      "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp"
     }
   ],
   "cartAdd": [

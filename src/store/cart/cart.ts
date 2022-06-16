@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const url = "http://localhost:3000/cart/";
+const url = "http://localhost:3000/cart/list/";
 const headers = { Accept: "application/json" };
 
 type cartState = {
@@ -51,6 +51,12 @@ export default {
       } else {
         await axios.post("http://localhost:3000/cartAdd", cartAdd);
       }
+    },
+    async deleteCart(
+      { commit }: { commit: Function },
+      { id, userId }: { id: number; userId: number }
+    ) {
+      await fetch("http://localhost:3000/cartList/" + id, { method: "DELETE" });
     },
   },
   getters: {

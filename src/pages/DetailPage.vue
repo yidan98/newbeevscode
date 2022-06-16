@@ -4,7 +4,7 @@
       <div>
         <router-link id="gotoHome" to="/">Go to Home</router-link>
         <br />
-        <router-link id="gotoCart" to="/cart/10011">Go to cart</router-link>
+        <router-link id="gotoCart" to="/cart">Go to cart</router-link>
       </div>
       <h1>商品详情页面</h1>
       <p>goodsId:{{ goodsId }}</p>
