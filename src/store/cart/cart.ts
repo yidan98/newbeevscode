@@ -7,12 +7,14 @@ type cartState = {
   cart: [];
   id: number;
   quantity: number;
+  goodsCode: number;
 };
 
 export default {
   state: {
     cart: [],
     quantity: 1,
+    goodsCode: 5650307,
   },
   mutations: {
     setCart(state: cartState, payload: any) {
@@ -24,6 +26,9 @@ export default {
       } else {
         state.quantity = +quantity;
       }
+    },
+    setGoodsCode(state: cartState, goodsCode: number) {
+      state.goodsCode = goodsCode;
     },
   },
   actions: {
@@ -40,6 +45,7 @@ export default {
         quantity: 2,
       };
       cartAdd.quantity = context.state.quantity;
+      cartAdd.goodsCode = context.state.goodsCode;
       if (cartAdd.quantity < 1 || cartAdd.quantity > 999) {
         alert("数量は1以上、999以下で設定してください。");
       } else {
@@ -53,6 +59,9 @@ export default {
     },
     getQuantity: (state: cartState) => {
       return state.quantity;
+    },
+    getGoodsCode: (state: cartState) => {
+      return state.goodsCode;
     },
   },
 };

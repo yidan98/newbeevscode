@@ -236,13 +236,14 @@ const { goodsCode, name, delivery, postage, type, price, color, pictures } =
   -moz-appearance: none;
   appearance: none;
   width: 80px;
+  text-align: right;
 }
 .servers {
   margin-top: 20px;
   padding: 20px;
   background-color: #e9f5f4;
   margin-left: 20px;
-  width: 600px;
+  width: 900px;
 }
 .g-units-sm {
   width: 500px;
@@ -340,6 +341,7 @@ payment_itemized dd {
   align-items: center;
   /* justify-content: center; */
   height: 100%;
+  font-size: 15px;
 }
 cancel {
   color: #fff;

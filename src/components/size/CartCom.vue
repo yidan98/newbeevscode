@@ -57,6 +57,12 @@
                   size="5"
                   maxlength="3"
                 />
+                <input
+                  class="g-input g-input-sm addToCartQty"
+                  type="hidden"
+                  :value="goodsCode"
+                  @input="q"
+                />
               </dd>
             </dl>
 
@@ -126,6 +132,8 @@ const addItem = () => {
   store.dispatch("addCart");
 };
 const quantity = computed(() => store.getters.getQuantity);
+const goodsCode = computed(() => store.getters.getNew.goodsCode);
+store.commit("setGoodsCode", goodsCode);
 const q = (e: Event) => {
   if (e.target instanceof HTMLInputElement) {
     store.commit("setQuantity", e.target.value);

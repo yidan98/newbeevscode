@@ -1,5 +1,5 @@
 <template>
-  <div class="g-layout-cart" style="width: 1200px; margin-left: 80px">
+  <div class="g-layout-cart" style="width: 1200px; margin-left: 30px">
     <div class="g-layout_head">
       <h1>カート</h1>
     </div>

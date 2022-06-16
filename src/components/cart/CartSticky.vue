@@ -4,8 +4,16 @@
       <section class="g-pane g-pane-gray g-units-lg g-lg-sticky">
         <div class="p-payment">
           <dl class="p-payment_total">
-            <dt class="p-paymentAmountLabel">お支払金額</dt>
-            <dd class="g-price g-price-lg" style="color: #eb6157">
+            <dt
+              class="p-paymentAmountLabel"
+              style="border-bottom: 2px solid #dbdbdb; line-height: 2.7"
+            >
+              お支払金額
+            </dt>
+            <dd
+              class="g-price g-price-lg"
+              style="color: #eb6157; border-bottom: 2px solid #dbdbdb"
+            >
               &nbsp;59,900<span>円</span>
             </dd>
           </dl>
@@ -14,8 +22,15 @@
               <dt></dt>
               <dd style="margin-top: 3px"></dd>
 
-              <dt class="p-payment_sum p-paymentSumShorten">商品金額合計</dt>
-              <dd>59,900<span>円</span></dd>
+              <dt
+                class="p-payment_sum p-paymentSumShorten"
+                style="border-bottom: 1px solid #dbdbdb"
+              >
+                商品金額合計
+              </dt>
+              <dd style="border-bottom: 1px solid #dbdbdb">
+                59,900<span>円</span>
+              </dd>
               <dt>送料</dt>
               <dd>0<span>円</span></dd>
             </dl>
@@ -97,7 +112,7 @@
             </button>
           </p>
           <p>
-            <a class="g-btn g-fw" href="/ec/"
+            <a class="g-btn g-fw" href="/goods/detail/10195/"
               ><span>ショッピングを続ける</span
               ><i class="g-i g-i-arrow-r" aria-hidden="true"></i
             ></a>
@@ -109,6 +124,9 @@
 </template>
 <script></script>
 <style scoped>
+dd {
+  text-align: right;
+}
 input:checked + span {
   color: #009e96;
   font-weight: bold;
@@ -123,6 +141,7 @@ input[type="radio"] {
   top: 0;
   width: 400px;
   margin-left: 30px;
+  margin-right: 30px;
 }
 .g-list-note > li::before,
 .g-lg-list-note > li::before {
@@ -158,6 +177,7 @@ input[type="radio"] {
   margin-left: 55px;
   text-decoration: none;
   color: #009e96;
+  width: 328px;
 }
 .g-price,
 .g-lg-price {
@@ -206,12 +226,13 @@ payment_itemized dd {
 .g-lg-btn > span {
   display: flex;
   min-height: 46px;
-  padding: 5px 18px 5px 14px;
+  /* padding: 5px 18px 5px 14px; */
   transform: translateX(5px);
   flex: 1 1 auto;
   align-items: center;
-  /* justify-content: center; */
+  justify-content: center;
   height: 100%;
+  font-size: 1.4rem;
 }
 cancel {
   color: #fff;
@@ -223,6 +244,7 @@ cancel {
   margin: 4px 2px;
   cursor: pointer;
   /* padding: 5px 2px; */
-  margin-left: 140px;
+  margin-left: 53px;
+  width: 330px;
 }
 </style>
