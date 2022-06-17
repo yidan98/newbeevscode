@@ -1,227 +1,221 @@
 <template>
-  <div class="g-layout_body">
-    <ul class="g-itemList">
-      <li class="g-itemList_item g-media g-media-lg p-cartItem">
-        <div class="mid" style="display: flex">
-          <div class="pic">
-            <p class="g-media_head">
-              <a class="g-hover" href="/goods/detail/10195/"
-                ><img
-                  class="g-fw g-rc"
-                  :src="pictures"
-                  srcset="
-                    https://www.nitori-net.jp/ecstatic/image/product/1146701/114670101.jpg?imwidth=97&amp;imdensity=1&amp;ts=20200713182233968 2x
-                  "
-                  alt="2人用布張りソファ (NポケットA13 DR-DMO)"
-              /></a>
-            </p>
-          </div>
-          <div class="g-media_body g-units-sm">
-            <p class="g-media_h">
-              <a
-                href="/ec/product/1146701/"
-                style="text-decoration: none; color: #333"
-                >{{ name }}</a
-              >
-            </p>
-            <p class="g-font-sm">商品コード {{ goodsCode }}</p>
-            <ul class="g-font-sm">
-              <li>ソファタイプ：{{ type }}</li>
-              <li>カラー：{{ color }}</li>
-              <li></li>
-            </ul>
-            <p>
-              <span class="g-price" v-if="price !== undefined">{{
-                price.toLocaleString()
-              }}</span
-              ><span>円 （税込）</span>
-            </p>
-            <div class="g-butterfly g-font-sm">
-              <p>
-                {{ delivery }}
+  <template v-for="c in cart" :key="c">
+    <div class="g-layout_body">
+      <ul class="g-itemList">
+        <li class="g-itemList_item g-media g-media-lg p-cartItem">
+          <div class="mid" style="display: flex">
+            <div class="pic">
+              <p class="g-media_head">
+                <a class="g-hover" href="/goods/detail/10195/"
+                  ><img class="g-fw g-rc" :src="c.pictures" alt="c.name"
+                /></a>
               </p>
             </div>
-          </div>
-          <div class="g-media_foot">
-            <div class="g-hr-sm g-hr-dark g-only-sm"></div>
-            <div class="p-cartItem_controls">
-              <form
-                id="uniAddLaterListEntryForm0"
-                name="uniAddLaterListEntryForm0"
-                action="/ec/cart/add/laterListEntry"
-                method="post"
-              >
-                <input id="pk" name="pk" value="12605905698860" type="hidden" />
-                <div>
+            <div class="g-media_body g-units-sm">
+              <p class="g-media_h">
+                <a
+                  href="/ec/product/1146701/"
+                  style="text-decoration: none; color: #333"
+                  >{{ c.name }}</a
+                >
+              </p>
+              <p class="g-font-sm">商品コード {{ c.goodsCode }}</p>
+              <ul class="g-font-sm">
+                <li>ソファタイプ：{{ c.type }}</li>
+                <li>カラー：{{ c.color }}</li>
+                <li></li>
+              </ul>
+              <p>
+                <span class="g-price">{{ c.price }}</span
+                ><span>円 （税込）</span>
+              </p>
+              <div class="g-butterfly g-font-sm">
+                <p>
+                  {{ c.delivery }}
+                </p>
+              </div>
+            </div>
+            <div class="g-media_foot">
+              <div class="g-hr-sm g-hr-dark g-only-sm"></div>
+              <div class="p-cartItem_controls">
+                <form
+                  id="uniAddLaterListEntryForm0"
+                  name="uniAddLaterListEntryForm0"
+                  action="/ec/cart/add/laterListEntry"
+                  method="post"
+                >
                   <input
+                    id="pk"
+                    name="pk"
+                    value="12605905698860"
                     type="hidden"
-                    name="CSRFToken"
-                    value="435ab45c-1be3-4a3e-a72d-f10d61e6e0e7"
                   />
-                </div>
-              </form>
-              <form
-                id="uniDeleteCartEntryForm0"
-                name="uniDeleteCartEntryForm0"
-                action="/ec/cart/delete/cartEntry"
-                method="post"
-              >
-                <input id="pk" name="pk" value="12605905698860" type="hidden" />
-                <div>
-                  <input
-                    type="hidden"
-                    name="CSRFToken"
-                    value="435ab45c-1be3-4a3e-a72d-f10d61e6e0e7"
-                  />
-                </div>
-              </form>
-              <div class="deleteAndTotal" style="display: flex">
-                <div class="delete">
-                  <form
-                    id="uniUpdateQuantityForm0"
-                    name="uniUpdateQuantityForm0"
-                    action="/ec/cart/update/quantity"
-                    method="post"
-                  >
+                  <div>
                     <input
-                      id="pk"
-                      name="pk"
-                      value="12605905698860"
                       type="hidden"
-                    /><input
-                      class="g-input g-input-sm g-fw"
-                      type="text"
-                      name="quantity"
-                      value="1"
-                      aria-label="個数"
-                      onchange="if(this.value&amp;&amp;this.value!=='1') uniUpdateQuantityForm0.submit();"
-                      aria-describedby="p-cartItem_pcs0_alert"
-                      data-validation-rules='[{"action":"hankaku"},{"rule":"Number"}]'
-                      maxlength="3"
+                      name="CSRFToken"
+                      value="435ab45c-1be3-4a3e-a72d-f10d61e6e0e7"
                     />
-                    <div
-                      class="g-formGrid_error-alone"
-                      id="p-cartItem_pcs0_alert"
-                      role="alert"
-                    ></div>
-                    <div>
+                  </div>
+                </form>
+                <form
+                  id="uniDeleteCartEntryForm0"
+                  name="uniDeleteCartEntryForm0"
+                  action="/ec/cart/delete/cartEntry"
+                  method="post"
+                >
+                  <input
+                    id="pk"
+                    name="pk"
+                    value="12605905698860"
+                    type="hidden"
+                  />
+                  <div>
+                    <input
+                      type="hidden"
+                      name="CSRFToken"
+                      value="435ab45c-1be3-4a3e-a72d-f10d61e6e0e7"
+                    />
+                  </div>
+                </form>
+                <div class="deleteAndTotal" style="display: flex">
+                  <div class="delete">
+                    <form
+                      id="uniUpdateQuantityForm0"
+                      name="uniUpdateQuantityForm0"
+                      action="/ec/cart/update/quantity"
+                      method="post"
+                    >
                       <input
+                        id="pk"
+                        name="pk"
+                        value="12605905698860"
                         type="hidden"
-                        name="CSRFToken"
-                        value="435ab45c-1be3-4a3e-a72d-f10d61e6e0e7"
+                      /><input
+                        class="g-input g-input-sm g-fw"
+                        type="text"
+                        v-model="c.quantity"
+                        oninput="value=value.replace(/\D-/g,'')"
+                        name="quantity"
+                        aria-label="個数"
+                        aria-describedby="p-cartItem_pcs0_alert"
+                        data-validation-rules='[{"action":"hankaku"},{"rule":"Number"}]'
+                        maxlength="3"
                       />
-                    </div>
-                  </form>
+                      <div
+                        class="g-formGrid_error-alone"
+                        id="p-cartItem_pcs0_alert"
+                        role="alert"
+                      ></div>
+                      <div>
+                        <input
+                          type="hidden"
+                          name="CSRFToken"
+                          value="435ab45c-1be3-4a3e-a72d-f10d61e6e0e7"
+                        />
+                      </div>
+                    </form>
 
-                  <p class="p-cartItem_btn">
-                    <a
-                      class="g-btn g-btn-sm g-btn-em g-fw g-sm-font-md"
-                      href="javascript:chgItem('uniAddLaterListEntryForm','0',false)"
-                      data-once=""
-                      ><span>あとで買う</span></a
+                    <p class="p-cartItem_btn">
+                      <a
+                        class="g-btn g-btn-sm g-btn-em g-fw g-sm-font-md"
+                        href="javascript:chgItem('uniAddLaterListEntryForm','0',false)"
+                        data-once=""
+                        ><span>あとで買う</span></a
+                      >
+                    </p>
+                    <p
+                      class="p-cartItem_del"
+                      :id="c.id"
+                      @click="deleteCart(c.id, c.userId)"
                     >
-                  </p>
-                  <p
-                    class="p-cartItem_del"
-                    :id="id"
-                    @click="deleteCart(id, userId)"
-                  >
-                    <span
-                      class="material-symbols-outlined"
-                      style="
-                        font-size: 1rem;
-                        margin-top: -0.2em;
-                        color: #b3b3b3;
-                      "
-                    >
-                      close </span
-                    ><span class="deleteC">削除</span>
-                  </p>
-                </div>
-                <div class="p-cartItem_sum">
-                  <span>個別送料</span><span class="g-price">{{ postage }}</span
-                  ><span>円</span><br /><br />
-                  <span>小計</span
-                  ><span
-                    class="g-price g-lg-price-lg"
-                    v-if="price !== undefined"
-                  >
-                    {{ price.toLocaleString() }}</span
-                  ><span>円 （税込）</span>
+                      <span
+                        class="material-symbols-outlined"
+                        style="
+                          font-size: 1rem;
+                          margin-top: -0.2em;
+                          color: #b3b3b3;
+                        "
+                      >
+                        close </span
+                      ><span class="deleteC">削除</span>
+                    </p>
+                  </div>
+                  <div class="p-cartItem_sum">
+                    <span>個別送料</span
+                    ><span class="g-price">{{ c.postage }}</span
+                    ><span>円</span><br /><br />
+                    <span>小計</span
+                    ><span class="g-price g-lg-price-lg">
+                      {{ c.price * c.quantity }}</span
+                    ><span>円 （税込）</span>
 
-                  <br />
+                    <br />
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="p-cartItem_addon g-sm-units-sm g-lg-units-lg">
-          <ul class="g-flow-xs g-item_label">
-            <li class="g-label-brand">配送センター受取可能商品</li>
-          </ul>
+          <div class="p-cartItem_addon g-sm-units-sm g-lg-units-lg">
+            <ul class="g-flow-xs g-item_label">
+              <li class="g-label-brand">配送センター受取可能商品</li>
+            </ul>
 
-          <div class="g-pane g-pane-brand g-pane-sm g-units-sm">
-            <label>
-              <form class="servers">
-                <input
-                  type="checkbox"
-                  name="usedPickup"
-                  value="1"
-                  class="g-checkable_label"
-                />
-                <span style="background-color: #e9f5f4"
-                  >引取りサービスを利用する</span
-                >
+            <div class="g-pane g-pane-brand g-pane-sm g-units-sm">
+              <label>
+                <form class="servers">
+                  <input
+                    type="checkbox"
+                    name="usedPickup"
+                    value="1"
+                    class="g-checkable_label"
+                  />
+                  <span style="background-color: #e9f5f4"
+                    >引取りサービスを利用する</span
+                  >
 
-                <!-- <span>
+                  <!-- <span>
                   <span class="g-checkable_label"
                     >引取りサービスを利用する</span
                   ></span
                 > -->
 
-                <div>
-                  <input
-                    type="hidden"
-                    name="CSRFToken"
-                    value="435ab45c-1be3-4a3e-a72d-f10d61e6e0e7"
-                  />
-                </div></form
-            ></label>
+                  <div>
+                    <input
+                      type="hidden"
+                      name="CSRFToken"
+                      value="435ab45c-1be3-4a3e-a72d-f10d61e6e0e7"
+                    />
+                  </div></form
+              ></label>
+            </div>
           </div>
-        </div>
-      </li>
-    </ul>
-  </div>
+        </li>
+      </ul></div
+  ></template>
 </template>
 <script setup>
-import { defineProps, toRefs } from "vue";
-
+import { computed, onMounted } from "vue";
 import { useStore } from "../../store/index";
+
 // import { useRoute } from "vue-router";
 
 // const route = useRoute();
 const userId = 10011;
 const store = useStore();
+onMounted(() => {
+  store.dispatch("setCart", userId);
+});
+const cart = computed(() => store.getters.getCart);
+
+// import { useRoute } from "vue-router";
+
+// const route = useRoute();
 
 const deleteCart = (id, userId) => {
   store.dispatch("deleteCart", { id, userId });
   store.dispatch("setCart", userId);
 };
-const props = defineProps({
-  goodsCode: Number,
-  name: String,
-  delivery: String,
-  size: String,
-  id: Number,
-
-  postage: Number,
-  type: String,
-  price: String,
-  color: String,
-  pictures: String,
-});
-const { goodsCode, name, delivery, postage, type, price, color, pictures, id } =
-  toRefs(props);
 </script>
 <style scoped>
 .deleteC {

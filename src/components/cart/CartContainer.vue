@@ -5,7 +5,7 @@
     </div>
     <div class="cartAndContainer" style="display: flex">
       <div style="width: 1000px">
-        <cart-inner v-for="c in cart" :key="c" v-bind="c"></cart-inner>
+        <cart-inner></cart-inner>
       </div>
       <div>
         <cart-sticky></cart-sticky>
@@ -16,17 +16,6 @@
 <script setup>
 import CartInner from "./CartInner.vue";
 import CartSticky from "./CartSticky.vue";
-import { computed, onMounted } from "vue";
-import { useStore } from "../../store/index";
-// import { useRoute } from "vue-router";
-
-// const route = useRoute();
-const userId = 10011;
-const store = useStore();
-onMounted(() => {
-  store.dispatch("setCart", userId);
-});
-const cart = computed(() => store.getters.getCart);
 </script>
 <style scoped>
 .g-btn-em,
