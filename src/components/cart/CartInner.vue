@@ -26,7 +26,9 @@
                 <li></li>
               </ul>
               <p>
-                <span class="g-price">{{ c.price }}</span
+                <span class="g-price" v-if="c.price !== undefined">{{
+                  c.price.toLocaleString()
+                }}</span
                 ><span>円 （税込）</span>
               </p>
               <div class="g-butterfly g-font-sm">
@@ -92,6 +94,10 @@
                         value="12605905698860"
                         type="hidden"
                       /><input
+                        @change="
+                          updateQuantity($event);
+                          storeCart(c.id);
+                        "
                         class="g-input g-input-sm g-fw"
                         type="text"
                         v-model="c.quantity"
@@ -146,8 +152,11 @@
                     ><span class="g-price">{{ c.postage }}</span
                     ><span>円</span><br /><br />
                     <span>小計</span
-                    ><span class="g-price g-lg-price-lg">
-                      {{ c.price * c.quantity }}</span
+                    ><span
+                      class="g-price g-lg-price-lg"
+                      v-if="c.price !== undefined"
+                    >
+                      {{ (c.price * c.quantity).toLocaleString() }}</span
                     ><span>円 （税込）</span>
 
                     <br />
@@ -215,6 +224,15 @@ const cart = computed(() => store.getters.getCart);
 const deleteCart = (id, userId) => {
   store.dispatch("deleteCart", { id, userId });
   store.dispatch("setCart", userId);
+};
+const storeCart = (id) => {
+  store.dispatch("storeCart", { id, userId });
+  store.dispatch("setCart", userId);
+};
+const updateQuantity = (e) => {
+  if (e.target instanceof HTMLInputElement) {
+    store.commit("setQuantity", e.target.value);
+  }
 };
 </script>
 <style scoped>

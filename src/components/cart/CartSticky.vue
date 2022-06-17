@@ -13,8 +13,9 @@
             <dd
               class="g-price g-price-lg"
               style="color: #eb6157; border-bottom: 2px solid #dbdbdb"
+              v-if="paymentAmount !== undefined"
             >
-              &nbsp;59,900<span>円</span>
+              &nbsp;{{ paymentAmount.toLocaleString() }}<span>円</span>
             </dd>
           </dl>
           <div class="p-payment_body g-units-lg">
@@ -28,11 +29,14 @@
               >
                 商品金額合計
               </dt>
-              <dd style="border-bottom: 1px solid #dbdbdb">
-                59,900<span>円</span>
+              <dd
+                style="border-bottom: 1px solid #dbdbdb"
+                v-if="paymentSum !== undefined"
+              >
+                {{ paymentSum.toLocaleString() }}<span>円</span>
               </dd>
               <dt>送料</dt>
-              <dd>0<span>円</span></dd>
+              <dd>{{ postage }}<span>円</span></dd>
             </dl>
             <ul class="g-list g-list-note">
               <li>
@@ -122,7 +126,24 @@
     </div>
   </div>
 </template>
-<script></script>
+<script setup>
+import { computed, onMounted } from "vue";
+import { useStore } from "../../store/index";
+const userId = 10011;
+const store = useStore();
+onMounted(() => {
+  store.dispatch("setCart", userId);
+});
+const postage = computed(() => {
+  if (paymentSum.value > 11000) {
+    return 0;
+  } else {
+    return 550;
+  }
+});
+const paymentSum = computed(() => store.getters.getPaymentSum);
+const paymentAmount = computed(() => paymentSum.value + postage.value);
+</script>
 <style scoped>
 dd {
   text-align: right;

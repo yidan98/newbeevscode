@@ -8,6 +8,7 @@ type cartState = {
   id: number;
   quantity: number;
   goodsCode: number;
+  paymentSum: number;
 };
 
 export default {
@@ -15,6 +16,7 @@ export default {
     cart: [],
     quantity: 1,
     goodsCode: 5650307,
+    paymentSum: 0,
   },
   mutations: {
     setCart(state: cartState, payload: any) {
@@ -30,13 +32,21 @@ export default {
     setGoodsCode(state: cartState, goodsCode: number) {
       state.goodsCode = goodsCode;
     },
+    setSum(state: cartState, payload: number) {
+      state.paymentSum = payload;
+    },
   },
   actions: {
     //asyncronous
-    async setCart({ commit }: { commit: Function }, payload: string) {
+    async setCart(context, payload: string) {
       const cart = await fetch(url + payload, { headers });
       const j = await cart.json();
-      commit("setCart", j);
+      context.commit("setCart", j);
+      let paymentSum = 0;
+      context.state.cart.map(
+        (item) => (paymentSum += item.price * item.quantity + item.postage)
+      );
+      context.commit("setSum", paymentSum);
     },
     async addCart(context) {
       const cartAdd = {
@@ -58,6 +68,16 @@ export default {
     ) {
       await fetch("http://localhost:3000/cartList/" + id, { method: "DELETE" });
     },
+    async storeCart(context, { id, userId }: { id: number; userId: number }) {
+      await axios.patch("http://localhost:3000/cartList/" + id, {
+        quantity: context.state.quantity,
+      });
+      let paymentSum = 0;
+      context.state.cart.map(
+        (item) => (paymentSum += item.price * item.quantity + item.postage)
+      );
+      context.commit("setSum", paymentSum);
+    },
   },
   getters: {
     getCart: (state: cartState) => {
@@ -68,6 +88,9 @@ export default {
     },
     getGoodsCode: (state: cartState) => {
       return state.goodsCode;
+    },
+    getPaymentSum: (state: cartState) => {
+      return state.paymentSum;
     },
   },
 };
