@@ -19,6 +19,16 @@
     </div>
     <review-container></review-container>
   </div>
+  <p class="g-back-to-top bt">
+    <a href="#" data-scroll="" class="zd"
+      ><span
+        class="material-symbols-outlined"
+        style="font-size: 1.5rem; margin-bottom: 2px; color: #fff"
+      >
+        keyboard_arrow_up
+      </span>
+    </a>
+  </p>
 </template>
 
 <script setup lang="ts">
@@ -32,6 +42,39 @@ const goodsId = route.params.goodsId;
 </script>
 
 <style scoped>
+a {
+  text-decoration: none;
+}
+/* .g-clip {
+  font-size: 1.5rem;
+  margin-bottom: 2px;
+  color: #fff;
+} */
+.g-browser-scrollup .g-back-to-top,
+.g-browser-scrolldown .g-back-to-top {
+  visibility: visible;
+  animation: g-back-to-top 1s both;
+}
+.g-back-to-top {
+  position: fixed;
+  z-index: 9;
+  right: 200px;
+  bottom: 20px;
+}
+.g-back-to-top a {
+  display: flex;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: rgba(128, 128, 128, 0.7);
+  box-shadow: 0 0 4px 2px #fff;
+  align-items: center;
+  justify-content: center;
+}
+.g-back-to-top a {
+  width: 50px;
+  height: 50px;
+}
 h1 {
   font-family: fangsong;
 }

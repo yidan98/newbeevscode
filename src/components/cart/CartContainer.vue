@@ -58,7 +58,6 @@ export default {
 <style scoped>
 a {
   text-decoration: none;
-  transition: all 0.3s;
 }
 /* .g-clip {
   font-size: 1.5rem;
