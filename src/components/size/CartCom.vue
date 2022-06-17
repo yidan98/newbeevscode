@@ -42,7 +42,17 @@
                 </p>
               </dd>
             </dl>
+            <p>
+              <img
+                style="
+                  width: 80%;
 
+                  padding: 20px 20px 20px 30px;
+                "
+                src="http://localhost:8080/assets/images/kumitate.webp"
+                alt=""
+              />
+            </p>
             <dl class="p-pcs">
               <dt>
                 <label for="p-pieces"> &nbsp;&nbsp;&nbsp; 数量</label>
