@@ -6,11 +6,13 @@
     <div class="cartAndContainer" style="display: flex">
       <div style="width: 1000px">
         <cart-inner></cart-inner>
+        <cart-later></cart-later>
       </div>
       <div>
         <cart-sticky></cart-sticky>
       </div>
     </div>
+
     <p class="g-back-to-top bt">
       <a href="#" data-scroll="" class="zd" @click="scrollToTop"
         ><span
@@ -26,10 +28,12 @@
 <script>
 import CartInner from "./CartInner.vue";
 import CartSticky from "./CartSticky.vue";
+import CartLater from "./CartLater.vue";
 export default {
   components: {
     CartInner,
     CartSticky,
+    CartLater,
   },
   data() {
     return {

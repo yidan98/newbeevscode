@@ -12,7 +12,7 @@ import reviewRating from "./detail/reviewRating";
 import qa from "./detail/qa";
 import size from "./detail/size";
 import cart from "./cart/cart";
-
+import account from "./account/account";
 type State = {};
 export const key: InjectionKey<Store<State>> = Symbol();
 export const store = createStore<State>({
@@ -28,6 +28,7 @@ export const store = createStore<State>({
     qa,
     size,
     cart,
+    account,
   },
 });
 export const useStore = () => {

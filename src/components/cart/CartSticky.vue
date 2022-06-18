@@ -135,7 +135,7 @@ onMounted(() => {
   store.dispatch("setCart", userId);
 });
 const postage = computed(() => {
-  if (paymentSum.value > 11000) {
+  if (paymentSum.value > 11000 || paymentSum.value === 0) {
     return 0;
   } else {
     return 550;

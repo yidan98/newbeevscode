@@ -941,10 +941,7 @@
         {
           "type": "3人用ソファ",
           "price": 64900,
-          "color": [
-            "ベージュ/ミドルブラウン",
-            "ベージュ/ライトブラウン"
-          ],
+          "color": ["ベージュ/ミドルブラウン", "ベージュ/ライトブラウン"],
           "colorImg": [
             {
               "color": "ベージュ/ミドルブラウン",
@@ -985,7 +982,7 @@
       "userId": 10011,
       "id": 1,
       "goodsCode": 5650307,
-      "name": "ヒジ付きローソファ ふっくらパン ミドルブラウン",
+      "name": "3人用ヒジ付きローソファ ふっくらパン ミドルブラウン",
       "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
       "exchange": "14日間返品可能",
       "postage": 0,
@@ -999,7 +996,7 @@
       "goodsId": 10195,
       "userId": 10011,
       "goodsCode": 5650311,
-      "name": "ヒジ付きローソファ ふっくらパン ライトブラウン",
+      "name": "2人用ヒジ付きローソファ ふっくらパン ライトブラウン",
       "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
       "exchange": "14日間返品可能",
       "postage": 0,
@@ -1008,96 +1005,6 @@
       "color": "ベージュ/ライトブラウン",
       "pictures": "http://localhost:8080/assets/images/lightTwo1.webp",
       "id": 2
-    },
-    {
-      "quantity": 1,
-      "goodsId": 10195,
-      "userId": 10011,
-      "goodsCode": 5650311,
-      "name": "ヒジ付きローソファ ふっくらパン ライトブラウン",
-      "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
-      "exchange": "14日間返品可能",
-      "postage": 0,
-      "type": "2人用ソファ",
-      "price": 54900,
-      "color": "ベージュ/ライトブラウン",
-      "pictures": "http://localhost:8080/assets/images/lightTwo1.webp",
-      "id": 3
-    },
-    {
-      "quantity": 1,
-      "goodsId": 10195,
-      "userId": 10011,
-      "goodsCode": 5650311,
-      "name": "ヒジ付きローソファ ふっくらパン ライトブラウン",
-      "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
-      "exchange": "14日間返品可能",
-      "postage": 0,
-      "type": "2人用ソファ",
-      "price": 54900,
-      "color": "ベージュ/ライトブラウン",
-      "pictures": "http://localhost:8080/assets/images/lightTwo1.webp",
-      "id": 4
-    },
-    {
-      "quantity": 1,
-      "goodsId": 10195,
-      "userId": 10011,
-      "goodsCode": 5650311,
-      "name": "ヒジ付きローソファ ふっくらパン ライトブラウン",
-      "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
-      "exchange": "14日間返品可能",
-      "postage": 0,
-      "type": "2人用ソファ",
-      "price": 54900,
-      "color": "ベージュ/ライトブラウン",
-      "pictures": "http://localhost:8080/assets/images/lightTwo1.webp",
-      "id": 5
-    },
-    {
-      "quantity": 1,
-      "goodsId": 10195,
-      "userId": 10011,
-      "goodsCode": 5650311,
-      "name": "ヒジ付きローソファ ふっくらパン ライトブラウン",
-      "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
-      "exchange": "14日間返品可能",
-      "postage": 0,
-      "type": "2人用ソファ",
-      "price": 54900,
-      "color": "ベージュ/ライトブラウン",
-      "pictures": "http://localhost:8080/assets/images/lightTwo1.webp",
-      "id": 6
-    },
-    {
-      "quantity": 1,
-      "goodsId": 10195,
-      "userId": 10011,
-      "goodsCode": 5650309,
-      "name": "ヒジ付きローソファ ふっくらパン イチゴ(PI)",
-      "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
-      "exchange": "14日間返品可能",
-      "postage": 0,
-      "type": "2人用ソファ",
-      "price": 54900,
-      "color": "ピンク",
-      "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp",
-      "id": 8
-    },
-    {
-      "quantity": 1,
-      "goodsId": 10195,
-      "userId": 10011,
-      "goodsCode": 5650309,
-      "name": "ヒジ付きローソファ ふっくらパン イチゴ(PI)",
-      "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
-      "exchange": "14日間返品可能",
-      "postage": 0,
-      "type": "2人用ソファ",
-      "price": 54900,
-      "color": "ピンク",
-      "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp",
-      "id": 9
     }
   ],
   "cartAdd": [
@@ -1112,66 +1019,93 @@
       "goodsCode": 5650311,
       "quantity": 1,
       "id": 2
-    },
+    }
+  ],
+  "buyLaterList": [
     {
+      "quantity": 1,
+      "goodsId": 10195,
       "userId": 10011,
-      "goodsCode": 5650312,
-      "quantity": 2,
+      "goodsCode": 5650311,
+      "name": "2人用ヒジ付きローソファ ふっくらパン ライトブラウン",
+      "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
+      "exchange": "14日間返品可能",
+      "postage": 0,
+      "type": "2人用ソファ",
+      "price": 54900,
+      "color": "ベージュ/ライトブラウン",
+      "pictures": "http://localhost:8080/assets/images/lightTwo1.webp",
       "id": 3
     },
     {
-      "userId": 10011,
-      "goodsCode": 5650312,
       "quantity": 1,
+      "goodsId": 10195,
+      "userId": 10011,
+      "goodsCode": 5650311,
+      "name": "2人用ヒジ付きローソファ ふっくらパン ライトブラウン",
+      "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
+      "exchange": "14日間返品可能",
+      "postage": 0,
+      "type": "2人用ソファ",
+      "price": 54900,
+      "color": "ベージュ/ライトブラウン",
+      "pictures": "http://localhost:8080/assets/images/lightTwo1.webp",
       "id": 4
     },
     {
-      "userId": 10011,
-      "goodsCode": 5650312,
       "quantity": 1,
-      "id": 5
-    },
-    {
+      "goodsId": 10195,
       "userId": 10011,
-      "goodsCode": 5650312,
-      "quantity": 999,
+      "goodsCode": 5650309,
+      "name": "2人用ヒジ付きローソファ ふっくらパン イチゴ(PI)",
+      "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
+      "exchange": "14日間返品可能",
+      "postage": 0,
+      "type": "2人用ソファ",
+      "price": 54900,
+      "color": "ピンク",
+      "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp",
       "id": 6
     },
     {
-      "userId": 10011,
-      "goodsCode": 5650312,
       "quantity": 1,
+      "goodsId": 10195,
+      "userId": 10011,
+      "goodsCode": 5650309,
+      "name": "2人用ヒジ付きローソファ ふっくらパン イチゴ(PI)",
+      "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
+      "exchange": "14日間返品可能",
+      "postage": 0,
+      "type": "2人用ソファ",
+      "price": 54900,
+      "color": "ピンク",
+      "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp",
       "id": 7
     },
     {
-      "userId": 10011,
-      "goodsCode": 5650307,
-      "quantity": 3,
-      "id": 8
-    },
-    {
-      "userId": 10011,
-      "goodsCode": 5650308,
-      "quantity": 3,
-      "id": 9
-    },
-    {
-      "userId": 10011,
-      "goodsCode": 5650311,
-      "quantity": 3,
-      "id": 10
-    },
-    {
+      "quantity": 1,
+      "goodsId": 10195,
       "userId": 10011,
       "goodsCode": 5650309,
-      "quantity": 555,
-      "id": 11
-    },
+      "name": "2人用ヒジ付きローソファ ふっくらパン イチゴ(PI)",
+      "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
+      "exchange": "14日間返品可能",
+      "postage": 0,
+      "type": "2人用ソファ",
+      "price": 54900,
+      "color": "ピンク",
+      "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp",
+      "id": 8
+    }
+  ],
+  "userInformation": [
     {
       "userId": 10011,
-      "goodsCode": 5650307,
-      "quantity": 1,
-      "id": 12
+      "name": "Lucy",
+      "currentPoint": 0,
+      "invalidPoint": 0,
+      "QRCode": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAAyAQAAAAAxKqlMAAAALUlEQVR42mP4Oa+iTnIe+/wZdXWVM2f+S6gEonls6T/nM4zKjMqMyozKjDgZAOBgofMIS5/9AAAAAElFTkSuQmCC",
+      "codeNumber": 2200758643056
     }
   ]
 }

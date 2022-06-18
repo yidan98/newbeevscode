@@ -122,7 +122,12 @@
                       </div>
                     </form>
 
-                    <p class="p-cartItem_btn">
+                    <p
+                      class="p-cartItem_btn"
+                      :c="c"
+                      :id="c.id"
+                      @click="intoLaterList(c.id, c)"
+                    >
                       <a
                         class="g-btn g-btn-sm g-btn-em g-fw g-sm-font-md"
                         href="javascript:chgItem('uniAddLaterListEntryForm','0',false)"
@@ -233,6 +238,9 @@ const updateQuantity = (e) => {
   if (e.target instanceof HTMLInputElement) {
     store.commit("setQuantity", e.target.value);
   }
+};
+const intoLaterList = (id, item) => {
+  store.dispatch("intoLaterList", { id, item, userId });
 };
 </script>
 <style scoped>
