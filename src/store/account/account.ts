@@ -1,16 +1,16 @@
 const url = "http://localhost:3000/user/information/";
 const headers = { Accept: "application/json" };
 type accountState = {
-  account: { accountList: information[] };
+  account: {
+    userId: number;
+    name: string;
+    currentPoint: number;
+    invalidPoint: number;
+    QRCode: string;
+    codeNumber: number;
+  };
 };
-type information = {
-  userId: number;
-  name: string;
-  currentPoint: number;
-  invalidPoint: number;
-  QRCode: string;
-  codeNumber: number;
-};
+
 export default {
   state: {
     account: {},

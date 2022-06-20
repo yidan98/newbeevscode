@@ -1107,5 +1107,39 @@
       "QRCode": "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAAAyAQAAAAAxKqlMAAAALUlEQVR42mP4Oa+iTnIe+/wZdXWVM2f+S6gEonls6T/nM4zKjMqMyozKjDgZAOBgofMIS5/9AAAAAElFTkSuQmCC",
       "codeNumber": 2200758643056
     }
+  ],
+  "orderHistory": [
+    {
+      "userId": 10011,
+      "orderNumber": "EC26570643-20220307",
+      "orderDate": "2022/03/07",
+      "currentStatus": "受注済",
+      "deliveryType": "配送員組立設置",
+      "deliveryDate": "2022/03/17"
+    },
+    {
+      "userId": 10011,
+      "orderNumber": "AB26570643-20220407",
+      "orderDate": "2022/04/07",
+      "currentStatus": "出荷準備中",
+      "deliveryType": "宅配便",
+      "deliveryDate": "2022/04/17"
+    },
+    {
+      "userId": 10011,
+      "orderNumber": "CC26570643-20220507",
+      "orderDate": "2022/05/07",
+      "currentStatus": "出荷・配送済",
+      "deliveryType": "配送員組立設置",
+      "deliveryDate": "2022/05/17"
+    },
+    {
+      "userId": 10011,
+      "orderNumber": "DD26570643-20220607",
+      "orderDate": "2022/06/07",
+      "currentStatus": "受注済",
+      "deliveryType": "宅配便",
+      "deliveryDate": "2022/06/17"
+    }
   ]
 }
