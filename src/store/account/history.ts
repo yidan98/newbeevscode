@@ -27,7 +27,7 @@ export default {
       state: historyState,
       { date, status }: { date: string; status: string }
     ) {
-      const today = new Date();
+      
       state.filterList = state.orderList.filter(
         (info: list) => info.orderDate === date && info.currentStatus === status
       );
