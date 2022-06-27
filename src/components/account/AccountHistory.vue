@@ -46,16 +46,21 @@
                       style="border: none"
                       id="orderTime"
                       name="orderTime"
-                      onchange=""
+                      @change="filterByDate"
                     >
-                      <option value="00" selected="selected">
-                        過去半年分の注文
+                      <option
+                        v-for="(t, index) in orderTime"
+                        :key="index"
+                        :value="t.value"
+                      >
+                        {{ t.time }}
                       </option>
+                      <!-- <option value="00">過去半年分の注文</option>
                       <option value="10">2022年分の注文</option>
                       <option value="11">2021年分の注文</option>
                       <option value="12">2020年分の注文</option>
                       <option value="13">2019年分の注文</option>
-                      <option value="14">2018年分の注文</option>
+                      <option value="14">2018年分の注文</option> -->
                     </select>
                   </div>
                 </dd>
@@ -70,10 +75,10 @@
                     <select
                       id="orderStatus"
                       name="orderStatus"
-                      onchange=""
+                      @change="filterByStatus"
                       style="border: none"
                     >
-                      <option value="ALL" selected="selected">すべて</option>
+                      <option value="ALL">すべて</option>
                       <option value="ORDERS">受注済</option>
                       <option value="READY">出荷・お渡し準備中</option>
                       <option value="SHIPPED">出荷・配送・お渡し済</option>
@@ -98,9 +103,12 @@
                   注文詳細
                 </button>
               </form>
+              <!-- <div class="g-block-xs" v-if="length === 0">
+                <p>注文履歴がありません。</p>
+              </div> -->
               <div class="date">
                 <span class="black">注文日</span>
-                <span style="margin-left: 320px">2022/03/07</span>
+                <span style="margin-left: 320px">{{ items.orderDate }}</span>
                 <div class="shop">
                   <span class="black"> 購入店舗</span>
                   <span style="margin-left: 300px">ニトリネット</span>
@@ -113,11 +121,29 @@
                   >
                   <div class="barAndLine">
                     <div class="bar">
-                      <div class="ellipse"></div>
+                      <div
+                        :class="
+                          items.currentStatus === '受注済'
+                            ? 'ellipse-active'
+                            : 'ellipse'
+                        "
+                      ></div>
                       <div class="line"></div>
-                      <div class="ellipse"></div>
+                      <div
+                        :class="
+                          items.currentStatus === '出荷・お渡し準備中'
+                            ? 'ellipse-active'
+                            : 'ellipse'
+                        "
+                      ></div>
                       <div class="line"></div>
-                      <div class="ellipse"></div>
+                      <div
+                        :class="
+                          items.currentStatus === '出荷・配送済・お渡し済み'
+                            ? 'ellipse-active'
+                            : 'ellipse'
+                        "
+                      ></div>
                     </div>
                     <div class="text-box">
                       <p class="text">受注済</p>
@@ -132,7 +158,7 @@
                 </dl>
                 <dl style="display: flex">
                   <dt><span class="black"> 配送予定日</span></dt>
-                  <dd style="margin-left: 280px">2022/03/17</dd>
+                  <dd style="margin-left: 280px">{{ items.deliveryDate }}</dd>
                 </dl>
               </div></template
             >
@@ -142,7 +168,7 @@
     </div>
   </div>
 </template>
-<script setup>
+<script setup lang="ts">
 import { computed, onMounted } from "vue";
 import { useStore } from "../../store/index";
 
@@ -154,8 +180,54 @@ const store = useStore();
 onMounted(() => {
   store.dispatch("setOrderList", userId);
 });
-const list = computed(() => store.getters.getOrderList);
+const list = computed(() => store.getters.getFilterList);
 console.log("account", list);
+const filterList = computed(() => store.getters.getFilterList);
+console.log("filterList", filterList);
+// const length = computed(() => store.getters.getFilterList.length);
+let date = computed(() => store.getters.getDate);
+console.log("date", date);
+let status = computed(() => store.getters.getStatus);
+console.log("status", status);
+const filterByDate = (e: Event) => {
+  if (e.target instanceof HTMLSelectElement) {
+    store.commit("setDate", e.target.value);
+    store.commit("filterByDate");
+  }
+};
+const filterByStatus = (e: Event) => {
+  if (e.target instanceof HTMLSelectElement) {
+    store.commit("setStatus", e.target.value);
+    store.commit("filterByDate");
+  }
+};
+const thisYear = new Date().getFullYear();
+const orderTime = [
+  {
+    value: "00",
+    time: "過去半年分の注文",
+  },
+  {
+    value: "10",
+    time: thisYear + "年分の注文",
+  },
+  {
+    value: "11",
+    time: thisYear - 1 + "年分の注文",
+  },
+  {
+    value: "12",
+    time: thisYear - 2 + "年分の注文",
+  },
+  {
+    value: "13",
+    time: thisYear - 3 + "年分の注文",
+  },
+  {
+    value: "14",
+    time: thisYear - 4 + "年分の注文",
+  },
+];
 </script>
 <style scoped>
 .bar {
@@ -164,6 +236,13 @@ console.log("account", list);
   margin-left: 50px;
 }
 .ellipse {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+
+  border: 3px solid #42c0b6;
+}
+.ellipse-active {
   width: 20px;
   height: 20px;
   border-radius: 50%;

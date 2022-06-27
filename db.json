@@ -941,10 +941,7 @@
         {
           "type": "3人用ソファ",
           "price": 64900,
-          "color": [
-            "ベージュ/ミドルブラウン",
-            "ベージュ/ライトブラウン"
-          ],
+          "color": ["ベージュ/ミドルブラウン", "ベージュ/ライトブラウン"],
           "colorImg": [
             {
               "color": "ベージュ/ミドルブラウン",
@@ -1124,31 +1121,35 @@
       "orderDate": "2022/03/07",
       "currentStatus": "受注済",
       "deliveryType": "配送員組立設置",
-      "deliveryDate": "2022/03/17"
+      "deliveryDate": "2022/03/17",
+      "statusValue": "ORDERS"
     },
     {
       "userId": 10011,
       "orderNumber": "AB26570643-20220407",
       "orderDate": "2022/04/07",
-      "currentStatus": "出荷準備中",
+      "currentStatus": "出荷・お渡し準備中",
       "deliveryType": "宅配便",
-      "deliveryDate": "2022/04/17"
+      "deliveryDate": "2022/04/17",
+      "statusValue": "SHIPPED"
     },
     {
       "userId": 10011,
       "orderNumber": "CC26570643-20220507",
-      "orderDate": "2022/05/07",
-      "currentStatus": "出荷・配送済",
+      "orderDate": "2021/05/07",
+      "currentStatus": "出荷・配送済・お渡し済み",
       "deliveryType": "配送員組立設置",
-      "deliveryDate": "2022/05/17"
+      "deliveryDate": "2021/05/17",
+      "statusValue": "SHIPPED"
     },
     {
       "userId": 10011,
       "orderNumber": "DD26570643-20220607",
-      "orderDate": "2022/06/07",
-      "currentStatus": "受注済",
+      "orderDate": "2020/06/07",
+      "currentStatus": "出荷・配送済・お渡し済み",
       "deliveryType": "宅配便",
-      "deliveryDate": "2022/06/17"
+      "deliveryDate": "2020/06/17",
+      "statusValue": "SHIPPED"
     }
   ]
 }
