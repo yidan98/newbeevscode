@@ -1,5 +1,10 @@
 <template>
-  <router-link to="/account" style="color: cadetblue">mypage</router-link>
+  <router-link to="/" style="color: cadetblue">home</router-link>|
+  <router-link to="/goods/detail/10195" style="color: cadetblue"
+    >details</router-link
+  >|
+  <router-link to="/account" style="color: cadetblue">mypage</router-link
+  >|history
   <br />
   <account-history></account-history>
 </template>

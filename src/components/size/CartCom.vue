@@ -224,6 +224,5 @@ dd {
   background-color: #fff;
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
 }
 </style>

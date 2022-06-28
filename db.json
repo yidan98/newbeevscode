@@ -1151,5 +1151,32 @@
       "deliveryDate": "2020/06/17",
       "statusValue": "SHIPPED"
     }
+  ],
+  "orderDetail": [
+    {
+      "orderId": "EC0004-20220601",
+      "currentStatus": "出荷・配送済・お渡し済み",
+      "deliveryDate": "2021/05/17",
+      "deliverNum": "1234455533",
+      "deliverytype": "宅急便",
+      "orderDetail": [
+        {
+          "name": "2人用ヒジ付きローソファ ふっくらパン イチゴ(PI)",
+          "goodsCode": 5650309,
+          "color": "ピンク",
+          "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp",
+          "quantity": 1,
+          "price": 54900
+        },
+        {
+          "name": "2人用ヒジ付きローソファ ふっくらパン ライトブラウン",
+          "goodsCode": 5650309,
+          "color": "ピンク",
+          "pictures": "http://localhost:8080/assets/images/lightTwo1.webp",
+          "quantity": 1,
+          "price": 54900
+        }
+      ]
+    }
   ]
 }

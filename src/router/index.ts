@@ -5,12 +5,16 @@ import DetailPage from "../pages/DetailPage.vue";
 import CartPage from "../pages/CartPage.vue";
 import MyPage from "../pages/MyPage.vue";
 import AccountHistory from "../pages/AccountHistory.vue";
+import AccountLove from "../pages/AccountLove.vue";
+import OrderDetail from "../components/account/OrderDetail.vue";
 const routes = [
   { path: "/", name: "Home", component: Home },
   { path: "/goods/detail/:goodsId", name: "detail", component: DetailPage },
   { path: "/cart", name: "cart", component: CartPage },
   { path: "/account", name: "account", component: MyPage },
   { path: "/account/history", name: "history", component: AccountHistory },
+  { path: "/account/love", name: "love", component: AccountLove },
+  { path: "/order/detail", name: "orderDetail", component: OrderDetail },
 ];
 
 const router = createRouter({

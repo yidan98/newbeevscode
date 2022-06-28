@@ -8,6 +8,7 @@
             <div class="g-lg-butterfly g-align-gt">
               <div class="gtm-add-wrap">
                 <h1>注文履歴</h1>
+
                 <ul class="g-list g-list-note g-unit-sm">
                   <li class="g-font-lg g-color-alert">
                     リコール該当商品は「注文詳細」画面よりご確認下さい。
@@ -28,81 +29,76 @@
             </div>
           </div>
           <div class="g-layout_body">
-            <form
-              id="myAccountOrdersForm"
-              name="myAccountOrdersForm"
-              data-validation="data-validation"
-              action="/ec/my-account/orders"
-              method="get"
-              novalidate="true"
-            >
-              <dl class="p-historyMenu" style="display: flex">
-                <dt>
-                  <label for="p-period">注文時期を選択</label>
-                </dt>
-                <dd>
-                  <div class="g-select g-select-sm">
-                    <select
-                      style="border: none"
-                      id="orderTime"
-                      name="orderTime"
-                      @change="filterByDate"
+            <dl class="p-historyMenu" style="display: flex">
+              <dt>
+                <label for="p-period">注文時期を選択</label>
+              </dt>
+              <dd>
+                <div class="g-select g-select-sm">
+                  <select
+                    style="border: none"
+                    id="orderTime"
+                    name="orderTime"
+                    @change="filterByDate"
+                  >
+                    <option
+                      v-for="(t, index) in orderTime"
+                      :key="index"
+                      :value="t.value"
                     >
-                      <option
-                        v-for="(t, index) in orderTime"
-                        :key="index"
-                        :value="t.value"
-                      >
-                        {{ t.time }}
-                      </option>
-                      <!-- <option value="00">過去半年分の注文</option>
+                      {{ t.time }}
+                    </option>
+                    <!-- <option value="00">過去半年分の注文</option>
                       <option value="10">2022年分の注文</option>
                       <option value="11">2021年分の注文</option>
                       <option value="12">2020年分の注文</option>
                       <option value="13">2019年分の注文</option>
                       <option value="14">2018年分の注文</option> -->
-                    </select>
-                  </div>
-                </dd>
-                <dt>
-                  <label for="p-status" style="margin-left: 40px">
-                    &nbsp;注文状況を選択</label
+                  </select>
+                </div>
+              </dd>
+              <dt>
+                <label for="p-status" style="margin-left: 40px">
+                  &nbsp;注文状況を選択</label
+                >
+              </dt>
+              <!-- onchange="submit(this.form)" -->
+              <dd>
+                <div class="g-select g-select-sm">
+                  <select
+                    id="orderStatus"
+                    name="orderStatus"
+                    @change="filterByStatus"
+                    style="border: none"
                   >
-                </dt>
-                <!-- onchange="submit(this.form)" -->
-                <dd>
-                  <div class="g-select g-select-sm">
-                    <select
-                      id="orderStatus"
-                      name="orderStatus"
-                      @change="filterByStatus"
-                      style="border: none"
-                    >
-                      <option value="ALL">すべて</option>
-                      <option value="ORDERS">受注済</option>
-                      <option value="READY">出荷・お渡し準備中</option>
-                      <option value="SHIPPED">出荷・配送・お渡し済</option>
-                      <option value="CANCELLED">キャンセル済</option>
-                    </select>
-                  </div>
-                </dd>
-              </dl>
-              <input
-                id="cancelOrderCode"
-                name="cancelOrderCode"
-                type="hidden"
-                value=""
-              />
-            </form>
+                    <option value="ALL">すべて</option>
+                    <option value="ORDERS">受注済</option>
+                    <option value="READY">出荷・お渡し準備中</option>
+                    <option value="SHIPPED">出荷・配送・お渡し済</option>
+                    <option value="CANCELLED">キャンセル済</option>
+                  </select>
+                </div>
+              </dd>
+            </dl>
+
+            <input
+              id="cancelOrderCode"
+              name="cancelOrderCode"
+              type="hidden"
+              value=""
+            />
+
             <template v-for="items in list" :key="items">
-              <form class="number" style="display: flex">
+              <div class="number" style="display: flex">
                 <div style="font-weight: bold">
                   注文番号：{{ items.orderNumber }}
                 </div>
-                <button class="g-btn g-btn-em" style="margin-left: 400px">
-                  注文詳細
-                </button>
-              </form>
+                <a href="/order/detail">
+                  <button class="g-btn g-btn-em" style="margin-left: 400px">
+                    注文詳細
+                  </button></a
+                >
+              </div>
               <!-- <div class="g-block-xs" v-if="length === 0">
                 <p>注文履歴がありません。</p>
               </div> -->
@@ -236,17 +232,18 @@ const orderTime = [
   margin-left: 50px;
 }
 .ellipse {
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
 
-  border: 3px solid #42c0b6;
+  border: 5px solid #42c0b6;
 }
 .ellipse-active {
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   border-radius: 50%;
   background: #42c0b6;
+  border: 5px solid #42c0b6;
 }
 .line {
   width: 200px;
@@ -289,7 +286,9 @@ const orderTime = [
 .g-btn-em,
 .g-lg-btn-em {
   color: #009e96;
+  cursor: pointer;
 }
+
 .g-btn,
 .g-lg-btn {
   font-size: 1.1rem;

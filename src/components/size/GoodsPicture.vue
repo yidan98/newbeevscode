@@ -316,7 +316,6 @@ li {
   background-color: transparent;
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;
 }
 .g-select {
   position: relative;

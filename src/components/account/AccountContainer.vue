@@ -76,7 +76,7 @@
         <li class="g-lineGrid_item g-grid_item">
           <a
             class="g-lg-pane g-lg-pane-border g-lg-pane-thick p-mypagePane g-lg-fh g-hover"
-            href="/ec/my-account/wishlist"
+            href="/account/love/"
           >
             <div
               class="g-sm-btn g-sm-btn-item g-lg-card g-lg-align-tc p-iconText"

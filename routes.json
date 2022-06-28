@@ -10,5 +10,6 @@
   "/cart/list/:userId": "/cartList?userId=:userId",
   "/buy/later/list/:userId": "/buyLaterList?userId=:userId",
   "/user/information/:userId": "/userInformation?userId=:userId",
-  "/order/history/:userId": "/orderHistory?userId=:userId"
+  "/order/history/:userId": "/orderHistory?userId=:userId",
+  "/order/detail/:orderId": "/orderDetail?orderId=:orderId"
 }
