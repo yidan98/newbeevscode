@@ -941,7 +941,10 @@
         {
           "type": "3人用ソファ",
           "price": 64900,
-          "color": ["ベージュ/ミドルブラウン", "ベージュ/ライトブラウン"],
+          "color": [
+            "ベージュ/ミドルブラウン",
+            "ベージュ/ライトブラウン"
+          ],
           "colorImg": [
             {
               "color": "ベージュ/ミドルブラウン",
@@ -1117,7 +1120,7 @@
   "orderHistory": [
     {
       "userId": 10011,
-      "orderNumber": "EC26570643-20220307",
+      "orderNumber": "EC0004-20220601",
       "orderDate": "2022/03/07",
       "currentStatus": "受注済",
       "deliveryType": "配送員組立設置",
@@ -1177,6 +1180,72 @@
           "price": 54900
         }
       ]
+    }
+  ],
+  "wishList": [
+    {
+      "userId": 10011,
+      "id": 1,
+      "listName": "お気に入り商品",
+      "goodsList": [
+        {
+          "id": 1,
+          "userId": 10011,
+          "goodsId": 10195,
+          "type": "2人用ソファ",
+          "goodsCode": 5650315,
+          "color": "ターコイズブルー",
+          "pictures": "http://localhost:8080/assets/images/love.jpg",
+          "price": 38900,
+          "name": "2人用ローソファ(ノーザン3 TBL)",
+          "shipment": "2~6",
+          "postage": 0,
+          "link": "/goods/detail/10195",
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "userId": 10011,
+          "goodsId": 10195,
+          "type": "2人用ソファ",
+          "goodsCode": 5650315,
+          "color": "ピンク",
+          "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp",
+          "price": 54900,
+          "name": "2人用ヒジ付きローソファ ふっくらパン イチゴ(PI)",
+          "shipment": "2~6",
+          "postage": 0,
+          "link": "/goods/detail/10195",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "userId": 10011,
+      "listName": "sofaList",
+      "goodsList": [
+        {
+          "id": 1,
+          "userId": 10011,
+          "goodsId": 10195,
+          "type": "2人用ソファ",
+          "goodsCode": 5650315,
+          "color": "ベージュ",
+          "pictures": "http://localhost:8080/assets/images/sofaList.webp",
+          "price": 21890,
+          "name": "カジュアルソファ(パック3 BE)",
+          "shipment": "2~6",
+          "postage": 0,
+          "link": "/goods/detail/10195",
+          "quantity": 1
+        }
+      ]
+    },
+    {
+      "userId": 10011,
+      "listName": "sofa",
+      "goodsList": [],
+      "id": 2
     }
   ]
 }

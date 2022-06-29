@@ -303,9 +303,7 @@ li {
   list-style: none;
 }
 .g-checkable input[type="radio"],
-.g-checkable input[type="checkbox"],
-.g-lg-checkable input[type="radio"],
-.g-lg-checkable input[type="checkbox"] {
+.g-lg-checkable input[type="radio"] {
   position: absolute;
   top: 0;
   left: 0;

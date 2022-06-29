@@ -15,6 +15,7 @@ import cart from "./cart/cart";
 import account from "./account/account";
 import history from "./account/history";
 import order from "./account/order";
+import love from "./account/love";
 type State = {};
 export const key: InjectionKey<Store<State>> = Symbol();
 export const store = createStore<State>({
@@ -33,6 +34,7 @@ export const store = createStore<State>({
     account,
     history,
     order,
+    love,
   },
 });
 export const useStore = () => {

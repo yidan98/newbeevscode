@@ -11,5 +11,6 @@
   "/buy/later/list/:userId": "/buyLaterList?userId=:userId",
   "/user/information/:userId": "/userInformation?userId=:userId",
   "/order/history/:userId": "/orderHistory?userId=:userId",
-  "/order/detail/:orderId": "/orderDetail?orderId=:orderId"
+  "/order/detail/:orderId": "/orderDetail?orderId=:orderId",
+  "/wish/list/:userId": "/wishList?:userId=::userId"
 }

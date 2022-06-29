@@ -1,8 +1,6 @@
 <template>
-  <div>
-    <div class="g-layout_head">
-      <h1>お気に入り商品</h1>
-    </div>
+  <div style="margin-left: 300px">
+    <div class="g-layout_head"></div>
     <div class="g-layout_body">
       <div class="g-lg-inputGroup p-createList" style="display: flex">
         <div>
@@ -13,8 +11,8 @@
             name="wishlistName"
             size="30"
             placeholder="新規リスト名を入力"
-            aria-describedby="p-list-new_alert"
-            data-validation-rules='[{"rule":"length","max":20}]'
+            @input="updateValue"
+            v-model="value"
           />
           <p
             class="g-formGrid_error-alone g-sm-align-tl"
@@ -27,174 +25,332 @@
           <a
             class="g-btn g-btn-brand g-sm-btn-func g-lg-btn-sm"
             role="button"
-            onclick='onclickcreate("create-wishlist");'
+            @click="addWishList"
             aria-expanded="false"
             aria-controls=""
             ><span> リストを作成</span></a
           >
         </p>
+        <p v-if="value.length > 20" style="color: #eb6157; font-size: small">
+          20文字以内で入力してください。
+        </p>
       </div>
-
-      <section class="g-block-sm">
-        <h2 class="g-h-2">
-          <span id="wishlistHeadLabel">お気に入り商品</span>
-        </h2>
-        <div class="g-lg-inputGroup p-favoriteList">
-          <div class="g-select g-select-sm" style="display: flex; width: 200px">
-            <i class="g-i g-i-dropdown" aria-hidden="true"></i>
-            <select
-              id="wishlistDropDown"
-              name=""
-              aria-label="お気に入り商品リストの選択"
-            >
-              <option
-                value="9000139948733"
-                selected="selected"
-                defaultwishlist="true"
+      <!-- modal1 リストを作成1-->
+      <GDialog v-model="isShow1">
+        <div class="modal">
+          <div class="g-modal_el">
+            <header class="g-modal_head">
+              <p class="g-modal_h" id="p-messageModal_h">リストを作成</p>
+              <button
+                @click="isShow1 = false"
+                class="g-modal_close"
+                type="button"
+                aria-label="閉じる"
               >
-                お気に入り商品
-              </option></select
-            ><span
-              class="material-symbols-outlined"
-              style="margin-top: 10px; color: #009e96"
-            >
-              expand_more
-            </span>
+                <span class="material-symbols-outlined" style="cursor: pointer">
+                  close
+                </span>
+              </button>
+            </header>
+            <div class="g-modal_body">
+              <p id="modalMessage">
+                お気に入り商品リストの新規作成は完了しました。
+              </p>
+            </div>
           </div>
-          <p class="wishlist-controls" style="display: none">
-            <a
-              class="g-btn g-btn-em g-btn-sm g-lg-fh"
-              id="changepopupbutton"
-              href="#p-changeModal"
-              role="button"
-              aria-expanded="false"
-              aria-controls="p-changeModal"
-              ><span>リスト名を変更</span></a
-            >
-          </p>
-          <p
-            class="g-inputGroup_static wishlist-controls"
-            style="display: none"
+        </div>
+      </GDialog>
+      <!-- modal2 リストを作成2 inputなし-->
+      <GDialog v-model="isShow2">
+        <div class="modal">
+          <div class="g-modal_el">
+            <header class="g-modal_head">
+              <p class="g-modal_h" id="p-messageModal_h">リストを作成</p>
+              <button
+                @click="isShow2 = false"
+                class="g-modal_close"
+                type="button"
+                aria-label="閉じる"
+              >
+                <span class="material-symbols-outlined" style="cursor: pointer">
+                  close
+                </span>
+              </button>
+            </header>
+            <div class="g-modal_body">
+              <p style="color: #eb6157; background-color: #fce7e6">
+                お気に入り商品リストの名前を入力してください。
+              </p>
+            </div>
+          </div>
+        </div>
+      </GDialog>
+      <!-- modal3 リストを作成3 同じリスト名前-->
+      <GDialog v-model="isShow3">
+        <div class="modal">
+          <div class="g-modal_el">
+            <header class="g-modal_head">
+              <p class="g-modal_h" id="p-messageModal_h">リストを作成</p>
+              <button
+                @click="isShow3 = false"
+                class="g-modal_close"
+                type="button"
+                aria-label="閉じる"
+              >
+                <span class="material-symbols-outlined" style="cursor: pointer">
+                  close
+                </span>
+              </button>
+            </header>
+            <div class="g-modal_body">
+              <p style="color: #eb6157; background-color: #fce7e6">
+                入力された名前のお気に入り商品リストは既に存在します。別の名前を入力してください。
+              </p>
+            </div>
+          </div>
+        </div>
+      </GDialog>
+      <!-- modal4 リストを作成4 長すぎる-->
+      <GDialog v-model="isShow4">
+        <div class="modal">
+          <div class="g-modal_el">
+            <header class="g-modal_head">
+              <p class="g-modal_h" id="p-messageModal_h">リストを作成</p>
+              <button
+                @click="isShow4 = false"
+                class="g-modal_close"
+                type="button"
+                aria-label="閉じる"
+              >
+                <span class="material-symbols-outlined" style="cursor: pointer">
+                  close
+                </span>
+              </button>
+            </header>
+            <div class="g-modal_body">
+              <p style="color: #eb6157; background-color: #fce7e6">
+                お気に入り商品リストの名前が長すぎます。
+              </p>
+            </div>
+          </div>
+        </div>
+      </GDialog>
+
+      <h2 class="g-h-2">
+        <span id="wishlistHeadLabel">{{ selectedName }}</span>
+      </h2>
+      <div class="g-lg-inputGroup p-favoriteList">
+        <div class="g-select g-select-sm" style="display: flex; width: 200px">
+          <i class="g-i g-i-dropdown" aria-hidden="true"></i>
+          <select
+            id="wishlistDropDown"
+            name=""
+            aria-label="お気に入り商品リストの選択"
+            @change="filterGoodsList"
+            v-model="selectedName"
           >
-            <a
-              class="g-link g-link-gray"
-              href="#p-listDeleteModal"
-              id="deleteInitial"
-              role="button"
-              aria-expanded="false"
-              aria-controls="p-listDeleteModal"
-              ><span
-                class="material-symbols-outlined"
-                data-v-3c643552=""
-                style="
-                  font-size: 1rem;
-                  margin-top: -0.2em;
-                  color: rgb(179, 179, 179);
+            <option
+              defaultwishlist="true"
+              v-for="(wish, index) in wishList"
+              :value="wish.listName"
+              :key="index"
+            >
+              {{ wish.listName }}
+            </option></select
+          ><span
+            class="material-symbols-outlined"
+            style="margin-top: 10px; color: #009e96"
+          >
+            expand_more
+          </span>
+        </div>
+      </div>
+      <p class="wishlist-controls" v-if="selectedName !== 'お気に入り商品'">
+        <a
+          class="g-btn g-btn-em g-btn-sm g-lg-fh"
+          id="changepopupbutton"
+          href="#p-changeModal"
+          role="button"
+          aria-expanded="false"
+          aria-controls="p-changeModal"
+          ><span>リスト名を変更</span></a
+        >
+      </p>
+      <p
+        class="g-inputGroup_static wishlist-controls"
+        v-if="selectedName !== 'お気に入り商品'"
+        @click="isShow01 = true"
+      >
+        <a class="g-link g-link-gray" id="deleteInitial" role="button">
+          <span
+            class="material-symbols-outlined"
+            style="cursor: pointer; color: #dbdbdb"
+          >
+            close </span
+          ><span>リストを削除</span></a
+        >
+      </p>
+      <!-- 选择【お気に入り商品】以外时 end -->
+    </div>
+    <!-- modal01 リストを削除?-->
+    <GDialog v-model="isShow01">
+      <div class="modal">
+        <div class="g-modal_el">
+          <header class="g-modal_head">
+            <p class="g-modal_h" id="p-messageModal_h">リストを作成</p>
+            <button
+              @click="isShow01 = false"
+              class="g-modal_close"
+              type="button"
+              aria-label="閉じる"
+            >
+              <span class="material-symbols-outlined" style="cursor: pointer">
+                close
+              </span>
+            </button>
+          </header>
+          <div class="g-modal_body">
+            <p id="modalMessage">"{{ selectedName }}"を削除しますか？</p>
+            <div class="button-delete-div">
+              <button
+                class="button-delete"
+                :id="id"
+                @click="
+                  deleteWishList(id);
+                  isShow01 = false;
                 "
               >
-                close </span
-              ><span>リストを削除</span></a
-            >
-          </p>
-        </div>
-
-        <div id="entryList">
-          <div id="wishlistEntryList" class="g-block-sm">
-            <div class="p-listControl">
-              <label class="g-checkable">
-                <input type="checkbox" data-checkall="favorite" /><span>
-                  <!-- <i
-                    class="g-s g-s-checkbox-on g-checkable_on"
-                    aria-hidden="true"
-                  ></i
-                  ><i
-                    class="g-s g-s-checkbox-off g-checkable_off"
-                    aria-hidden="true"
-                  ></i
-                  > -->
-                  <span class="g-checkable_label">すべて選択</span></span
-                >
-              </label>
-              <div class="p-listControl_edit">
-                <div>チェックしたものを</div>
-                <ul class="g-linkList g-linkList-lg">
-                  <li>
-                    <a
-                      class="g-link g-link-gray"
-                      href="#"
-                      role="button"
-                      onclick="if($('input:checked').length < 1){return false;};$('#deleteCount').text($('#p-ProductList input:checkbox:checked').length);$('#linkReal')[0].click();"
-                    >
-                      <span
-                        class="material-symbols-outlined"
-                        data-v-3c643552=""
-                        style="
-                          font-size: 1rem;
-                          margin-top: -0.2em;
-                          color: rgb(179, 179, 179);
-                        "
-                      >
-                        close
-                      </span>
-                      <span>削除</span></a
-                    >
-                  </li>
-
-                  <li>
-                    <a
-                      id="linkReal"
-                      class="g-link g-link-gray"
-                      href="#p-deleteModal"
-                      role="button"
-                      aria-expanded="false"
-                      aria-controls="p-deleteModal"
-                      style="display: none"
-                    >
-                    </a>
-                  </li>
-                </ul>
-              </div>
+                <span>削除する</span>
+              </button>
             </div>
-            <ul
-              id="p-ProductList"
-              class="g-itemList g-itemList-border g-mt-20 g-mb-20"
+          </div>
+        </div>
+      </div>
+    </GDialog>
+    <!-- modal02 リストを削除した-->
+    <GDialog v-model="isShow02">
+      <div class="modal">
+        <div class="g-modal_el">
+          <header class="g-modal_head">
+            <p class="g-modal_h" id="p-messageModal_h">リストを作成</p>
+            <button
+              @click="isShow02 = false"
+              class="g-modal_close"
+              type="button"
+              aria-label="閉じる"
             >
-              <li class="g-itemList_item">
-                <div
-                  class="g-media g-media-lg g-media-lead g-media-tail p-favoriteItem"
-                >
-                  <div class="g-media_lead g-align-im">
-                    <div class="g-checkable">
-                      <input
-                        type="checkbox"
-                        name="productCheckBox"
-                        value="10662635569854"
-                        data-checkall-children="favorite"
-                      /><span
-                        ><i
-                          class="g-s g-s-checkbox-on g-checkable_on"
-                          aria-hidden="true"
-                        ></i
-                        ><i
-                          class="g-s g-s-checkbox-off g-checkable_off"
-                          aria-hidden="true"
-                        ></i
-                      ></span>
-                    </div>
-                  </div>
-                  <div class="g-media_head">
-                    <a class="g-hover" href="/ec/product/1211251">
-                      <img
-                        class="g-fw g-rc"
-                        src="https://www.nitori-net.jp/ecstatic/image/product/1211251/121125101.jpg?ts=20220314105227327"
-                        alt=""
-                    /></a>
-                  </div>
+              <span class="material-symbols-outlined" style="cursor: pointer">
+                close
+              </span>
+            </button>
+          </header>
+          <div class="g-modal_body">
+            <p id="modalMessage">お気に入り商品リストの削除は成功しました。</p>
+          </div>
+        </div>
+      </div>
+    </GDialog>
+    <div id="entryList">
+      <div id="wishlistEntryList" class="g-block-sm">
+        <div class="p-listControl">
+          <label class="g-checkable" style="margin-top: -6px">
+            <input
+              type="checkbox"
+              data-checkall="favorite"
+              v-model="state.checked"
+              @change="selectAll"
+            /><span>
+              <span class="g-checkable_label">すべて選択&nbsp;</span></span
+            >
+          </label>
+          <div class="p-listControl_edit" style="display: flex">
+            <div>&nbsp;&nbsp;チェックしたものを</div>
+            <div style="margin-top: -16px; margin-left: -30px">
+              <ul class="g-linkList g-linkList-lg" style="display: flex">
+                <li v-if="wishList.length > 1">
+                  <a
+                    class="g-link g-link-gray"
+                    href="#"
+                    role="button"
+                    onclick="if($('input:checked').length < 1){return false;};$('#deleteCount').text($('#p-ProductList input:checkbox:checked').length);$('#linkReal')[0].click();"
+                  >
+                    <span
+                      class="material-symbols-outlined"
+                      data-v-3c643552=""
+                      style="
+                        font-size: 1rem;
+                        margin-top: -0.2em;
+                        color: rgb(179, 179, 179);
+                      "
+                    >
+                      close
+                    </span>
+                    <span>削除&nbsp;&nbsp;</span></a
+                  >
+                </li>
+
+                <li>
+                  <a
+                    id="linkReal"
+                    class="g-link g-link-gray"
+                    href="#p-deleteModal"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="p-deleteModal"
+                    style="display: none"
+                  >
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <ul
+          id="p-ProductList"
+          class="g-itemList g-itemList-border g-mt-20 g-mb-20"
+          v-for="(goods, index) in goodsList"
+          :key="index"
+        >
+          <li class="g-itemList_item">
+            <div
+              class="g-media g-media-lg g-media-lead g-media-tail p-favoriteItem"
+              style="display: flex"
+            >
+              <div class="g-media_lead g-align-im">
+                <div class="g-checkable">
+                  <input
+                    type="checkbox"
+                    name="productCheckBox"
+                    :value="goods.id"
+                    v-model="state.checkList"
+                  /><span
+                    ><i
+                      class="g-s g-s-checkbox-on g-checkable_on"
+                      aria-hidden="true"
+                    ></i
+                    ><i
+                      class="g-s g-s-checkbox-off g-checkable_off"
+                      aria-hidden="true"
+                    ></i
+                  ></span>
+                </div>
+              </div>
+              <div style="display: flex">
+                <div class="g-media_head">
+                  <router-link class="g-hover" :to="goods.link">
+                    <img
+                      class="g-fw g-rc"
+                      style="width: 140px"
+                      :src="goods.pictures"
+                      alt=""
+                  /></router-link>
+                </div>
+                <div style="margin-left: 50px">
                   <div class="g-media_body g-sm-units-xs g-lg-units-sm">
                     <p class="g-media_h">
-                      <a href="/ec/product/1211251"
-                        >2人用ローソファ(ノーザン3 TBL)</a
-                      >
+                      <router-link :to="goods.link" class="router-link"
+                        >{{ goods.name }}
+                      </router-link>
                     </p>
                     <p class="g-price">16,900<span>円（税込）</span></p>
                     <dl class="g-flow g-align-gm">
@@ -205,7 +361,9 @@
                           type="text"
                           inputmode="numeric"
                           name="quantity"
-                          value="1"
+                          oninput="value=value.replace(/\D/g, '')"
+                          :value="goods.quantity"
+                          @input="updateQuantity"
                           size="5"
                           maxlength="3"
                           id="p-pieces"
@@ -213,9 +371,61 @@
                       </dd>
                     </dl>
                   </div>
+
                   <div class="g-media_tail g-units g-sm-align-tc">
                     <div class="g-position-r">
                       <div class="cartBtnArea">
+                        <div
+                          v-if="showError"
+                          class="p-itemAdded g-item-add-error"
+                          style="
+                            bottom: 70.2083px;
+                            animation: 1.8s ease 0s 1 normal both running
+                              p-itemAddedIn;
+                          "
+                        >
+                          <button
+                            @click="showError = false"
+                            class="g-modal_close p-modal_button"
+                            type="button"
+                            aria-label="閉じる"
+                          >
+                            <span
+                              class="material-symbols-outlined"
+                              style="cursor: pointer"
+                            >
+                              close
+                            </span>
+                          </button>
+                          <div>数量は1以上、999以下で設定してください。</div>
+                        </div>
+                        <div
+                          v-if="showError"
+                          class="p-itemAdded g-item-add-error"
+                          style="
+                            bottom: 70.2083px;
+                            animation: 1.8s ease 0s 1 normal both running
+                              p-itemAddedIn;
+                          "
+                        >
+                          <button
+                            @click="isShow = false"
+                            class="g-modal_close p-modal_button"
+                            type="button"
+                            aria-label="閉じる"
+                          >
+                            <span
+                              class="material-symbols-outlined"
+                              style="cursor: pointer"
+                            >
+                              close
+                            </span>
+                          </button>
+                          <div>カートに追加しました</div>
+                          <button @click="isShow = false" class="modal-button">
+                            <router-link to="/cart">カートを見る</router-link>
+                          </button>
+                        </div>
                         <button
                           class="g-btn g-btn-cv g-btn-c g-sm-fw g-lg-btn-func addToCartBtn p-addItem"
                           id="p-addItem1211251"
@@ -226,6 +436,8 @@
                           data-category-id="11091"
                           data-product-id="1211241s"
                           data-bundle="false"
+                          @click="addItem(goods.goodsCode)"
+                          :sku="goods.goodsCode"
                         >
                           <span>
                             <span
@@ -242,87 +454,236 @@
                     </div>
                   </div>
                 </div>
-              </li>
-            </ul>
-
-            <div class="p-listControl">
-              <label class="g-checkable">
-                <input type="checkbox" data-checkall="favorite" /><span
-                  ><i
-                    class="g-s g-s-checkbox-on g-checkable_on"
-                    aria-hidden="true"
-                  ></i
-                  ><i
-                    class="g-s g-s-checkbox-off g-checkable_off"
-                    aria-hidden="true"
-                  ></i
-                  ><span class="g-checkable_label">すべて選択</span></span
-                >
-              </label>
-              <div class="p-listControl_edit">
-                <div>チェックしたものを</div>
-                <ul class="g-linkList g-linkList-lg">
-                  <li>
-                    <a
-                      class="g-link g-link-gray"
-                      href="#"
-                      role="button"
-                      onclick="if($('input:checked').length < 1){return false;};$('#deleteCount').text($('#p-ProductList input:checkbox:checked').length);$('#linkReal')[0].click();"
-                    >
-                      <span
-                        class="material-symbols-outlined"
-                        data-v-3c643552=""
-                        style="
-                          font-size: 1rem;
-                          margin-top: -0.2em;
-                          color: rgb(179, 179, 179);
-                        "
-                      >
-                        close
-                      </span>
-                      <span>削除</span></a
-                    >
-                  </li>
-
-                  <li>
-                    <a
-                      id="linkReal"
-                      class="g-link g-link-gray"
-                      href="#p-deleteModal"
-                      role="button"
-                      aria-expanded="false"
-                      aria-controls="p-deleteModal"
-                      style="display: none"
-                    >
-                    </a>
-                  </li>
-                </ul>
               </div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="p-listControl">
+          <label class="g-checkable" style="margin-top: -6px">
+            <input
+              type="checkbox"
+              data-checkall="favorite"
+              v-model="state.checked"
+              @change="selectAll"
+            /><span> <span class="g-checkable_label">すべて選択</span></span>
+          </label>
+          <div class="p-listControl_edit" style="display: flex">
+            <div>&nbsp;&nbsp;チェックしたものを</div>
+            <div style="margin-top: -16px; margin-left: -30px">
+              <ul class="g-linkList g-linkList-lg" style="display: flex">
+                <li v-if="wishList.length > 1">
+                  <a
+                    class="g-link g-link-gray"
+                    href="#"
+                    role="button"
+                    onclick="if($('input:checked').length < 1){return false;};$('#deleteCount').text($('#p-ProductList input:checkbox:checked').length);$('#linkReal')[0].click();"
+                  >
+                    <span
+                      class="material-symbols-outlined"
+                      data-v-3c643552=""
+                      style="
+                        font-size: 1rem;
+                        margin-top: -0.2em;
+                        color: rgb(179, 179, 179);
+                      "
+                    >
+                      close
+                    </span>
+                    <span>削除&nbsp;&nbsp;</span></a
+                  >
+                </li>
+
+                <li>
+                  <a
+                    id="linkReal"
+                    class="g-link g-link-gray"
+                    href="#p-deleteModal"
+                    role="button"
+                    aria-expanded="false"
+                    aria-controls="p-deleteModal"
+                    style="display: none"
+                  >
+                  </a>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
-      </section>
+      </div>
     </div>
   </div>
 </template>
-<script>
-export default {};
+<script setup lang="ts">
+import { computed, onMounted, reactive, ref } from "vue";
+import { useStore } from "../../store/index";
+
+// import { useRoute } from "vue-router";
+
+// const route = useRoute();
+const userId = 10011;
+const store = useStore();
+onMounted(() => {
+  store.dispatch("setGoodsList", userId);
+});
+const goodsList = computed(() => store.getters.getGoodsList);
+const state = reactive({
+  checked: false,
+  checkList: [],
+});
+const selectAll = async () => {
+  if (state.checked) {
+    const checkList1 = goodsList.value.map((goods) => goods.id);
+    console.log("checkList1", checkList1);
+    state.checkList = checkList1;
+    console.log("checkList", state.checkList);
+  } else {
+    state.checkList = [];
+  }
+};
+const isShow1 = ref(false);
+const isShow2 = ref(false);
+const isShow3 = ref(false);
+const isShow4 = ref(false);
+
+// const value = ref("");
+const wishList = computed(() => store.getters.getWishList);
+const value = computed(() => store.getters.getValue);
+function updateValue(e: Event) {
+  if (e.target instanceof HTMLInputElement) {
+    store.commit("updateValue", e.target.value);
+  }
+}
+function addWishList() {
+  //去掉首尾空格后判断输入的内容是否为空
+  if (
+    value.value.replace(/(^\s*)|(\s*$)/g, "").length > 0 &&
+    value.value.length <= 20
+  ) {
+    //若不为空
+    //继续判断输入的listName是否已经存在
+    if (wishList.value.filter((w) => w.listName === value.value).length > 0) {
+      //若存在，则显示modal3，提示listName已经存在
+      isShow3.value = true;
+    } else {
+      //若不存在，则显示modal1，提示插入成功，并插入数据
+      isShow1.value = true;
+      store.dispatch("addWishList", "user01");
+    }
+  } else if (value.value.length > 20) {
+    isShow4.value = true;
+  } else {
+    //若为空，则显示modal2，提示不能为空
+    isShow2.value = true;
+  }
+}
+
+const isShow01 = ref(false);
+const isShow02 = ref(false);
+const showError = ref(false);
+const isShow = ref(false);
+const id = computed(() => store.getters.getId);
+const selectedName = computed(() => store.getters.getSelectName);
+const filterGoodsList = (e) => {
+  store.commit("filterGoodsList", e.target.value);
+};
+const deleteWishList = (id: number) => {
+  store.dispatch("deleteWishList", { id, userId });
+  isShow02.value = true;
+};
+const quantity = computed(() => store.getters.getQuantity);
+const updateQuantity = (e: Event) => {
+  if (e.target instanceof HTMLInputElement) {
+    store.commit("updateQuantity", e.target.value);
+  }
+};
+const addItem = (goodsCode: string) => {
+  if (quantity.value < 1 || quantity.value > 999) {
+    showError.value = true;
+  } else {
+    store.dispatch("addCart", goodsCode);
+    isShow.value = true;
+    store.commit("updateQuantity", 1);
+  }
+};
 </script>
 <style scoped>
+.g-itemList-border,
+.g-lg-itemList-border {
+  border: 0 solid #dbdbdb;
+  border-top-width: 1px;
+  border-bottom-width: 1px;
+}
+.g-itemList-border,
+.g-lg-itemList-border {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.g-mb-20,
+.g-lg-mb-20 {
+  margin-bottom: 20px !important;
+}
+input[type="checkbox"] {
+  cursor: pointer;
+  position: relative;
+}
+
+input[type="checkbox"]::after {
+  top: 0;
+
+  color: rgb(12, 12, 12);
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  visibility: visible;
+  padding-left: 0px;
+  text-align: center;
+  content: " ";
+  border-radius: 2px;
+  box-sizing: border-box;
+  border: 1px solid #ddd;
+}
+
+input[type="checkbox"]:checked::after {
+  content: "";
+  background-color: #009e96;
+  border-color: #009e96;
+  background-color: #009e96;
+}
+
+input[type="checkbox"]:checked::before {
+  content: "";
+  position: absolute;
+  top: 1px;
+  left: 5px;
+  width: 6px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  z-index: 1;
+}
+
+.g-align-im {
+  padding: 10px;
+  line-height: 8;
+}
+a {
+  text-decoration: none;
+  color: #333;
+}
 .g-checkable input[type="radio"],
 .g-checkable input[type="checkbox"],
 .g-lg-checkable input[type="radio"],
 .g-lg-checkable input[type="checkbox"] {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-color: transparent;
   border-radius: 0;
-  background-color: transparent;
-  -webkit-appearance: none;
-  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+}
+.g-linkList li:nth-child(n + 2)::before,
+.g-lg-linkList li:nth-child(n + 2)::before {
+  content: "\FF5C";
+  color: #dbdbdb;
 }
 .g-input-sm {
   padding: 8px 11px 7px;
