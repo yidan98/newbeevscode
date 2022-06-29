@@ -1007,7 +1007,7 @@
       "price": 54900,
       "color": "ベージュ/ライトブラウン",
       "pictures": "http://localhost:8080/assets/images/lightTwo1.webp",
-      "id": 2
+      "id": 3
     }
   ],
   "cartAdd": [
@@ -1028,24 +1028,21 @@
       "goodsCode": 5650307,
       "quantity": 1,
       "id": 3
+    },
+    {
+      "userId": 10011,
+      "goodsCode": 5650307,
+      "quantity": 1,
+      "id": 4
+    },
+    {
+      "userId": 10011,
+      "goodsCode": 5650307,
+      "quantity": 1,
+      "id": 5
     }
   ],
   "buyLaterList": [
-    {
-      "quantity": 1,
-      "goodsId": 10195,
-      "userId": 10011,
-      "goodsCode": 5650311,
-      "name": "2人用ヒジ付きローソファ ふっくらパン ライトブラウン",
-      "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
-      "exchange": "14日間返品可能",
-      "postage": 0,
-      "type": "2人用ソファ",
-      "price": 54900,
-      "color": "ベージュ/ライトブラウン",
-      "pictures": "http://localhost:8080/assets/images/lightTwo1.webp",
-      "id": 3
-    },
     {
       "quantity": 1,
       "goodsId": 10195,
@@ -1105,6 +1102,21 @@
       "color": "ピンク",
       "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp",
       "id": 8
+    },
+    {
+      "quantity": 1,
+      "goodsId": 10195,
+      "userId": 10011,
+      "goodsCode": 5650311,
+      "name": "2人用ヒジ付きローソファ ふっくらパン ライトブラウン",
+      "delivery": "6月下旬以降のお届け予定となります。(6月10日現在)※地域により異なる場合がございます。",
+      "exchange": "14日間返品可能",
+      "postage": 0,
+      "type": "2人用ソファ",
+      "price": 54900,
+      "color": "ベージュ/ライトブラウン",
+      "pictures": "http://localhost:8080/assets/images/lightTwo1.webp",
+      "id": 2
     }
   ],
   "userInformation": [
@@ -1240,12 +1252,6 @@
           "quantity": 1
         }
       ]
-    },
-    {
-      "userId": 10011,
-      "listName": "sofa",
-      "goodsList": [],
-      "id": 2
     }
   ]
 }

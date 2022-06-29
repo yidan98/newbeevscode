@@ -61,23 +61,23 @@ export default {
       context.commit("setWishList", j);
       context.commit("setGoodsList", j);
     },
-    async addWishList(context, userId: string) {
+    async addWishList(context, userId: number) {
       const wishList = {
         userId: 10011,
         listName: context.state.value,
         goodsList: [],
       };
       await axios.post("http://localhost:3000/wishList", wishList);
-      context.dispatch("setWishList", userId);
+      context.dispatch("setGoodsList", userId);
       context.state.value = "";
     },
     //delete listName
     async deleteWishList(
       context,
-      { id, userId }: { id: number; userId: string }
+      { id, userId }: { id: number; userId: number }
     ) {
       await fetch("http://localhost:3000/wishList/" + id, { method: "DELETE" });
-      context.dispatch("setWishList", userId);
+      context.dispatch("setGoodsList", userId);
     },
   },
   getters: {
