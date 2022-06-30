@@ -1263,8 +1263,68 @@
     {
       "userId": 10011,
       "listName": "sofaLove",
-      "goodsList": [],
+      "goodsList": [
+        {
+          "id": 1,
+          "userId": 10011,
+          "goodsId": 10195,
+          "type": "2人用ソファ",
+          "goodsCode": 5650315,
+          "color": "ターコイズブルー",
+          "pictures": "http://localhost:8080/assets/images/love.jpg",
+          "price": 38900,
+          "name": "2人用ローソファ(ノーザン3 TBL)",
+          "shipment": "2~6",
+          "postage": 0,
+          "link": "/goods/detail/10195",
+          "quantity": 1
+        }
+      ],
       "id": 3
+    },
+    {
+      "userId": 10011,
+      "listName": "pinksofa",
+      "goodsList": [
+        {
+          "id": 1,
+          "userId": 10011,
+          "goodsId": 10195,
+          "type": "2人用ソファ",
+          "goodsCode": 5650315,
+          "color": "ピンク",
+          "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp",
+          "price": 54900,
+          "name": "2人用ヒジ付きローソファ ふっくらパン イチゴ(PI)",
+          "shipment": "2~6",
+          "postage": 0,
+          "link": "/goods/detail/10195",
+          "quantity": 1
+        }
+      ],
+      "id": 4
+    },
+    {
+      "userId": 10011,
+      "listName": "bluesofa",
+      "goodsList": [
+        {
+          "id": 1,
+          "userId": 10011,
+          "goodsId": 10195,
+          "type": "2人用ソファ",
+          "goodsCode": 5650315,
+          "color": "ターコイズブルー",
+          "pictures": "http://localhost:8080/assets/images/love.jpg",
+          "price": 38900,
+          "name": "2人用ローソファ(ノーザン3 TBL)",
+          "shipment": "2~6",
+          "postage": 0,
+          "link": "/goods/detail/10195",
+          "quantity": 1
+        }
+      ],
+      "id": 5
     }
   ]
 }

@@ -235,28 +235,7 @@
       </div>
     </GDialog>
     <!-- modal02 リストを変更した-->
-    <GDialog v-model="isShow02">
-      <div class="modal">
-        <div class="g-modal_el">
-          <header class="g-modal_head">
-            <p class="g-modal_h" id="p-messageModal_h">リスト名を変更</p>
-            <button
-              @click="isShow02 = false"
-              class="g-modal_close"
-              type="button"
-              aria-label="閉じる"
-            >
-              <span class="material-symbols-outlined" style="cursor: pointer">
-                close
-              </span>
-            </button>
-          </header>
-          <div class="g-modal_body">
-            <p id="modalMessage">お気に入り商品リストの名前を変更しました。</p>
-          </div>
-        </div>
-      </div>
-    </GDialog>
+
     <!-- modal01 リストを削除?-->
     <GDialog v-model="isShow01">
       <div class="modal">
@@ -342,7 +321,7 @@
                       style="color: rgb(179, 179, 179)"
                     >
                       swap_vert </span
-                    ><span>移動</span></a
+                    ><span @click="isShowMove = true">移動</span></a
                   >
                 </li>
                 <li>
@@ -363,7 +342,9 @@
                     >
                       close
                     </span>
-                    <span>削除&nbsp;&nbsp;</span></a
+                    <span @click="isShowDelete = true"
+                      >削除&nbsp;&nbsp;</span
+                    ></a
                   >
                 </li>
 
@@ -430,7 +411,9 @@
                         >{{ goods.name }}
                       </router-link>
                     </p>
-                    <p class="g-price">16,900<span>円（税込）</span></p>
+                    <p class="g-price">
+                      {{ goods.price * goods.quantity }}<span>円（税込）</span>
+                    </p>
                     <dl class="g-flow g-align-gm">
                       <dt>数量</dt>
                       <dd style="margin-top: -37px">
@@ -440,7 +423,7 @@
                           inputmode="numeric"
                           name="quantity"
                           oninput="value=value.replace(/\D/g, '')"
-                          :value="goods.quantity"
+                          v-model="goods.quantity"
                           @input="updateQuantity"
                           size="5"
                           maxlength="3"
@@ -560,7 +543,7 @@
                       style="color: rgb(179, 179, 179)"
                     >
                       swap_vert </span
-                    ><span>移動</span></a
+                    ><span @click="isShowMove = true">移動</span></a
                   >
                 </li>
                 <li>
@@ -581,7 +564,9 @@
                     >
                       close
                     </span>
-                    <span>削除&nbsp;&nbsp;</span></a
+                    <span @click="isShowDelete = true"
+                      >削除&nbsp;&nbsp;</span
+                    ></a
                   >
                 </li>
 
@@ -599,6 +584,91 @@
                 </li>
               </ul>
             </div>
+            <!-- module move -->
+            <GDialog v-model="isShowMove">
+              <div class="modal">
+                <div class="g-modal_el">
+                  <header class="g-modal_head">
+                    <p class="g-modal_h" id="p-messageModal_h">
+                      商品を別のリストへ移動
+                    </p>
+                    <button
+                      @click="isShowMove = false"
+                      class="g-modal_close"
+                      type="button"
+                      aria-label="閉じる"
+                    >
+                      <span
+                        class="material-symbols-outlined"
+                        style="cursor: pointer"
+                      >
+                        close
+                      </span>
+                    </button>
+                  </header>
+                  <div class="g-modal_body">
+                    <p id="modalMessage">
+                      商品を移動させるリストを選択してください。
+                    </p>
+                    <select>
+                      <option value="お気に入り">お気に入り</option>
+                      <option value="sofa">sofaList</option>
+                    </select>
+                    <div class="button-delete-div">
+                      <button
+                        class="button-delete"
+                        :id="id"
+                        @click="isShowMove = false"
+                      >
+                        <span>移動する</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </GDialog>
+            <!-- modal02 リストを移動した-->
+
+            <!-- 移動 end  -->
+            <!-- delete modal -->
+            <GDialog v-model="isShowDelete">
+              <div class="modal">
+                <div class="g-modal_el">
+                  <header class="g-modal_head">
+                    <p class="g-modal_h" id="p-messageModal_h">商品を削除</p>
+                    <button
+                      @click="isShowDelete = false"
+                      class="g-modal_close"
+                      type="button"
+                      aria-label="閉じる"
+                    >
+                      <span
+                        class="material-symbols-outlined"
+                        style="cursor: pointer"
+                      >
+                        close
+                      </span>
+                    </button>
+                  </header>
+                  <div class="g-modal_body">
+                    <p id="modalMessage">
+                      チェックした商品 1 つを削除しますか？
+                    </p>
+
+                    <div class="button-delete-div">
+                      <button
+                        class="button-delete"
+                        :id="id"
+                        @click="isShowDelete = false"
+                      >
+                        <span>削除する</span>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </GDialog>
+            <!-- end -->
           </div>
         </div>
       </div>
@@ -671,6 +741,8 @@ function addWishList() {
 
 const isShow01 = ref(false);
 const isShow011 = ref(false);
+const isShowMove = ref(false);
+const isShowDelete = ref(false);
 const isShow02 = ref(false);
 const state2 = reactive({ newName: "" });
 
