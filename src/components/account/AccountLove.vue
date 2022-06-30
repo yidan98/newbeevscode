@@ -103,7 +103,9 @@
               </button>
             </header>
             <div class="g-modal_body">
-              <p style="color: #eb6157; background-color: #fce7e6">
+              <p
+                style="color: #eb6157; background-color: #fce7e6; padding: 20px"
+              >
                 入力された名前のお気に入り商品リストは既に存在します。別の名前を入力してください。
               </p>
             </div>
@@ -165,7 +167,12 @@
           </span>
         </div>
       </div>
-      <p class="wishlist-controls" v-if="selectedName !== 'お気に入り商品'">
+
+      <p
+        class="wishlist-controls"
+        v-if="selectedName !== 'お気に入り商品'"
+        @click="isShow011 = true"
+      >
         <a
           class="g-btn g-btn-em g-btn-sm g-lg-fh"
           id="changepopupbutton"
@@ -192,6 +199,64 @@
       </p>
       <!-- 选择【お気に入り商品】以外时 end -->
     </div>
+    <GDialog v-model="isShow011">
+      <div class="modal">
+        <div class="g-modal_el">
+          <header class="g-modal_head">
+            <p class="g-modal_h" id="p-messageModal_h">リスト名を変更</p>
+            <button
+              @click="isShow011 = false"
+              class="g-modal_close"
+              type="button"
+              aria-label="閉じる"
+            >
+              <span class="material-symbols-outlined" style="cursor: pointer">
+                close
+              </span>
+            </button>
+          </header>
+          <div class="g-modal_body">
+            <p id="modalMessage">"リスト名を変更してください</p>
+            <input type="text" v-model="state2.newName" />
+            <div class="button-delete-div">
+              <button
+                class="button-delete"
+                :id="id"
+                @click="
+                  updateListName(id, state2.newName);
+                  isShow011 = false;
+                "
+              >
+                <span>変更する</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </GDialog>
+    <!-- modal02 リストを変更した-->
+    <GDialog v-model="isShow02">
+      <div class="modal">
+        <div class="g-modal_el">
+          <header class="g-modal_head">
+            <p class="g-modal_h" id="p-messageModal_h">リスト名を変更</p>
+            <button
+              @click="isShow02 = false"
+              class="g-modal_close"
+              type="button"
+              aria-label="閉じる"
+            >
+              <span class="material-symbols-outlined" style="cursor: pointer">
+                close
+              </span>
+            </button>
+          </header>
+          <div class="g-modal_body">
+            <p id="modalMessage">お気に入り商品リストの名前を変更しました。</p>
+          </div>
+        </div>
+      </div>
+    </GDialog>
     <!-- modal01 リストを削除?-->
     <GDialog v-model="isShow01">
       <div class="modal">
@@ -252,7 +317,7 @@
     </GDialog>
     <div id="entryList">
       <div id="wishlistEntryList" class="g-block-sm">
-        <div class="p-listControl">
+        <div class="p-listControl" v-if="goodsList.length !== 0">
           <label class="g-checkable" style="margin-top: -6px">
             <input
               type="checkbox"
@@ -268,6 +333,19 @@
             <div style="margin-top: -16px; margin-left: -30px">
               <ul class="g-linkList g-linkList-lg" style="display: flex">
                 <li v-if="wishList.length > 1">
+                  <a
+                    class="g-link g-link-gray"
+                    id="moveWishlistEntries"
+                    onclick="onclickmoveentry();"
+                    ><span
+                      class="material-symbols-outlined"
+                      style="color: rgb(179, 179, 179)"
+                    >
+                      swap_vert </span
+                    ><span>移動</span></a
+                  >
+                </li>
+                <li>
                   <a
                     class="g-link g-link-gray"
                     href="#"
@@ -355,7 +433,7 @@
                     <p class="g-price">16,900<span>円（税込）</span></p>
                     <dl class="g-flow g-align-gm">
                       <dt>数量</dt>
-                      <dd>
+                      <dd style="margin-top: -37px">
                         <input
                           class="g-input g-input-sm addToCartQty1211251"
                           type="text"
@@ -459,7 +537,7 @@
           </li>
         </ul>
 
-        <div class="p-listControl">
+        <div class="p-listControl" v-if="goodsList.length !== 0">
           <label class="g-checkable" style="margin-top: -6px">
             <input
               type="checkbox"
@@ -473,6 +551,19 @@
             <div style="margin-top: -16px; margin-left: -30px">
               <ul class="g-linkList g-linkList-lg" style="display: flex">
                 <li v-if="wishList.length > 1">
+                  <a
+                    class="g-link g-link-gray"
+                    id="moveWishlistEntries"
+                    onclick="onclickmoveentry();"
+                    ><span
+                      class="material-symbols-outlined"
+                      style="color: rgb(179, 179, 179)"
+                    >
+                      swap_vert </span
+                    ><span>移動</span></a
+                  >
+                </li>
+                <li>
                   <a
                     class="g-link g-link-gray"
                     href="#"
@@ -579,7 +670,10 @@ function addWishList() {
 }
 
 const isShow01 = ref(false);
+const isShow011 = ref(false);
 const isShow02 = ref(false);
+const state2 = reactive({ newName: "" });
+
 const showError = ref(false);
 const isShow = ref(false);
 const id = computed(() => store.getters.getId);
@@ -590,6 +684,11 @@ const filterGoodsList = (e) => {
 const deleteWishList = (id: number) => {
   store.dispatch("deleteWishList", { id, userId });
   isShow02.value = true;
+};
+const updateListName = (id: number, newName: string) => {
+  store.dispatch("updateListName", { newName, id, userId });
+  state2.newName = newName;
+  isShow011.value = true;
 };
 const quantity = computed(() => store.getters.getQuantity);
 const updateQuantity = (e: Event) => {
@@ -608,6 +707,54 @@ const addItem = (goodsCode: string) => {
 };
 </script>
 <style scoped>
+a {
+  cursor: pointer;
+}
+.g-modal_head {
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  position: sticky;
+  z-index: 12;
+  top: 0;
+  display: flex;
+  background-color: #009e96;
+  justify-content: space-between;
+}
+.g-modal_h {
+  font-size: 1.2rem;
+  padding: 5px;
+  color: #fff;
+}
+.g-list-note {
+  font-size: 0.8rem;
+  color: #808080;
+}
+.g-modal_close {
+  font-size: 1rem;
+  padding: 20px;
+  background-color: #009e96;
+  border: none;
+  color: #fff;
+}
+.g-modal_body {
+  padding: 30px 30px 40px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  background-color: #fff;
+}
+.modal-close {
+  border: none;
+  background: none;
+  cursor: pointer;
+  padding: 10;
+  color: #ffffff;
+}
+.modal-button {
+  background-color: #eb6157;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  width: 200px;
+}
 .g-itemList-border,
 .g-lg-itemList-border {
   border: 0 solid #dbdbdb;

@@ -78,6 +78,18 @@ export default {
     ) {
       await fetch("http://localhost:3000/wishList/" + id, { method: "DELETE" });
       context.dispatch("setGoodsList", userId);
+      context.state.selectedName = "お気に入り商品";
+    },
+
+    async updateListName(
+      context,
+      { newName, id, userId }: { newName: string; id: number; userId: string }
+    ) {
+      await axios.patch("http://localhost:3000/wishList/" + id, {
+        listName: newName,
+      });
+      context.dispatch("setGoodsList", userId);
+      context.state.selectedName = "お気に入り商品";
     },
   },
   getters: {

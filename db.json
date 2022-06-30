@@ -1040,6 +1040,12 @@
       "goodsCode": 5650307,
       "quantity": 1,
       "id": 5
+    },
+    {
+      "userId": 10011,
+      "goodsCode": 5650307,
+      "quantity": 1,
+      "id": 6
     }
   ],
   "buyLaterList": [
@@ -1234,6 +1240,7 @@
     },
     {
       "userId": 10011,
+      "id": 2,
       "listName": "sofaList",
       "goodsList": [
         {
@@ -1252,6 +1259,12 @@
           "quantity": 1
         }
       ]
+    },
+    {
+      "userId": 10011,
+      "listName": "sofaLove",
+      "goodsList": [],
+      "id": 3
     }
   ]
 }
