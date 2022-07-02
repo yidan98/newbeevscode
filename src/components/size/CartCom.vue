@@ -118,19 +118,38 @@
                 > -->
               </div>
             </div>
-            <li class="g-grid_item p-misc_item" style="margin-left: 50px">
-              <a
-                :class="existed ? 'canNotClick' : 'canClick'"
-                @click="intoWish"
-              >
+            <div
+              style="
+                display: flex;
+                justify-content: space-around;
+                padding: 20px;
+              "
+            >
+              <li class="g-grid_item p-misc_item" style="margin-left: 50px">
+                <a
+                  :class="existed ? 'canNotClick' : 'canClick'"
+                  @click="intoWish"
+                >
+                  <div class="p-misc_i g-hover_img">
+                    <span class="material-symbols-outlined g-s g-s-favorite-g">
+                      favorite
+                    </span>
+                  </div>
+
+                  <span class="p-misc_label" style="margin-left: -10px"
+                    >お気に入り</span
+                  >
+                </a>
+              </li>
+              <a href="">
                 <div class="p-misc_i g-hover_img">
-                  <span class="material-symbols-outlined g-s g-s-favorite-g">
-                    favorite
-                  </span>
+                  <span class="material-symbols-outlined"> store </span>
                 </div>
-                <span class="p-misc_label">お気に入り</span>
-              </a>
-            </li>
+                <span class="p-misc_label" style="margin-left: -20px"
+                  >店舗在庫を確認</span
+                ></a
+              >
+            </div>
           </div>
         </div>
       </div>
@@ -181,6 +200,22 @@ const q = (e: Event) => {
 };
 </script>
 <style scoped>
+a {
+  text-decoration: none;
+  color: #333;
+}
+.p-misc_i {
+  font-size: 2.4rem;
+  display: flex;
+  width: 50px;
+  height: 50px;
+  margin-bottom: 5px;
+  border: 2px solid #dbdbdb;
+  border-radius: 50%;
+  background-color: #fff;
+  align-items: center;
+  justify-content: center;
+}
 .canClick {
   cursor: pointer;
   color: #333;

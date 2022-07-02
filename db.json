@@ -1457,6 +1457,28 @@
       "quantity": 1,
       "link": "/goods/detail/10195",
       "id": 9
+    },
+    {
+      "goodsCode": 5650307,
+      "type": "3人用ソファ",
+      "price": 64900,
+      "color": "ベージュ/ミドルブラウン",
+      "name": "ヒジ付きローソファ ふっくらパン ミドルブラウン",
+      "size": "幅97×奥行195×高さ20cm",
+      "material": "ポリエステル",
+      "guaranteeYear": "1年",
+      "weight": "約22kg",
+      "wrapSize": "幅29×奥行29×高さ101cm",
+      "pictures": [
+        "http://localhost:8080/assets/images/brownThree1.webp",
+        "http://localhost:8080/assets/images/brownThree2.webp",
+        "http://localhost:8080/assets/images/brownThree3.webp"
+      ],
+      "listName": "お気に入り商品",
+      "userId": 10011,
+      "quantity": 1,
+      "link": "/goods/detail/10195",
+      "id": 10
     }
   ]
 }
