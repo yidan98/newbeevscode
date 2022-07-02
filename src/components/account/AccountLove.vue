@@ -171,7 +171,10 @@
       <p
         class="wishlist-controls"
         v-if="selectedName !== 'お気に入り商品'"
-        @click="isShow011 = true"
+        @click="
+          isShow011 = true;
+          state2.newName = selectedName;
+        "
       >
         <a
           class="g-btn g-btn-em g-btn-sm g-lg-fh"
@@ -312,10 +315,7 @@
             <div style="margin-top: -16px; margin-left: -30px">
               <ul class="g-linkList g-linkList-lg" style="display: flex">
                 <li v-if="wishList.length > 1">
-                  <a
-                    class="g-link g-link-gray"
-                    id="moveWishlistEntries"
-                    onclick="onclickmoveentry();"
+                  <a class="g-link g-link-gray" id="moveWishlistEntries"
                     ><span
                       class="material-symbols-outlined"
                       style="color: rgb(179, 179, 179)"
@@ -325,12 +325,7 @@
                   >
                 </li>
                 <li>
-                  <a
-                    class="g-link g-link-gray"
-                    href="#"
-                    role="button"
-                    onclick="if($('input:checked').length < 1){return false;};$('#deleteCount').text($('#p-ProductList input:checkbox:checked').length);$('#linkReal')[0].click();"
-                  >
+                  <a class="g-link g-link-gray" href="#" role="button">
                     <span
                       class="material-symbols-outlined"
                       data-v-3c643552=""
@@ -606,19 +601,31 @@
                       </span>
                     </button>
                   </header>
-                  <div class="g-modal_body">
+                  <div class="g-modal_body" style="display: flex">
                     <p id="modalMessage">
                       商品を移動させるリストを選択してください。
                     </p>
-                    <select>
-                      <option value="お気に入り">お気に入り</option>
-                      <option value="sofa">sofaList</option>
+                    <select
+                      v-model="selectableList"
+                      @change="selectableListBySelect"
+                    >
+                      <option
+                        v-for="(c, index) in canMoveList"
+                        :key="index"
+                        :value="c.listName"
+                      >
+                        {{ c.listName }}
+                      </option>
                     </select>
                     <div class="button-delete-div">
                       <button
+                        :selectableList="selectableList"
                         class="button-delete"
                         :id="id"
-                        @click="isShowMove = false"
+                        @click="
+                          moveGoods(selectableList);
+                          isShowMove = false;
+                        "
                       >
                         <span>移動する</span>
                       </button>
@@ -641,6 +648,7 @@
                       class="g-modal_close"
                       type="button"
                       aria-label="閉じる"
+                      :id="id"
                     >
                       <span
                         class="material-symbols-outlined"
@@ -652,14 +660,18 @@
                   </header>
                   <div class="g-modal_body">
                     <p id="modalMessage">
-                      チェックした商品 1 つを削除しますか？
+                      チェックした商品
+                      {{ state.checkList.length }} つを削除しますか？
                     </p>
 
                     <div class="button-delete-div">
                       <button
                         class="button-delete"
                         :id="id"
-                        @click="isShowDelete = false"
+                        @click="
+                          deleteGoods();
+                          isShowDelete = false;
+                        "
                       >
                         <span>削除する</span>
                       </button>
@@ -684,8 +696,12 @@ import { useStore } from "../../store/index";
 // const route = useRoute();
 const userId = 10011;
 const store = useStore();
+// onMounted(() => {
+//   store.dispatch("setGoodsList", userId);
+// });
 onMounted(() => {
   store.dispatch("setGoodsList", userId);
+  store.dispatch("setWishGoodsList", userId);
 });
 const goodsList = computed(() => store.getters.getGoodsList);
 const state = reactive({
@@ -750,18 +766,23 @@ const showError = ref(false);
 const isShow = ref(false);
 const id = computed(() => store.getters.getId);
 const selectedName = computed(() => store.getters.getSelectName);
+//change goodsList
 const filterGoodsList = (e) => {
   store.commit("filterGoodsList", e.target.value);
+  store.commit("filterWishList", e.target.value);
 };
+//delect listName
 const deleteWishList = (id: number) => {
   store.dispatch("deleteWishList", { id, userId });
   isShow02.value = true;
 };
+//update listName
 const updateListName = (id: number, newName: string) => {
   store.dispatch("updateListName", { newName, id, userId });
   state2.newName = newName;
   isShow011.value = true;
 };
+
 const quantity = computed(() => store.getters.getQuantity);
 const updateQuantity = (e: Event) => {
   if (e.target instanceof HTMLInputElement) {
@@ -777,8 +798,55 @@ const addItem = (goodsCode: string) => {
     store.commit("updateQuantity", 1);
   }
 };
+//-------------------------------move and delete
+// const patchGoodsList = (id: number) => {
+//   store.dispatch("patchGoodsList", { id, userId });
+
+//   isShowDelete.value = true;
+// };
+const canMoveList = computed(() => store.getters.getCanMoveList);
+// const anotherName = ref("");
+// if (wishList.value.length > 0) {
+//   anotherName.value = wishList.value[0].listName;
+// }
+const selectableList = computed(() => store.getters.getSelectableList);
+const moveGoods = (selectableList: string) => {
+  let id = -1;
+  for (let i = 0; i < state.checkList.length; i++) {
+    id = state.checkList[i];
+    console.log("id", id);
+    store.dispatch("moveGoods", { selectableList, id, userId });
+    // isShowMove.value=true;
+    state.checkList = [];
+    state.checked = false;
+  }
+};
+const deleteGoods = () => {
+  let id = -1;
+  console.log("id", id);
+  for (let i = 0; i < state.checkList.length; i++) {
+    id = state.checkList[i];
+    console.log("id", id);
+    store.dispatch("deleteGoods", { id, userId });
+  }
+  console.log("id", id);
+  state.checkList = [];
+  // state.checked = false;
+};
+const selectableListBySelect = (e) => {
+  store.commit("selectableListBySelect", e.target.value);
+};
 </script>
 <style scoped>
+.button-delete {
+  border-color: #009e96;
+  background-color: #009e96;
+  color: #fff;
+  border-radius: 4px;
+  border: 1px solid #dbdbdb;
+  font-size: 1.2rem;
+  padding: 20px;
+}
 a {
   cursor: pointer;
 }
