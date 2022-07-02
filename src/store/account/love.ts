@@ -116,6 +116,28 @@ export default {
       context.dispatch("setGoodsList", userId);
       context.state.value = "";
     },
+    //add item to お気に入り商品 from cartCom
+    async intoWish(context, newInfoList: {}) {
+      const obj = {
+        listName: "お気に入り商品",
+        userId: 10011,
+        quantity: 1,
+        link: "/goods/detail/10195",
+      };
+      const item = {
+        ...newInfoList,
+        ...obj,
+      };
+      // const key = "listName";
+      // const value = "お気に入り商品";
+      // const key2 = "userId";
+      // const value2 = 10011;
+      // newInfoList[key] = value;
+      // newInfoList[key2] = value2;
+      await axios.post("http://localhost:3000/wishgoodsList", item);
+      const userId = 10011;
+      context.dispatch("setGoodsList", userId);
+    },
     //delete listName
     async deleteWishList(
       context,

@@ -395,7 +395,7 @@
                     <img
                       class="g-fw g-rc"
                       style="width: 140px"
-                      :src="goods.pictures"
+                      :src="goods.pictures[0]"
                       alt=""
                   /></router-link>
                 </div>

@@ -941,7 +941,10 @@
         {
           "type": "3人用ソファ",
           "price": 64900,
-          "color": ["ベージュ/ミドルブラウン", "ベージュ/ライトブラウン"],
+          "color": [
+            "ベージュ/ミドルブラウン",
+            "ベージュ/ライトブラウン"
+          ],
           "colorImg": [
             {
               "color": "ベージュ/ミドルブラウン",
@@ -1216,7 +1219,9 @@
           "type": "2人用ソファ",
           "goodsCode": 5650315,
           "color": "ターコイズブルー",
-          "pictures": "http://localhost:8080/assets/images/love.jpg",
+          "pictures": [
+            "http://localhost:8080/assets/images/love.jpg"
+          ],
           "price": 38900,
           "name": "2人用ローソファ(ノーザン3 TBL)",
           "shipment": "2~6",
@@ -1231,7 +1236,9 @@
           "type": "2人用ソファ",
           "goodsCode": 5650315,
           "color": "ピンク",
-          "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp",
+          "pictures": [
+            "http://localhost:8080/assets/images/pinkTwo1.webp"
+          ],
           "price": 54900,
           "name": "2人用ヒジ付きローソファ ふっくらパン イチゴ(PI)",
           "shipment": "2~6",
@@ -1253,7 +1260,9 @@
           "type": "2人用ソファ",
           "goodsCode": 5650315,
           "color": "ベージュ",
-          "pictures": "http://localhost:8080/assets/images/sofaList.webp",
+          "pictures": [
+            "http://localhost:8080/assets/images/sofaList.webp"
+          ],
           "price": 21890,
           "name": "カジュアルソファ(パック3 BE)",
           "shipment": "2~6",
@@ -1274,7 +1283,9 @@
           "type": "2人用ソファ",
           "goodsCode": 5650315,
           "color": "ターコイズブルー",
-          "pictures": "http://localhost:8080/assets/images/love.jpg",
+          "pictures": [
+            "http://localhost:8080/assets/images/love.jpg"
+          ],
           "price": 38900,
           "name": "2人用ローソファ(ノーザン3 TBL)",
           "shipment": "2~6",
@@ -1296,7 +1307,9 @@
           "type": "2人用ソファ",
           "goodsCode": 5650315,
           "color": "ピンク",
-          "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp",
+          "pictures": [
+            "http://localhost:8080/assets/images/pinkTwo1.webp"
+          ],
           "price": 54900,
           "name": "2人用ヒジ付きローソファ ふっくらパン イチゴ(PI)",
           "shipment": "2~6",
@@ -1310,7 +1323,9 @@
     {
       "userId": 10011,
       "listName": "bluesofa",
-      "goodsList": [{}],
+      "goodsList": [
+        {}
+      ],
       "id": 5
     }
   ],
@@ -1318,12 +1333,14 @@
     {
       "id": 1,
       "userId": 10011,
-      "listName": "お気に入り商品",
+      "listName": "sofaList",
       "goodsId": 10195,
       "type": "2人用ソファ",
       "goodsCode": 5650315,
       "color": "ピンク",
-      "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp",
+      "pictures": [
+        "http://localhost:8080/assets/images/pinkTwo1.webp"
+      ],
       "price": 54900,
       "name": "2人用ヒジ付きローソファ ふっくらパン イチゴ(PI)",
       "shipment": "2~6",
@@ -1339,7 +1356,9 @@
       "type": "2人用ソファ",
       "goodsCode": 5650315,
       "color": "ピンク",
-      "pictures": "http://localhost:8080/assets/images/pinkTwo1.webp",
+      "pictures": [
+        "http://localhost:8080/assets/images/pinkTwo1.webp"
+      ],
       "price": 54900,
       "name": "2人用ヒジ付きローソファ ふっくらパン イチゴ(PI)",
       "shipment": "2~6",
@@ -1349,13 +1368,15 @@
     },
     {
       "id": 3,
-      "listName": "お気に入り商品",
+      "listName": "sofaList",
       "userId": 10011,
       "goodsId": 10195,
       "type": "2人用ソファ",
       "goodsCode": 5650315,
       "color": "ターコイズブルー",
-      "pictures": "http://localhost:8080/assets/images/love.jpg",
+      "pictures": [
+        "http://localhost:8080/assets/images/love.jpg"
+      ],
       "price": 38900,
       "name": "2人用ローソファ(ノーザン3 TBL)",
       "shipment": "2~6",
@@ -1371,7 +1392,9 @@
       "type": "2人用ソファ",
       "goodsCode": 5650315,
       "color": "ターコイズブルー",
-      "pictures": "http://localhost:8080/assets/images/love.jpg",
+      "pictures": [
+        "http://localhost:8080/assets/images/love.jpg"
+      ],
       "price": 38900,
       "name": "2人用ローソファ(ノーザン3 TBL)",
       "shipment": "2~6",
@@ -1387,7 +1410,9 @@
       "type": "2人用ソファ",
       "goodsCode": 5650315,
       "color": "ターコイズブルー",
-      "pictures": "http://localhost:8080/assets/images/love.jpg",
+      "pictures": [
+        "http://localhost:8080/assets/images/love.jpg"
+      ],
       "price": 38900,
       "name": "2人用ローソファ(ノーザン3 TBL)",
       "shipment": "2~6",
@@ -1397,13 +1422,15 @@
     },
     {
       "id": 6,
-      "listName": "お気に入り商品",
+      "listName": "bluesofa",
       "userId": 10011,
       "goodsId": 10195,
       "type": "2人用ソファ",
       "goodsCode": 5650315,
       "color": "ターコイズブルー",
-      "pictures": "http://localhost:8080/assets/images/love.jpg",
+      "pictures": [
+        "http://localhost:8080/assets/images/love.jpg"
+      ],
       "price": 38900,
       "name": "2人用ローソファ(ノーザン3 TBL)",
       "shipment": "2~6",
@@ -1413,19 +1440,65 @@
     },
     {
       "id": 7,
-      "listName": "お気に入り商品",
+      "listName": "bluesofa",
       "userId": 10011,
       "goodsId": 10195,
       "type": "2人用ソファ",
       "goodsCode": 5650315,
       "color": "ターコイズブルー",
-      "pictures": "http://localhost:8080/assets/images/love.jpg",
+      "pictures": [
+        "http://localhost:8080/assets/images/love.jpg"
+      ],
       "price": 38900,
       "name": "2人用ローソファ(ノーザン3 TBL)",
       "shipment": "2~6",
       "postage": 0,
       "link": "/goods/detail/10195",
       "quantity": 1
+    },
+    {
+      "goodsCode": 5650307,
+      "type": "3人用ソファ",
+      "price": 64900,
+      "color": "ベージュ/ミドルブラウン",
+      "name": "ヒジ付きローソファ ふっくらパン ミドルブラウン",
+      "size": "幅97×奥行195×高さ20cm",
+      "material": "ポリエステル",
+      "guaranteeYear": "1年",
+      "weight": "約22kg",
+      "wrapSize": "幅29×奥行29×高さ101cm",
+      "pictures": [
+        "http://localhost:8080/assets/images/brownThree1.webp",
+        "http://localhost:8080/assets/images/brownThree2.webp",
+        "http://localhost:8080/assets/images/brownThree3.webp"
+      ],
+      "listName": "お気に入り商品",
+      "userId": 10011,
+      "quantity": 1,
+      "link": "/goods/detail/10195",
+      "id": 8
+    },
+    {
+      "goodsCode": 5650311,
+      "type": "2人用ソファ",
+      "color": "ベージュ/ライトブラウン",
+      "name": "ヒジ付きローソファ ふっくらパン ライトブラウン",
+      "price": 54900,
+      "size": "幅97×奥行195×高さ20cm",
+      "material": "ポリエステル",
+      "weight": "約22kg",
+      "guaranteeYear": "1年",
+      "wrapSize": "幅29×奥行29×高さ101cm",
+      "pictures": [
+        "http://localhost:8080/assets/images/lightTwo1.webp",
+        "http://localhost:8080/assets/images/lightTwo2.jpg",
+        "http://localhost:8080/assets/images/lightTwo3.jpg"
+      ],
+      "listName": "お気に入り商品",
+      "userId": 10011,
+      "quantity": 1,
+      "link": "/goods/detail/10195",
+      "id": 9
     }
   ]
 }

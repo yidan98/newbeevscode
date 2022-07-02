@@ -118,6 +118,19 @@
                 > -->
               </div>
             </div>
+            <li class="g-grid_item p-misc_item" style="margin-left: 50px">
+              <a
+                :class="existed ? 'canNotClick' : 'canClick'"
+                @click="intoWish"
+              >
+                <div class="p-misc_i g-hover_img">
+                  <span class="material-symbols-outlined g-s g-s-favorite-g">
+                    favorite
+                  </span>
+                </div>
+                <span class="p-misc_label">お気に入り</span>
+              </a>
+            </li>
           </div>
         </div>
       </div>
@@ -125,7 +138,7 @@
   </div>
 </template>
 <script setup lang="ts">
-import { computed, onMounted } from "vue";
+import { computed, onMounted, ref } from "vue";
 // , reactive, toRefs
 import { useStore } from "../../store/index";
 import { useRoute } from "vue-router";
@@ -134,8 +147,25 @@ const route = useRoute();
 const goodsId = route.params.goodsId;
 const store = useStore();
 onMounted(() => {
+  const userId = 10011;
   store.dispatch("setGoodsSize", goodsId);
+  store.dispatch("setWishGoodsList", userId);
+  //判断当前sku的商品是否在【お気に入り】列表（wishgoodsList）中
+  if (
+    allGoodsList.value.filter((a) => a.goodsCode === goodsCode.value).length > 0
+  ) {
+    existed.value = true;
+  }
 });
+//判断当前sku的商品是否在【お気に入り】列表（wishgoodsList）中，若存在（true），则不能再点击
+const allGoodsList = computed(() => store.getters.getAllGoodsList);
+let existed = ref(false);
+// 把当前sku的商品加到【お気に入り】
+const intoWish = () => {
+  store.dispatch("intoWish", newInfoList.value);
+  existed.value = true;
+};
+const newInfoList = computed(() => store.getters.getNew);
 const goodsSize = computed(() => store.getters.getGoodsSize);
 const price = computed(() => store.getters.getNew.price);
 const addItem = () => {
@@ -151,6 +181,14 @@ const q = (e: Event) => {
 };
 </script>
 <style scoped>
+.canClick {
+  cursor: pointer;
+  color: #333;
+}
+.canNotClick {
+  pointer-events: none;
+  color: #009e96;
+}
 element.style {
   bottom: 68px;
   animation: 1.8s ease 0s 1 normal both running p-itemAddedIn;
