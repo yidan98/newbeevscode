@@ -145,6 +145,7 @@ export default {
     ) {
       await fetch("http://localhost:3000/wishList/" + id, { method: "DELETE" });
       context.dispatch("setGoodsList", userId);
+      context.dispatch("setWishGoodsList", userId);
       context.state.selectedName = "お気に入り商品";
     },
     // delete goods in list
@@ -191,6 +192,7 @@ export default {
         listName: newName,
       });
       context.dispatch("setGoodsList", userId);
+      context.dispatch("setWishGoodsList", userId);
       context.state.selectedName = "お気に入り商品";
     },
   },

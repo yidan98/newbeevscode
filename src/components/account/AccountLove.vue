@@ -817,9 +817,10 @@ const moveGoods = (selectableList: string) => {
     console.log("id", id);
     store.dispatch("moveGoods", { selectableList, id, userId });
     // isShowMove.value=true;
-    state.checkList = [];
+
     state.checked = false;
   }
+  state.checkList = [];
 };
 const deleteGoods = () => {
   let id = -1;

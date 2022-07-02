@@ -1274,30 +1274,6 @@
     },
     {
       "userId": 10011,
-      "listName": "sofaLove",
-      "goodsList": [
-        {
-          "id": 1,
-          "userId": 10011,
-          "goodsId": 10195,
-          "type": "2人用ソファ",
-          "goodsCode": 5650315,
-          "color": "ターコイズブルー",
-          "pictures": [
-            "http://localhost:8080/assets/images/love.jpg"
-          ],
-          "price": 38900,
-          "name": "2人用ローソファ(ノーザン3 TBL)",
-          "shipment": "2~6",
-          "postage": 0,
-          "link": "/goods/detail/10195",
-          "quantity": 1
-        }
-      ],
-      "id": 3
-    },
-    {
-      "userId": 10011,
       "listName": "pinksofa",
       "goodsList": [
         {
@@ -1333,7 +1309,7 @@
     {
       "id": 1,
       "userId": 10011,
-      "listName": "sofaList",
+      "listName": "お気に入り商品",
       "goodsId": 10195,
       "type": "2人用ソファ",
       "goodsCode": 5650315,
@@ -1385,26 +1361,8 @@
       "quantity": 1
     },
     {
-      "id": 4,
-      "listName": "pinksofa",
-      "userId": 10011,
-      "goodsId": 10195,
-      "type": "2人用ソファ",
-      "goodsCode": 5650315,
-      "color": "ターコイズブルー",
-      "pictures": [
-        "http://localhost:8080/assets/images/love.jpg"
-      ],
-      "price": 38900,
-      "name": "2人用ローソファ(ノーザン3 TBL)",
-      "shipment": "2~6",
-      "postage": 0,
-      "link": "/goods/detail/10195",
-      "quantity": 1
-    },
-    {
       "id": 5,
-      "listName": "お気に入り商品",
+      "listName": "sofaList",
       "userId": 10011,
       "goodsId": 10195,
       "type": "2人用ソファ",
@@ -1422,7 +1380,7 @@
     },
     {
       "id": 6,
-      "listName": "bluesofa",
+      "listName": "お気に入り商品",
       "userId": 10011,
       "goodsId": 10195,
       "type": "2人用ソファ",
