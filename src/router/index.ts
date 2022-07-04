@@ -7,6 +7,7 @@ import MyPage from "../pages/MyPage.vue";
 import AccountHistory from "../pages/AccountHistory.vue";
 import AccountLove from "../pages/AccountLove.vue";
 import OrderDetail from "../components/account/OrderDetail.vue";
+import AccountLogin from "../components/account/AccountLogin.vue";
 const routes = [
   { path: "/", name: "Home", component: Home },
   { path: "/goods/detail/:goodsId", name: "detail", component: DetailPage },
@@ -15,6 +16,7 @@ const routes = [
   { path: "/account/history", name: "history", component: AccountHistory },
   { path: "/account/love/:userId", name: "love", component: AccountLove },
   { path: "/order/detail", name: "orderDetail", component: OrderDetail },
+  { path: "/account/login", name: "accountLogin", component: AccountLogin },
 ];
 
 const router = createRouter({
