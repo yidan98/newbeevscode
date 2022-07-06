@@ -18,7 +18,7 @@
           ref="ruleFormRef"
           :model="ruleForm"
           :rules="rules"
-          label-width="120px"
+          label-width="160px"
           class="demo-ruleForm"
           :size="formSize"
           status-icon
@@ -37,6 +37,8 @@
             <el-row :gutter="20">
               <el-col :span="12">
                 <el-input
+                  @input="handleNameInput"
+                  id="name"
                   v-model="ruleForm.name1"
                   label="First Name"
                   placeholder="姓"
@@ -45,6 +47,8 @@
               <el-col :span="12" prop="name2">
                 <el-form-item prop="name2">
                   <el-input
+                    id="name2"
+                    @input="handleNameInput"
                     v-model="ruleForm.name2"
                     label="Last Name"
                     placeholder="名"
@@ -53,19 +57,21 @@
               </el-col>
             </el-row>
           </el-form-item>
-          <el-form-item label="氏名(カナ)" prop="kana1">
+          <el-form-item label="氏名(カナ)" prop="furigana">
             <el-row :gutter="20">
               <el-col :span="12">
                 <el-input
-                  v-model="ruleForm.name1"
+                  id="furigana"
+                  v-model="ruleForm.furigana"
                   label="First Name"
                   placeholder="セイ"
                 />
               </el-col>
               <el-col :span="12">
-                <el-form-item prop="kana2">
+                <el-form-item prop="furigana2">
                   <el-input
-                    v-model="ruleForm.name2"
+                    id="furigana2"
+                    v-model="ruleForm.furigana2"
                     label="Last Name"
                     placeholder="メイ"
                 /></el-form-item>
@@ -220,25 +226,44 @@
               <el-radio label="あり" />
             </el-radio-group>
           </el-form-item>
-          <el-form-item>
-            <el-button type="primary" @click="submitForm(ruleFormRef)"
-              >登録する</el-button
-            >
-          </el-form-item>
         </el-form>
       </el-main>
+      <el-form-item style="display: flex; justify-content: center">
+        <el-button
+          type="primary"
+          @click="submitForm(ruleFormRef)"
+          style="
+            border-color: #eb6157;
+            background-color: #eb6157;
+            width: 200px;
+            padding: 24px;
+          "
+          ><span style="color: #fff; font-size: 1.4rem">
+            登録する</span
+          ></el-button
+        >
+      </el-form-item>
     </el-container>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { reactive, ref } from "vue";
+import * as AutoKana from "vanilla-autokana";
+import { reactive, ref, onMounted, nextTick } from "vue";
 import type { FormInstance, FormRules } from "element-plus";
 // import { stubFalse } from "lodash";
 
 const formSize = ref("large");
 const labelPosition = ref("left");
 const ruleFormRef = ref<FormInstance>();
+let autokana;
+let autokana2;
+/** 文字列内のひらがなをカタカナに変換します。 */
+onMounted(async () => {
+  await nextTick();
+  autokana = AutoKana.bind("#name", "#furigana", { katakana: true });
+  autokana2 = AutoKana.bind("#name2", "#furigana2", { katakana: true });
+});
 const ruleForm = reactive({
   isShow: true,
   workplace: "",
@@ -258,8 +283,22 @@ const ruleForm = reactive({
   roomNumber: "",
   buildingType: "",
   elevator: "",
+  furigana: "",
+  furigana2: "",
 });
-
+const handleNameInput = () => {
+  ruleForm.furigana = autokana.getFurigana();
+  ruleForm.furigana2 = autokana2.getFurigana();
+  console.log("autokana.getFurigana()", autokana.getFurigana());
+};
+/** 文字列内のひらがなをカタカナに変換します。 */
+// const hiraToKata = (str) => {
+//   console.log("hiraToKata", hiraToKata(ruleForm.name1));
+//   return str.replace(/[\u3041-\u3096]/g, (ch) =>
+//     String.fromCharCode(ch.charCodeAt(0) + 0x60)
+//   );
+// };
+// console.log("hiraToKata", hiraToKata(ruleForm.name1));
 const rules = reactive<FormRules>({
   workplace: [
     {
@@ -282,11 +321,11 @@ const rules = reactive<FormRules>({
     { required: true, message: "入力必須項目です。", trigger: "blur" },
     { max: 10, message: "10文字以内で入力してください。", trigger: "blur" },
   ],
-  kana1: [
+  furigana: [
     { required: true, message: "入力必須項目です。", trigger: "blur" },
     { max: 10, message: "10文字以内で入力してください。", trigger: "blur" },
   ],
-  kana2: [
+  furigana2: [
     { required: true, message: "入力必須項目です。", trigger: "blur" },
     { max: 10, message: "10文字以内で入力してください。", trigger: "blur" },
   ],

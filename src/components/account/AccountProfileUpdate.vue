@@ -13,6 +13,7 @@
       <el-form
         :label-position="labelPosition"
         ref="formRef"
+        :rules="rules"
         :model="dynamicValidateForm"
         label-width="150px"
         class="demo-dynamic"
@@ -35,36 +36,23 @@
         >
           <el-input v-model="dynamicValidateForm.email" />
         </el-form-item>
-        <el-form-item
-          prop="email"
-          label="メールアドレス（確認用）"
-          :rules="[
-            {
-              required: true,
-              message: 'Please input email address',
-              trigger: 'blur',
-            },
-            {
-              type: 'email',
-              message: 'Please input correct email address',
-              trigger: ['blur', 'change'],
-            },
-          ]"
+
+        <el-form-item prop="checkEmail" label="メールアドレス（確認用）">
+          <el-input v-model="dynamicValidateForm.checkEmail" /> </el-form-item
+      ></el-form>
+      <el-form-item style="margin: 40px 70px">
+        <a href="/account/profile">
+          <el-button style="width: 200px; padding: 24px">戻る </el-button></a
         >
-          <el-input v-model="dynamicValidateForm.email2" />
-        </el-form-item>
-        <el-form-item>
-          <a href="/account/profile">
-            <el-button style="width: 200px; padding: 24px">戻る </el-button></a
-          >
-          <el-button
-            type="primary"
-            @click="submitForm(formRef)"
-            style="width: 200px; padding: 24px; background-color: #eb6157"
-            >送信する</el-button
-          >
-        </el-form-item>
-      </el-form>
+
+        <el-button
+          type="primary"
+          @click="submitForm(formRef)"
+          style="width: 200px; padding: 24px; background-color: #eb6157"
+          >送信する</el-button
+        >
+      </el-form-item>
+
       <section class="g-block">
         <ul class="g-list g-list-note g-unit">
           <li>
@@ -106,20 +94,50 @@
 
 <script lang="ts" setup>
 import { reactive, ref } from "vue";
-import type { FormInstance } from "element-plus";
+import type { FormInstance, FormRules } from "element-plus";
 
 const formRef = ref<FormInstance>();
 const labelPosition = ref("left");
-const dynamicValidateForm = reactive<{
-  email2: string;
-  email: string;
-}>({ email: "", email2: "" });
+const dynamicValidateForm = reactive({
+  email: "",
+  checkEmail: "",
+});
+const validateEmail = (rule: any, value: any, callback: any) => {
+  console.log("value", value);
+  console.log("dynamicValidateForm.email", dynamicValidateForm.email);
+  if (value === "") {
+    callback(new Error("Please input the password again"));
+  } else if (value !== dynamicValidateForm.email) {
+    callback(new Error("Two inputs don't match!"));
+  } else {
+    callback();
+  }
+};
 
+const rules = reactive<FormRules>({
+  checkEmail: [
+    {
+      validator: validateEmail,
+      trigger: "blur",
+    },
+    {
+      required: true,
+      message: "メールアドレスを入力してください",
+      trigger: "blur",
+    },
+    {
+      type: "email",
+      message: "正しいメールアドレスを入力してください",
+      trigger: ["blur", "change"],
+    },
+  ],
+});
 const submitForm = (formEl: FormInstance | undefined) => {
   if (!formEl) return;
   formEl.validate((valid) => {
     if (valid) {
       console.log("submit!");
+      window.location.href = "http://localhost:8080/account/success";
     } else {
       console.log("error submit!");
       return false;
