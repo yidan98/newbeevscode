@@ -1,18 +1,48 @@
 <template>
-  <div class="common-layout">
+  <div class="common-layout" style="margin-left: 50px">
     <el-container>
-      <el-header><h1>配送先住所の変更・登録</h1></el-header>
-      <div
-        style="background-color: #e9f5f4; padding: 25px 20px 25px 0"
-        @click="ruleForm.isShow = !ruleForm.isShow"
-      >
-        <label>
-          <input type="radio" />
-        </label>
-        <label>&nbsp;新しい配送先住所を登録</label>
+      <el-header><h1>お客様情報の確認・変更</h1></el-header>
+      <p class="g-align-tr">
+        <b class="g-sm-display-b">最終ログイン：</b>
+        <span style="font-weight: 100"> 2022/07/05 08:31:27</span>
+      </p>
+      <div class="g-pane g-pane-border g-pane-sm g-unit">
+        <dl class="g-flex-h g-flex-wrap">
+          <div style="display: flex">
+            <div>
+              <dt class="g-weight-b g-mr-30" id="p-mag">メールマガジン</dt>
+            </div>
+            <div>
+              <dd style="font-weight: 100">
+                <label class="g-checkable">
+                  <input
+                    type="checkbox"
+                    name="emailMagazineDeliveryPreference"
+                    value="1"
+                    aria-labelledby="p-mag"
+                  />
+                  <span
+                    ><i
+                      class="g-s g-s-checkbox2-on g-checkable_on"
+                      aria-hidden="true"
+                    ></i
+                    ><i
+                      class="g-s g-s-checkbox2-off g-checkable_off"
+                      aria-hidden="true"
+                    ></i
+                    ><span class="g-checkable_label">配信を希望する</span></span
+                  >
+                </label>
+              </dd>
+            </div>
+          </div>
+          <dd class="g-fw g-unit" style="font-weight: 100; margin-left: -1px">
+            お得なキャンペーンや新製品情報などをお届けします。
+          </dd>
+        </dl>
       </div>
 
-      <el-main v-if="ruleForm.isShow">
+      <el-main>
         <el-form
           :label-position="labelPosition"
           ref="ruleFormRef"
@@ -23,15 +53,23 @@
           :size="formSize"
           status-icon
         >
-          <el-form-item label="名称" prop="workplace">
-            <!-- 「転居先（地名）」、「勤務先」など認識しやすい名称を入力してください。
-      「自宅」は会員情報で設定済みのため、入力できません。 -->
-
-            <el-input
-              v-model="ruleForm.workplace"
-              placeholder="転居先（地名）"
-            />
-          </el-form-item>
+          <div style="display: flex">
+            <div>
+              <dt>
+                <label for="p-say">会員種別</label>
+              </dt>
+            </div>
+            <div>
+              <dd>
+                <div
+                  class="g-inputGroup g-inputGroup-line"
+                  style="font-weight: 100; margin-left: 50px"
+                >
+                  &nbsp;&nbsp;個人
+                </div>
+              </dd>
+            </div>
+          </div>
 
           <el-form-item label="氏名" prop="name1">
             <el-row :gutter="20">
@@ -47,8 +85,6 @@
               <el-col :span="12" prop="name2">
                 <el-form-item prop="name2">
                   <el-input
-                    id="name2"
-                    @input="handleNameInput"
                     v-model="ruleForm.name2"
                     label="Last Name"
                     placeholder="名"
@@ -68,12 +104,11 @@
                 />
               </el-col>
               <el-col :span="12">
-                <el-form-item prop="furigana2">
+                <el-form-item prop="kana2">
                   <el-input
-                    id="furigana2"
-                    v-model="ruleForm.furigana2"
                     label="Last Name"
                     placeholder="メイ"
+                    v-model="ruleForm.name2"
                 /></el-form-item>
               </el-col>
             </el-row>
@@ -145,6 +180,13 @@
               </el-col>
             </el-row>
           </el-form-item>
+          <el-form-item label="性別" prop="elevator">
+            <el-radio-group v-model="ruleForm.elevator">
+              <el-radio label="男" />
+              <el-radio label="女" />
+            </el-radio-group>
+          </el-form-item>
+
           <el-form-item
             label="郵便番号"
             prop="fax"
@@ -154,7 +196,10 @@
                 ><el-input v-model="ruleForm.fax" placeholder="1234567" />
               </el-col>
               <el-col :span="12">
-                <p class="g-inputGroup_static" style="margin-top: 0px">
+                <p
+                  class="g-inputGroup_static"
+                  style="margin-top: 0px; width: 300px"
+                >
                   <a
                     class="g-link"
                     href="http://www.post.japanpost.jp/zipcode"
@@ -226,23 +271,44 @@
               <el-radio label="あり" />
             </el-radio-group>
           </el-form-item>
+          <h1>パスワード変更</h1>
+
+          <el-form-item label="新しいパスワード" prop="pass">
+            <el-input
+              show-password
+              v-model="ruleForm.pass"
+              type="password"
+              autocomplete="off"
+            />
+          </el-form-item>
+          <el-form-item label="新しいパスワード（確認用）" prop="checkPass">
+            <el-input
+              show-password
+              v-model="ruleForm.checkPass"
+              type="password"
+              autocomplete="off"
+            />
+          </el-form-item>
         </el-form>
       </el-main>
-      <el-form-item style="display: flex; justify-content: center">
-        <el-button
-          type="primary"
-          @click="submitForm(ruleFormRef)"
-          style="
-            border-color: #eb6157;
-            background-color: #eb6157;
-            width: 200px;
-            padding: 24px;
-          "
-          ><span style="color: #fff; font-size: 1.4rem">
-            登録する</span
-          ></el-button
-        >
-      </el-form-item>
+      <el-footer>
+        <el-form-item style="display: flex; justify-content: center">
+          <el-button
+            type="primary"
+            @click="submitForm(ruleFormRef)"
+            style="
+              border-color: #eb6157;
+              background-color: #eb6157;
+              width: 200px;
+              padding: 24px;
+              margin-top: 30px;
+            "
+            ><span style="color: #fff; font-size: 1.4rem">
+              登録する</span
+            ></el-button
+          >
+        </el-form-item></el-footer
+      >
     </el-container>
   </div>
 </template>
@@ -250,22 +316,46 @@
 <script lang="ts" setup>
 import * as AutoKana from "vanilla-autokana";
 import { reactive, ref, onMounted, nextTick } from "vue";
-import type { FormInstance, FormRules } from "element-plus";
+// import { useStore } from "../../store/index";
+import type { FormInstance } from "element-plus";
 // import { stubFalse } from "lodash";
 
+// const userId = 10011;
+// const store = useStore();
+// onMounted(() => {
+//   store.dispatch("setUpdateAccount", userId);
+
+// });
+// const p = computed(() => store.getters.getUpdateAccount);
 const formSize = ref("large");
 const labelPosition = ref("left");
 const ruleFormRef = ref<FormInstance>();
 let autokana;
-let autokana2;
-/** 文字列内のひらがなをカタカナに変換します。 */
 onMounted(async () => {
   await nextTick();
-  autokana = AutoKana.bind("#name", "#furigana", { katakana: true });
-  autokana2 = AutoKana.bind("#name2", "#furigana2", { katakana: true });
+  autokana = AutoKana.bind("#name");
 });
+const validatePass = (rule: any, value: any, callback: any) => {
+  if (value === "") {
+    callback(new Error("半角英数字組合せ8～20文字で入力してください。"));
+  } else {
+    if (ruleForm.checkPass !== "") {
+      if (!ruleFormRef.value) return;
+      ruleFormRef.value.validateField("checkPass", () => null);
+    }
+    callback();
+  }
+};
+const validatePass2 = (rule: any, value: any, callback: any) => {
+  if (value === "") {
+    callback(new Error("半角英数字組合せ8～20文字で入力してください。"));
+  } else if (value !== ruleForm.pass) {
+    callback(new Error("入力されたパスワードが一致していません。"));
+  } else {
+    callback();
+  }
+};
 const ruleForm = reactive({
-  isShow: true,
   workplace: "",
   name1: "",
   name2: "",
@@ -283,12 +373,13 @@ const ruleForm = reactive({
   roomNumber: "",
   buildingType: "",
   elevator: "",
+  pass: "",
+  checkPass: "",
   furigana: "",
-  furigana2: "",
 });
+
 const handleNameInput = () => {
   ruleForm.furigana = autokana.getFurigana();
-  ruleForm.furigana2 = autokana2.getFurigana();
   console.log("autokana.getFurigana()", autokana.getFurigana());
 };
 /** 文字列内のひらがなをカタカナに変換します。 */
@@ -299,7 +390,9 @@ const handleNameInput = () => {
 //   );
 // };
 // console.log("hiraToKata", hiraToKata(ruleForm.name1));
-const rules = reactive<FormRules>({
+const rules = reactive({
+  pass: [{ validator: validatePass, trigger: "blur" }],
+  checkPass: [{ validator: validatePass2, trigger: "blur" }],
   workplace: [
     {
       required: true,
@@ -325,7 +418,7 @@ const rules = reactive<FormRules>({
     { required: true, message: "入力必須項目です。", trigger: "blur" },
     { max: 10, message: "10文字以内で入力してください。", trigger: "blur" },
   ],
-  furigana2: [
+  kana2: [
     { required: true, message: "入力必須項目です。", trigger: "blur" },
     { max: 10, message: "10文字以内で入力してください。", trigger: "blur" },
   ],
@@ -442,6 +535,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   await formEl.validate((valid, fields) => {
     if (valid) {
       console.log("submit!");
+      window.location.href = "http://localhost:8080/account/success";
     } else {
       console.log("error submit!", fields);
     }
@@ -459,6 +553,13 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 // }));
 </script>
 <style scoped>
+.g-pane-border,
+.g-lg-pane-border {
+  overflow: hidden;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  background-color: #fff;
+}
 .el-radio__input.is-checked + .el-radio__label {
   color: #009e96;
 }
@@ -480,6 +581,18 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 }
 el-form-item {
   padding: 0px 0px 20px;
+}
+.g-unit,
+.g-lg-unit {
+  margin-top: 15px !important;
+}
+.g-align-tr,
+.g-lg-align-tr {
+  text-align: right !important;
+}
+.g-pane-sm,
+.g-lg-pane-sm {
+  padding: 20px;
 }
 .el-form-item__error {
   padding-top: 2px;
