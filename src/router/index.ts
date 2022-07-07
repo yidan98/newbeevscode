@@ -12,6 +12,7 @@ import AccountProfile from "../components/account/AccountProfile.vue";
 import AccountProfileUpdate from "../components/account/AccountProfileUpdate.vue";
 import AccountProfileEdit from "../components/account/AccountProfileEdit.vue";
 import Ceshi from "../components/account/CeShi.vue";
+import CeshiPost from "../components/account/CeShiPost.vue";
 import AccountSuccess from "../components/account/AccountSuccess.vue";
 const routes = [
   { path: "/", name: "Home", component: Home },
@@ -42,6 +43,11 @@ const routes = [
     path: "/account/success",
     name: "accountSuccess",
     component: AccountSuccess,
+  },
+  {
+    path: "/account/ceshiPost",
+    name: "accountCeshiPost",
+    component: CeshiPost,
   },
 ];
 

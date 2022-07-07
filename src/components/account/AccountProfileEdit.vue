@@ -53,23 +53,9 @@
           :size="formSize"
           status-icon
         >
-          <div style="display: flex">
-            <div>
-              <dt>
-                <label for="p-say">会員種別</label>
-              </dt>
-            </div>
-            <div>
-              <dd>
-                <div
-                  class="g-inputGroup g-inputGroup-line"
-                  style="font-weight: 100; margin-left: 50px"
-                >
-                  &nbsp;&nbsp;個人
-                </div>
-              </dd>
-            </div>
-          </div>
+          <el-form-item label="会員種別">
+            <el-col>個人</el-col>
+          </el-form-item>
 
           <el-form-item label="氏名" prop="name1">
             <el-row :gutter="20">
@@ -77,20 +63,12 @@
                 <el-input
                   @input="handleNameInput"
                   id="name"
-                  v-model="ruleForm.name1"
+                  v-model="p.name1"
                   label="First Name"
                   placeholder="姓"
                 />
               </el-col>
-              <el-col :span="12" prop="name2">
-                <el-form-item prop="name2">
-                  <el-input
-                    v-model="ruleForm.name2"
-                    label="Last Name"
-                    placeholder="名"
-                  />
-                </el-form-item>
-              </el-col>
+              <p style="margin-top: -2px">{{ p.name2 }}</p>
             </el-row>
           </el-form-item>
           <el-form-item label="氏名(カナ)" prop="furigana">
@@ -98,19 +76,12 @@
               <el-col :span="12">
                 <el-input
                   id="furigana"
-                  v-model="ruleForm.furigana"
+                  v-model="p.nameKANA1"
                   label="First Name"
                   placeholder="セイ"
                 />
               </el-col>
-              <el-col :span="12">
-                <el-form-item prop="kana2">
-                  <el-input
-                    label="Last Name"
-                    placeholder="メイ"
-                    v-model="ruleForm.name2"
-                /></el-form-item>
-              </el-col>
+              <p style="margin-top: -0.4px">{{ p.nameKANA2 }}</p>
             </el-row>
           </el-form-item>
 
@@ -121,10 +92,7 @@
           >
             <el-row :gutter="5">
               <el-col :span="5">
-                <el-input
-                  v-model="ruleForm.telephonenumber1"
-                  placeholder="03"
-                />
+                <el-input v-model="p.telephonenumber1" placeholder="03" />
               </el-col>
               <el-col class="text-center" :span="2">
                 <span class="text-gray-500">--</span>
@@ -132,7 +100,7 @@
               <el-col :span="5">
                 <el-form-item prop="telephonenumber2">
                   <el-input
-                    v-model="ruleForm.telephonenumber2"
+                    v-model="p.telephonenumber2"
                     placeholder="0000"
                     style="margin-left: -30px"
                 /></el-form-item>
@@ -143,7 +111,7 @@
               <el-col :span="5">
                 <el-form-item prop="telephonenumber3">
                   <el-input
-                    v-model="ruleForm.telephonenumber3"
+                    v-model="p.telephonenumber3"
                     placeholder="0000"
                     style="margin-left: -30px"
                 /></el-form-item>
@@ -180,22 +148,29 @@
               </el-col>
             </el-row>
           </el-form-item>
-          <el-form-item label="性別" prop="elevator">
-            <el-radio-group v-model="ruleForm.elevator">
+          <el-form-item label="性別" prop="gender">
+            <el-radio-group v-model="p.gender">
               <el-radio label="男" />
               <el-radio label="女" />
             </el-radio-group>
           </el-form-item>
+          <el-form-item label="生年月日" prop="workplace">
+            <el-col>{{ p.birthday }}</el-col>
+          </el-form-item>
 
           <el-form-item
             label="郵便番号"
-            prop="fax"
+            prop="postCode"
             style="display: flex; width: 400px"
             ><el-row :gutter="20">
               <el-col :span="12"
-                ><el-input v-model="ruleForm.fax" placeholder="1234567" />
+                ><el-input
+                  v-model="p.postCode"
+                  placeholder="1234567"
+                  @change="searchAddress"
+                />
               </el-col>
-              <el-col :span="12">
+              <el-col :span="12" style="width: 300px">
                 <p
                   class="g-inputGroup_static"
                   style="margin-top: 0px; width: 300px"
@@ -215,15 +190,18 @@
                 </p></el-col
               ></el-row
             >
+            <el-col style="color: red; font-weight: 100">
+              {{ ruleForm.error }}</el-col
+            >
           </el-form-item>
-          <el-form-item label="都道府県" prop="workplace">
-            <el-input :disabled="true" />
+          <el-form-item label="都道府県" prop="city">
+            <el-input v-model="p.city" :disabled="true" />
           </el-form-item>
-          <el-form-item label="市区町村" prop="workplace">
-            <el-input :disabled="true" />
+          <el-form-item label="市区町村" prop="village">
+            <el-input v-model="p.village" :disabled="true" />
           </el-form-item>
-          <el-form-item label="町名" prop="region">
-            <el-input v-model="ruleForm.region" placeholder="北区新琴似七条" />
+          <el-form-item label="町名" prop="town">
+            <el-input v-model="p.town" placeholder="北区新琴似七条" />
           </el-form-item>
           <el-form-item label="丁目番地" prop="number1">
             <el-row :gutter="5">
@@ -260,13 +238,13 @@
             <el-input v-model="ruleForm.roomNumber" placeholder="101" />
           </el-form-item>
           <el-form-item label="建物種別" prop="buildingType">
-            <el-radio-group v-model="ruleForm.buildingType">
+            <el-radio-group v-model="p.buildingType">
               <el-radio label="戸建て" />
               <el-radio label="集合住宅" />
             </el-radio-group>
           </el-form-item>
           <el-form-item label="エレベータ" prop="elevator">
-            <el-radio-group v-model="ruleForm.elevator">
+            <el-radio-group v-model="p.elevator">
               <el-radio label="なし" />
               <el-radio label="あり" />
             </el-radio-group>
@@ -315,25 +293,43 @@
 
 <script lang="ts" setup>
 import * as AutoKana from "vanilla-autokana";
-import { reactive, ref, onMounted, nextTick } from "vue";
-// import { useStore } from "../../store/index";
+import { reactive, ref, onMounted, nextTick, computed } from "vue";
+import { useStore } from "../../store/index";
 import type { FormInstance } from "element-plus";
 // import { stubFalse } from "lodash";
 
-// const userId = 10011;
-// const store = useStore();
-// onMounted(() => {
-//   store.dispatch("setUpdateAccount", userId);
-
-// });
-// const p = computed(() => store.getters.getUpdateAccount);
+const userId = 10011;
+const store = useStore();
+onMounted(() => {
+  store.dispatch("setUpdateAccount", userId);
+});
+const p = computed(() => store.getters.getUpdateAccount);
 const formSize = ref("large");
 const labelPosition = ref("left");
 const ruleFormRef = ref<FormInstance>();
+const headers = { Accept: "application/json" };
+const searchAddress = async () => {
+  let api = "https://zipcloud.ibsnet.co.jp/api/search?zipcode=";
+  let url = api + p.value.postCode;
+  const info = await fetch(url, { headers });
+  const data = await info.json();
+  if (data.status === 400) {
+    //エラー時
+    ruleForm.error = data.message;
+  } else if (data.results === null) {
+    ruleForm.error = "郵便番号から住所が見つかりませんでした。";
+  } else {
+    ruleForm.error = "";
+    p.value.city = data.results[0].address1;
+    p.value.village = data.results[0].address2;
+    p.value.town = data.results[0].address3;
+  }
+};
+
 let autokana;
 onMounted(async () => {
   await nextTick();
-  autokana = AutoKana.bind("#name");
+  autokana = AutoKana.bind("#name", "#furigana", { katakana: true });
 });
 const validatePass = (rule: any, value: any, callback: any) => {
   if (value === "") {
@@ -357,15 +353,15 @@ const validatePass2 = (rule: any, value: any, callback: any) => {
 };
 const ruleForm = reactive({
   workplace: "",
-  name1: "",
+  name1: "孫",
   name2: "",
-  kana1: "",
+  kana1: "ソン",
   kana2: "",
   telephonenumber1: "",
   telephonenumber2: "",
   telephonenumber3: "",
-  fax: "",
-  region: "",
+  postCode: "",
+  town: "",
   number1: "",
   number2: "",
   number3: "",
@@ -375,7 +371,8 @@ const ruleForm = reactive({
   elevator: "",
   pass: "",
   checkPass: "",
-  furigana: "",
+  furigana: "ソン",
+  error: "",
 });
 
 const handleNameInput = () => {
@@ -449,18 +446,18 @@ const rules = reactive({
       trigger: "blur",
     },
   ],
-  fax: [
+  postCode: [
     {
       required: true,
       message: "入力必須項目です。",
-      trigger: "blur",
+      trigger: ["change", "blur"],
     },
     {
       message: "郵便番号は半角数字7文字で入力してください。",
       trigger: "blur",
     },
   ],
-  region: [
+  town: [
     {
       required: true,
 
@@ -521,6 +518,14 @@ const rules = reactive({
     },
   ],
   elevator: [
+    {
+      required: true,
+
+      message: "入力必須項目です。",
+      trigger: "blur",
+    },
+  ],
+  gender: [
     {
       required: true,
 

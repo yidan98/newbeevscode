@@ -147,13 +147,17 @@
           </el-form-item>
           <el-form-item
             label="郵便番号"
-            prop="fax"
+            prop="postCode"
             style="display: flex; width: 400px"
             ><el-row :gutter="20">
               <el-col :span="12"
-                ><el-input v-model="ruleForm.fax" placeholder="1234567" />
+                ><el-input
+                  v-model="ruleForm.postCode"
+                  placeholder="1234567"
+                  @change="searchAddress"
+                />
               </el-col>
-              <el-col :span="12">
+              <el-col :span="12" style="width: 300px">
                 <p class="g-inputGroup_static" style="margin-top: 0px">
                   <a
                     class="g-link"
@@ -170,16 +174,20 @@
                 </p></el-col
               ></el-row
             >
+            <el-col style="color: red; font-weight: 100">
+              {{ ruleForm.error }}</el-col
+            >
           </el-form-item>
           <el-form-item label="都道府県" prop="workplace">
-            <el-input :disabled="true" />
+            <el-input v-model="ruleForm.city" :disabled="true" />
           </el-form-item>
           <el-form-item label="市区町村" prop="workplace">
-            <el-input :disabled="true" />
+            <el-input v-model="ruleForm.village" :disabled="true" />
           </el-form-item>
           <el-form-item label="町名" prop="region">
-            <el-input v-model="ruleForm.region" placeholder="北区新琴似七条" />
+            <el-input v-model="ruleForm.town" placeholder="北区新琴似七条" />
           </el-form-item>
+
           <el-form-item label="丁目番地" prop="number1">
             <el-row :gutter="5">
               <el-col :span="5">
@@ -239,7 +247,7 @@
             padding: 24px;
           "
           ><span style="color: #fff; font-size: 1.4rem">
-            登録する</span
+            登録する~</span
           ></el-button
         >
       </el-form-item>
@@ -274,7 +282,10 @@ const ruleForm = reactive({
   telephonenumber1: "",
   telephonenumber2: "",
   telephonenumber3: "",
-  fax: "",
+  postCode: "",
+  city: "",
+  village: "",
+  town: "",
   region: "",
   number1: "",
   number2: "",
@@ -285,6 +296,7 @@ const ruleForm = reactive({
   elevator: "",
   furigana: "",
   furigana2: "",
+  error: "",
 });
 const handleNameInput = () => {
   ruleForm.furigana = autokana.getFurigana();
@@ -299,6 +311,24 @@ const handleNameInput = () => {
 //   );
 // };
 // console.log("hiraToKata", hiraToKata(ruleForm.name1));
+const headers = { Accept: "application/json" };
+const searchAddress = async () => {
+  let api = "https://zipcloud.ibsnet.co.jp/api/search?zipcode=";
+  let url = api + ruleForm.postCode;
+  const info = await fetch(url, { headers });
+  const data = await info.json();
+  if (data.status === 400) {
+    //エラー時
+    ruleForm.error = data.message;
+  } else if (data.results === null) {
+    ruleForm.error = "郵便番号から住所が見つかりませんでした。";
+  } else {
+    ruleForm.error = "";
+    ruleForm.city = data.results[0].address1;
+    ruleForm.village = data.results[0].address2;
+    ruleForm.town = data.results[0].address3;
+  }
+};
 const rules = reactive<FormRules>({
   workplace: [
     {
@@ -356,7 +386,7 @@ const rules = reactive<FormRules>({
       trigger: "blur",
     },
   ],
-  fax: [
+  postCode: [
     {
       required: true,
       message: "入力必須項目です。",
@@ -441,6 +471,7 @@ const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return;
   await formEl.validate((valid, fields) => {
     if (valid) {
+      window.location.href = "http://localhost:8080/account/success";
       console.log("submit!");
     } else {
       console.log("error submit!", fields);

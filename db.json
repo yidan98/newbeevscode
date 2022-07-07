@@ -1459,28 +1459,30 @@
   "updateAccount": [
     {
       "userId": 10011,
-      "name": "孫",
-      "nameKANA": "ソン",
+      "name1": "孫",
+      "nameKANA1": "ソン",
+      "name2": "YIDAN",
+      "nameKANA2": "イーダン",
       "email": "syd@gmail.com",
-      "tel11": "080",
-      "tel12": "4562",
-      "tel13": "7893",
+      "telephonenumber1": "080",
+      "telephonenumber2": "4562",
+      "telephonenumber3": "7893",
       "gender": "女",
-      "birthyear": "1998",
-      "birthmonth": "01",
-      "birthday": "05",
-      "postCode": "1111111",
+
+      "birthday": "1998年01月02日",
+      "postCode": "1240006",
       "city": "東京都",
-      "village": "新宿区",
-      "villageName": "中央",
+      "village": "葛飾区",
+      "town": "堀切",
       "streetname1": "123",
       "streetname2": "456",
       "streetname3": "789",
-      "buildingName": "ABC",
-      "roomNo": "101",
-      "typing": "集合住宅",
-      "ele": "なし",
-      "newPassword": "12345678"
+      "mansion": "ABC",
+      "roomNumber": "101",
+      "buildingType": "集合住宅",
+      "elevator": "なし",
+
+      "date": "2022/07/06 13:30:42"
     }
   ]
 }
