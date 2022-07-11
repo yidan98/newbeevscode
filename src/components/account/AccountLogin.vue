@@ -3,7 +3,11 @@
     <el-container>
       <el-header><h1>配送先住所の変更・登録</h1></el-header>
       <div
-        style="background-color: #e9f5f4; padding: 25px 20px 25px 0"
+        style="
+          background-color: #e9f5f4;
+          padding: 25px 20px 25px 0;
+          width: 1080px;
+        "
         @click="ruleForm.isShow = !ruleForm.isShow"
       >
         <label>
@@ -236,6 +240,7 @@
           </el-form-item>
         </el-form>
       </el-main>
+      <el-main><AccountLogin2></AccountLogin2></el-main>
       <el-form-item style="display: flex; justify-content: center">
         <el-button
           type="primary"
@@ -259,6 +264,7 @@
 import * as AutoKana from "vanilla-autokana";
 import { reactive, ref, onMounted, nextTick } from "vue";
 import type { FormInstance, FormRules } from "element-plus";
+import AccountLogin2 from "./AccountLogin2.vue";
 // import { stubFalse } from "lodash";
 
 const formSize = ref("large");

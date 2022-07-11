@@ -24,12 +24,12 @@
           :rules="[
             {
               required: true,
-              message: 'Please input email address',
+              message: '入力必須項目です。',
               trigger: 'blur',
             },
             {
               type: 'email',
-              message: 'Please input correct email address',
+              message: 'メールアドレスの形式が正しくありません。',
               trigger: ['blur', 'change'],
             },
           ]"
@@ -106,9 +106,9 @@ const validateEmail = (rule: any, value: any, callback: any) => {
   console.log("value", value);
   console.log("dynamicValidateForm.email", dynamicValidateForm.email);
   if (value === "") {
-    callback(new Error("Please input the password again"));
+    callback(new Error("入力必須項目です。"));
   } else if (value !== dynamicValidateForm.email) {
-    callback(new Error("Two inputs don't match!"));
+    callback(new Error("入力されたメールアドレスが一致していません。"));
   } else {
     callback();
   }

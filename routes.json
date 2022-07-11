@@ -14,5 +14,6 @@
   "/order/detail/:orderId": "/orderDetail?orderId=:orderId",
   "/wish/list/:userId": "/wishList?:userId=::userId",
   "/wish/goods/list/:userId": "/wishgoodsList?userId=:userId",
-  "/update/account/:userId": "/updateAccount?userId=:userId"
+  "/update/account/:userId": "/updateAccount?userId=:userId",
+  "/saved/account/:userId": "/savedAccount?userId=:userId"
 }

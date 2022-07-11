@@ -67,6 +67,7 @@ export default {
       state.goodsList = state.allGoodsList.filter(
         (w: List) => w.listName === payload
       );
+      console.log("filg", state.goodsList);
       state.id = state.wishList.filter(
         (w: Wish) => w.listName === payload
       )[0].id;

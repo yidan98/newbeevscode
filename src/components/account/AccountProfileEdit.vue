@@ -61,7 +61,7 @@
             <el-row :gutter="20">
               <el-col :span="12">
                 <el-input
-                  @input="handleNameInput"
+                  @keyup="handleNameInput"
                   id="name"
                   v-model="p.name1"
                   label="First Name"
@@ -92,8 +92,14 @@
           >
             <el-row :gutter="5">
               <el-col :span="5">
-                <el-input v-model="p.telephonenumber1" placeholder="03" />
+                <el-input
+                  v-model="p.telephonenumber1"
+                  id="telephonenumber"
+                  label="telephonenumber"
+                  placeholder="03"
+                />
               </el-col>
+              <p></p>
               <el-col class="text-center" :span="2">
                 <span class="text-gray-500">--</span>
               </el-col>
@@ -154,7 +160,7 @@
               <el-radio label="女" />
             </el-radio-group>
           </el-form-item>
-          <el-form-item label="生年月日" prop="workplace">
+          <el-form-item label="生年月日" prop="birthday">
             <el-col>{{ p.birthday }}</el-col>
           </el-form-item>
 
@@ -293,17 +299,18 @@
 
 <script lang="ts" setup>
 import * as AutoKana from "vanilla-autokana";
-import { reactive, ref, onMounted, nextTick, computed } from "vue";
+import { reactive, ref, onMounted, computed } from "vue";
 import { useStore } from "../../store/index";
 import type { FormInstance } from "element-plus";
 // import { stubFalse } from "lodash";
 
 const userId = 10011;
 const store = useStore();
-onMounted(() => {
-  store.dispatch("setUpdateAccount", userId);
-});
+// onMounted(() => {
+//   store.dispatch("setUpdateAccount", userId);
+// });
 const p = computed(() => store.getters.getUpdateAccount);
+
 const formSize = ref("large");
 const labelPosition = ref("left");
 const ruleFormRef = ref<FormInstance>();
@@ -328,7 +335,7 @@ const searchAddress = async () => {
 
 let autokana;
 onMounted(async () => {
-  await nextTick();
+  await store.dispatch("setUpdate", userId);
   autokana = AutoKana.bind("#name", "#furigana", { katakana: true });
 });
 const validatePass = (rule: any, value: any, callback: any) => {
@@ -357,18 +364,20 @@ const ruleForm = reactive({
   name2: "",
   kana1: "ソン",
   kana2: "",
-  telephonenumber1: "",
-  telephonenumber2: "",
-  telephonenumber3: "",
-  postCode: "",
-  town: "",
+  telephonenumber1: "080",
+  telephonenumber2: "4562",
+  telephonenumber3: "7893",
+  gender: "女",
+  birthday: "1998年01月02日",
+  postCode: "1240006",
+  town: "堀切",
   number1: "",
   number2: "",
   number3: "",
   mansion: "",
   roomNumber: "",
-  buildingType: "",
-  elevator: "",
+  buildingType: "集合住宅",
+  elevator: "なし",
   pass: "",
   checkPass: "",
   furigana: "ソン",
@@ -450,7 +459,7 @@ const rules = reactive({
     {
       required: true,
       message: "入力必須項目です。",
-      trigger: ["change", "blur"],
+      trigger: "blur",
     },
     {
       message: "郵便番号は半角数字7文字で入力してください。",
@@ -526,6 +535,14 @@ const rules = reactive({
     },
   ],
   gender: [
+    {
+      required: true,
+
+      message: "入力必須項目です。",
+      trigger: "blur",
+    },
+  ],
+  birthday: [
     {
       required: true,
 

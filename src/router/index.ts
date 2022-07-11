@@ -14,6 +14,7 @@ import AccountProfileEdit from "../components/account/AccountProfileEdit.vue";
 import Ceshi from "../components/account/CeShi.vue";
 import CeshiPost from "../components/account/CeShiPost.vue";
 import AccountSuccess from "../components/account/AccountSuccess.vue";
+import AccountPayment from "../components/account/AccountPayment.vue";
 const routes = [
   { path: "/", name: "Home", component: Home },
   { path: "/goods/detail/:goodsId", name: "detail", component: DetailPage },
@@ -48,6 +49,11 @@ const routes = [
     path: "/account/ceshiPost",
     name: "accountCeshiPost",
     component: CeshiPost,
+  },
+  {
+    path: "/account/payment",
+    name: "accountPayment",
+    component: AccountPayment,
   },
 ];
 
