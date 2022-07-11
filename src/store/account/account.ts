@@ -12,8 +12,10 @@ type accountState = {
   updateAccount: {};
   updateArray: List[];
   filtered: List;
+  id: number;
 };
 type List = {
+  id: number;
   userId: number;
   listName: string;
   name1: string;
@@ -45,6 +47,7 @@ export default {
     updateAccount: {},
     updateArray: [],
     filtered: {},
+    id: 1,
   },
   mutations: {
     //syncrous
@@ -67,7 +70,8 @@ export default {
       state.filtered = state.updateArray.filter(
         (w) => w.listName === payload
       )[0];
-      console.log("filArr", state.filtered);
+      state.id = state.updateArray.filter((w) => w.listName === payload)[0].id;
+      console.log("id", state.id);
     },
   },
   actions: {
@@ -88,6 +92,15 @@ export default {
       context.commit("setUpdateArray", j);
       context.commit("setFiltered", j[0]);
     },
+    async deleteListName(
+      context,
+      { id, userId }: { id: number; userId: number }
+    ) {
+      await fetch("http://localhost:3000/updateAccount/" + id, {
+        method: "DELETE",
+      });
+      context.dispatch("setUpdate", userId);
+    },
   },
   getters: {
     getAccount: (state: accountState) => {
@@ -101,6 +114,9 @@ export default {
     },
     getFiltered: (state: accountState) => {
       return state.filtered;
+    },
+    getIdd(state: accountState) {
+      return state.id;
     },
   },
 };

@@ -838,7 +838,7 @@ const selectableListBySelect = (e) => {
   store.commit("selectableListBySelect", e.target.value);
 };
 </script>
-<style scoped>
+<style>
 .button-delete {
   border-color: #009e96;
   background-color: #009e96;
