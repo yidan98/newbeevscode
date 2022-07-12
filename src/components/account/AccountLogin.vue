@@ -3,12 +3,8 @@
     <el-container>
       <el-header><h1>配送先住所の変更・登録</h1></el-header>
       <div
-        style="
-          background-color: #e9f5f4;
-          padding: 25px 20px 25px 0;
-          width: 1080px;
-        "
         @click="ruleForm.isShow = !ruleForm.isShow"
+        :class="ruleForm.isShow ? 'blue' : 'white'"
       >
         <label>
           <input type="radio" />
@@ -238,24 +234,26 @@
               <el-radio label="あり" />
             </el-radio-group>
           </el-form-item>
+          <el-form-item style="display: flex; justify-content: center">
+            <el-button
+              type="primary"
+              @click="submitForm(ruleFormRef)"
+              style="
+                border-color: #eb6157;
+                background-color: #eb6157;
+                width: 200px;
+                padding: 24px;
+              "
+              ><span style="color: #fff; font-size: 1.4rem">
+                登録する~</span
+              ></el-button
+            >
+          </el-form-item>
         </el-form>
       </el-main>
+
       <el-main><AccountLogin2></AccountLogin2></el-main>
-      <el-form-item style="display: flex; justify-content: center">
-        <el-button
-          type="primary"
-          @click="submitForm(ruleFormRef)"
-          style="
-            border-color: #eb6157;
-            background-color: #eb6157;
-            width: 200px;
-            padding: 24px;
-          "
-          ><span style="color: #fff; font-size: 1.4rem">
-            登録する~</span
-          ></el-button
-        >
-      </el-form-item>
+
       <GDialog v-model="isShow01">
         <div class="modal">
           <div class="g-modal_el">
@@ -303,35 +301,7 @@ onMounted(async () => {
   autokana = AutoKana.bind("#name", "#furigana", { katakana: true });
   autokana2 = AutoKana.bind("#name2", "#furigana2", { katakana: true });
 });
-// const add=reactive({
 
-//   listName: "",
-//   userId:10011,
-//   name1: "",
-//   name2: "",
-//   nameKANA1: "",
-//   nameKANA2: "",
-// email:"syd@gmail.com",
-//   telephonenumber1: "",
-//   telephonenumber2: "",
-//   telephonenumber3: "",
-//   gender:"",
-//   birthday:"1998年01月02日",
-//   postCode: "",
-//   city: "",
-//   village: "",
-//   town: "",
-
-//   streetname1: "",
-//   streetname2: "",
-//  streetname3: "",
-//   mansion: "",
-//   roomNumber: "",
-//   buildingType: "",
-//   elevator: "",
-//   date:new Date()
-
-// })
 const ruleForm = reactive({
   isShow: true,
   workplace: "",
@@ -552,17 +522,6 @@ const submitForm = async (formEl: FormInstance | undefined) => {
     if (valid) {
       // window.location.href = "http://localhost:8080/account/success";
       isShow01.value = true;
-
-      // onMounted(async () => {
-      //   await store.dispatch("addAddress", { ruleForm, userId });
-      // });
-      // async () => {
-      //   await store.dispatch("addAddress", { ruleForm, userId });
-      //   console.log(
-      //     "addAddress",
-      //     store.dispatch("addAddress", { ruleForm, userId })
-      //   );
-      // };
       console.log("ruleForm", ruleForm);
 
       store.dispatch("addAddress", ruleForm);
@@ -585,6 +544,17 @@ const submitForm = async (formEl: FormInstance | undefined) => {
 // }));
 </script>
 <style scoped>
+.blue {
+  background-color: #e9f5f4;
+  padding: 25px 20px 25px 0;
+  width: 1080px;
+}
+.white {
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+  padding: 25px 20px 25px 0;
+  width: 1080px;
+}
 .el-radio__input.is-checked + .el-radio__label {
   color: #009e96;
 }

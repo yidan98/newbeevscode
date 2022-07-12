@@ -3,13 +3,7 @@
     <el-container>
       <el-header></el-header>
       <div
-        style="
-          background-color: #e9f5f4;
-          padding: 25px 20px 25px 0;
-          margin-left: -20px;
-          margin-top: -70px;
-          width: 1080px;
-        "
+        :class="ruleForm.isShow ? 'blue' : 'white'"
         @click="ruleForm.isShow = !ruleForm.isShow"
       >
         <label>
@@ -264,27 +258,29 @@
                 {{ f.error }}</el-col
               >
             </el-form-item>
-            <el-form-item label="都道府県" prop="workplace">
+            <el-form-item label="都道府県" prop="city">
               <el-input v-model="f.city" :disabled="true" />
             </el-form-item>
-            <el-form-item label="市区町村" prop="workplace">
+            <el-form-item label="市区町村" prop="village">
               <el-input v-model="f.village" :disabled="true" />
             </el-form-item>
-            <el-form-item label="町名" prop="region">
+            <el-form-item label="町名" prop="town">
               <el-input v-model="f.town" placeholder="北区新琴似七条" />
             </el-form-item>
 
-            <el-form-item label="丁目番地" prop="number1">
+            <el-form-item label="丁目番地" prop="streetname1">
               <el-row :gutter="5">
                 <el-col :span="5">
-                  <el-input v-model="f.number1" placeholder="1" />
+                  <el-input v-model="f.streetname1" placeholder="1" />
                 </el-col>
                 <el-col class="text-center" :span="2">
                   <span class="text-gray-500">--</span>
                 </el-col>
                 <el-col :span="5">
-                  <el-form-item prop="number2">
-                    <el-input v-model="f.number2" style="margin-left: -30px"
+                  <el-form-item prop="streetname2">
+                    <el-input
+                      v-model="f.streetname2"
+                      style="margin-left: -30px"
                   /></el-form-item>
                 </el-col>
                 <el-col
@@ -295,8 +291,10 @@
                   <span class="text-gray-500">--</span>
                 </el-col>
                 <el-col :span="5">
-                  <el-form-item prop="number3">
-                    <el-input v-model="f.number3" style="margin-left: -30px"
+                  <el-form-item prop="streetname3">
+                    <el-input
+                      v-model="f.streetname3"
+                      style="margin-left: -30px"
                   /></el-form-item>
                 </el-col>
               </el-row>
@@ -320,11 +318,48 @@
                 <el-radio label="あり" />
               </el-radio-group>
             </el-form-item>
+            <el-form-item style="display: flex; justify-content: center">
+              <el-button
+                type="primary"
+                @click="submitForm(ruleFormRef)"
+                style="
+                  border-color: #eb6157;
+                  background-color: #eb6157;
+                  width: 200px;
+                  padding: 24px;
+                "
+                ><span style="color: #fff; font-size: 1.4rem">
+                  変更する</span
+                ></el-button
+              >
+            </el-form-item>
           </div>
         </el-form>
       </el-main>
-      <el-form-item style="display: flex; justify-content: center">
-      </el-form-item>
+
+      <GDialog v-model="isShow2">
+        <div class="modal">
+          <div class="g-modal_el">
+            <header class="g-modal_head">
+              <p class="g-modal_h" id="p-messageModal_h">配送先を変更</p>
+              <button
+                @click="isShow2 = false"
+                class="g-modal_close"
+                type="button"
+                aria-label="閉じる"
+              >
+                <span class="material-symbols-outlined" style="cursor: pointer">
+                  close
+                </span>
+              </button>
+            </header>
+            <div class="g-modal_body">
+              <p id="modalMessage">変更しました</p>
+              <div class="button-delete-div"></div>
+            </div>
+          </div>
+        </div>
+      </GDialog>
     </el-container>
   </div>
 </template>
@@ -344,6 +379,7 @@ const arr = computed(() => store.getters.getUpdateArray);
 const formSize = ref("large");
 const labelPosition = ref("left");
 const ruleFormRef = ref<FormInstance>();
+//delete module
 const isShow01 = ref(false);
 let autokana;
 let autokana2;
@@ -357,17 +393,17 @@ const ruleForm = reactive({
   isShow: false,
   workplace: "",
   name1: "孫",
-  name2: "",
+  name2: "YIDAN",
   kana1: "ソン",
-  kana2: "",
+  kana2: "イーダン",
   telephonenumber1: "080",
   telephonenumber2: "4562",
   telephonenumber3: "7893",
   gender: "女",
   birthday: "1998年01月02日",
   postCode: "1240006",
-  city: "",
-  village: "",
+  city: "111",
+  village: "111",
   town: "堀切",
   number1: "",
   number2: "",
@@ -379,8 +415,11 @@ const ruleForm = reactive({
   pass: "",
   checkPass: "",
   furigana: "ソン",
-  furigana2: "",
+  furigana2: "イーダン",
   error: "",
+  streetname1: "1",
+  streetname2: "2",
+  streetname3: "3",
 });
 const handleNameInput = () => {
   ruleForm.furigana = autokana.getFurigana();
@@ -420,6 +459,22 @@ const searchAddress = async () => {
     ruleForm.village = data.results[0].address2;
     ruleForm.town = data.results[0].address3;
   }
+};
+//login module
+let isShow2 = ref(false);
+const submitForm = async (formEl: FormInstance | undefined) => {
+  if (!formEl) return;
+  await formEl.validate((valid, fields) => {
+    if (valid) {
+      // window.location.href = "http://localhost:8080/account/success";
+      isShow2.value = true;
+
+      store.dispatch("newAddress");
+      console.log("submit!");
+    } else {
+      console.log("error submit!", fields);
+    }
+  });
 };
 const rules = reactive<FormRules>({
   workplace: [
@@ -489,7 +544,7 @@ const rules = reactive<FormRules>({
       trigger: "blur",
     },
   ],
-  region: [
+  town: [
     {
       required: true,
 
@@ -498,7 +553,7 @@ const rules = reactive<FormRules>({
     },
     { max: 10, message: "40文字以内で入力してください。", trigger: "blur" },
   ],
-  number1: [
+  streetname1: [
     {
       required: true,
 
@@ -507,7 +562,7 @@ const rules = reactive<FormRules>({
     },
     { max: 5, message: "5桁以内の数字で入力してください。", trigger: "blur" },
   ],
-  number2: [
+  streetname2: [
     {
       required: true,
 
@@ -516,7 +571,7 @@ const rules = reactive<FormRules>({
     },
     { max: 5, message: "5桁以内の数字で入力してください。", trigger: "blur" },
   ],
-  number3: [
+  streetname3: [
     {
       required: true,
 
@@ -560,6 +615,21 @@ const rules = reactive<FormRules>({
 });
 </script>
 <style scoped>
+.blue {
+  background-color: #e9f5f4;
+  padding: 25px 20px 25px 0;
+  margin-left: -20px;
+  margin-top: -70px;
+  width: 1080px;
+}
+.white {
+  padding: 25px 20px 25px 0;
+  margin-left: -20px;
+  margin-top: -70px;
+  width: 1080px;
+  border: 1px solid #dbdbdb;
+  border-radius: 4px;
+}
 .g-select select {
   width: 100%;
   height: 46px;

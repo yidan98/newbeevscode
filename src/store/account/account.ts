@@ -107,6 +107,14 @@ export default {
       const userId = 10011;
       context.dispatch("setUpdate", userId);
     },
+    async newAddress(context) {
+      const id = context.state.id;
+      console.log("idState", id);
+      const newList = context.state.filtered;
+      await axios.patch("http://localhost:3000/updateAccount/" + id, newList);
+      const userId = 10011;
+      context.dispatch("setUpdate", userId);
+    },
   },
   getters: {
     getAccount: (state: accountState) => {
