@@ -1,3 +1,4 @@
+import axios from "axios";
 const url = "http://localhost:3000/user/information/";
 const headers = { Accept: "application/json" };
 type accountState = {
@@ -99,6 +100,11 @@ export default {
       await fetch("http://localhost:3000/updateAccount/" + id, {
         method: "DELETE",
       });
+      context.dispatch("setUpdate", userId);
+    },
+    async addAddress(context, address: {}) {
+      await axios.post("http://localhost:3000/updateAccount/", address);
+      const userId = 10011;
       context.dispatch("setUpdate", userId);
     },
   },

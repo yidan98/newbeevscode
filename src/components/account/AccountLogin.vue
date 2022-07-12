@@ -27,12 +27,12 @@
           :size="formSize"
           status-icon
         >
-          <el-form-item label="名称" prop="workplace">
+          <el-form-item label="名称" prop="listName">
             <!-- 「転居先（地名）」、「勤務先」など認識しやすい名称を入力してください。
       「自宅」は会員情報で設定済みのため、入力できません。 -->
 
             <el-input
-              v-model="ruleForm.workplace"
+              v-model="ruleForm.listName"
               placeholder="転居先（地名）"
             />
           </el-form-item>
@@ -182,13 +182,13 @@
               {{ ruleForm.error }}</el-col
             >
           </el-form-item>
-          <el-form-item label="都道府県" prop="workplace">
+          <el-form-item label="都道府県">
             <el-input v-model="ruleForm.city" :disabled="true" />
           </el-form-item>
-          <el-form-item label="市区町村" prop="workplace">
+          <el-form-item label="市区町村">
             <el-input v-model="ruleForm.village" :disabled="true" />
           </el-form-item>
-          <el-form-item label="町名" prop="region">
+          <el-form-item label="町名" prop="town">
             <el-input v-model="ruleForm.town" placeholder="北区新琴似七条" />
           </el-form-item>
 
@@ -256,6 +256,29 @@
           ></el-button
         >
       </el-form-item>
+      <GDialog v-model="isShow01">
+        <div class="modal">
+          <div class="g-modal_el">
+            <header class="g-modal_head">
+              <p class="g-modal_h" id="p-messageModal_h">配送先を登録</p>
+              <button
+                @click="isShow01 = false"
+                class="g-modal_close"
+                type="button"
+                aria-label="閉じる"
+              >
+                <span class="material-symbols-outlined" style="cursor: pointer">
+                  close
+                </span>
+              </button>
+            </header>
+            <div class="g-modal_body">
+              <p id="modalMessage">登録しました</p>
+              <div class="button-delete-div"></div>
+            </div>
+          </div>
+        </div>
+      </GDialog>
     </el-container>
   </div>
 </template>
@@ -263,12 +286,14 @@
 <script lang="ts" setup>
 import * as AutoKana from "vanilla-autokana";
 import { reactive, ref, onMounted, nextTick } from "vue";
-import type { FormInstance, FormRules } from "element-plus";
+import { FormInstance, FormRules } from "element-plus";
 import AccountLogin2 from "./AccountLogin2.vue";
+import { useStore } from "../../store/index";
 // import { stubFalse } from "lodash";
 
 const formSize = ref("large");
 const labelPosition = ref("left");
+
 const ruleFormRef = ref<FormInstance>();
 let autokana;
 let autokana2;
@@ -278,9 +303,45 @@ onMounted(async () => {
   autokana = AutoKana.bind("#name", "#furigana", { katakana: true });
   autokana2 = AutoKana.bind("#name2", "#furigana2", { katakana: true });
 });
+// const add=reactive({
+
+//   listName: "",
+//   userId:10011,
+//   name1: "",
+//   name2: "",
+//   nameKANA1: "",
+//   nameKANA2: "",
+// email:"syd@gmail.com",
+//   telephonenumber1: "",
+//   telephonenumber2: "",
+//   telephonenumber3: "",
+//   gender:"",
+//   birthday:"1998年01月02日",
+//   postCode: "",
+//   city: "",
+//   village: "",
+//   town: "",
+
+//   streetname1: "",
+//   streetname2: "",
+//  streetname3: "",
+//   mansion: "",
+//   roomNumber: "",
+//   buildingType: "",
+//   elevator: "",
+//   date:new Date()
+
+// })
 const ruleForm = reactive({
   isShow: true,
   workplace: "",
+  listName: "",
+  nameKANA1: "",
+  nameKANA2: "",
+  userId: 10011,
+
+  email: "syd@gmail.com",
+  gender: "",
   name1: "",
   name2: "",
   kana1: "",
@@ -292,7 +353,7 @@ const ruleForm = reactive({
   city: "",
   village: "",
   town: "",
-  region: "",
+
   number1: "",
   number2: "",
   number3: "",
@@ -303,7 +364,10 @@ const ruleForm = reactive({
   furigana: "",
   furigana2: "",
   error: "",
+  date: new Date(),
 });
+let isShow01 = ref(false);
+//邮编 自动索引
 const handleNameInput = () => {
   ruleForm.furigana = autokana.getFurigana();
   ruleForm.furigana2 = autokana2.getFurigana();
@@ -337,6 +401,14 @@ const searchAddress = async () => {
 };
 const rules = reactive<FormRules>({
   workplace: [
+    {
+      required: true,
+      message: "入力必須項目です。",
+      trigger: "blur",
+    },
+    { max: 20, message: "20文字以内で入力してください。", trigger: "blur" },
+  ],
+  listName: [
     {
       required: true,
       message: "入力必須項目です。",
@@ -403,7 +475,7 @@ const rules = reactive<FormRules>({
       trigger: "blur",
     },
   ],
-  region: [
+  town: [
     {
       required: true,
 
@@ -472,12 +544,29 @@ const rules = reactive<FormRules>({
     },
   ],
 });
-
+// const userId = 10011;
+const store = useStore();
 const submitForm = async (formEl: FormInstance | undefined) => {
   if (!formEl) return;
   await formEl.validate((valid, fields) => {
     if (valid) {
-      window.location.href = "http://localhost:8080/account/success";
+      // window.location.href = "http://localhost:8080/account/success";
+      isShow01.value = true;
+
+      // onMounted(async () => {
+      //   await store.dispatch("addAddress", { ruleForm, userId });
+      // });
+      // async () => {
+      //   await store.dispatch("addAddress", { ruleForm, userId });
+      //   console.log(
+      //     "addAddress",
+      //     store.dispatch("addAddress", { ruleForm, userId })
+      //   );
+      // };
+      console.log("ruleForm", ruleForm);
+
+      store.dispatch("addAddress", ruleForm);
+
       console.log("submit!");
     } else {
       console.log("error submit!", fields);

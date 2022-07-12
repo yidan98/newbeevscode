@@ -146,7 +146,7 @@
                 <el-col :span="12">
                   <el-input
                     id="furigana"
-                    v-model="f.furigana"
+                    v-model="f.nameKANA1"
                     label="First Name"
                     placeholder="セイ"
                   />
